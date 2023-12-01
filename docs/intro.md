@@ -1,0 +1,60 @@
+---
+sidebar_position: 1
+# use these tags to link the experiments link like w3schools
+# tags:
+#   - Demo
+#   - Getting started
+---
+
+# Welcome 🐨
+
+Hola **Computer Science students!**.
+
+<p align="center">
+  <img src="https://cs-diploma-notebook.vercel.app/undraw_programming_re_kg9v.svg" alt="image" width="62%" height="65%" />
+</p>
+
+## Getting Started
+
+This textbook is your new best friend for learning about experiments. Whether you're a current student or a graduate, you'll find everything you need to know to ace your exams. You can use it as a reference during your examination and explore the concepts, theories and all of the good stuff that our syllabus has which we are not aware about yet, so have a blast studying
+
+## Overview
+
+Checkout this video to get an overview of this website.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/XzKb4QuhTes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+[Watch the video on youtube →](https://www.youtube.com/embed/XzKb4QuhTes?si=rnItA_qALHG2m3Qq)
+
+---
+
+## Structure & Navigation
+
+Here you will find the practical experiments of some of the semesters for Computer Science Diploma students studying in Karnataka. They are organized by semesters and subjects. Use the menu to the left to choose a subject by semester.
+
+These are listed in approximately the same order that they appear in the manual of your college. If you have trouble finding content an a specific topic, you can contact the developer
+
+**-** the socials are mentioned in the footer.
+
+<!-- ```bash
+npm init docusaurus@latest my-website classic
+```
+
+You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+
+The command also installs all necessary dependencies you need to run Docusaurus. -->
+
+## What is it for ?
+
+These notes are intended to be used as a reference tool to complement some of the material covered in the **C20** syllabus
+
+<!-- ```bash
+cd my-website
+npm run start
+```
+
+The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+
+The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+
+Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes. -->
