@@ -1,0 +1,103 @@
+---
+id: IT_Skills_Experiment_10_A
+title: Design and create a personal webpage with dashboard
+sidebar_label: A
+slug: /first-semester/it-skills/experiment-10/a
+description: The given HTML code constructs a basic webpage featuring a title, header, and a navigation bar. The document starts with a declaration specifying HTML5. The head section defines the title of the page and internal CSS styles for styling elements such as the header and navigation bar. The body has a light green background and contains two main divisions- one for the header and another for the navigation bar. The header includes a prominent heading "DASH BOARD" and a descriptive subtext "Admin control Panel." The navigation bar, styled in yellow with links styled for hover effects, presents three links labeled "Link 1," "Link 2," and "Link 3." This setup provides a foundation for creating a visually appealing webpage with a clear header and accessible navigation.
+---
+
+# Design and create a personal webpage with dashboard
+
+## Description
+
+The given HTML code constructs a basic webpage featuring a title, header, and a navigation bar. The document starts with a declaration specifying HTML5. The head section defines the title of the page and internal CSS styles for styling elements such as the header and navigation bar. The body has a light green background and contains two main divisions: one for the header and another for the navigation bar. The header includes a prominent heading "DASH BOARD" and a descriptive subtext "Admin control Panel." The navigation bar, styled in yellow with links styled for hover effects, presents three links labeled "Link 1," "Link 2," and "Link 3." This setup provides a foundation for creating a visually appealing webpage with a clear header and accessible navigation.
+
+## Code
+
+```html title="dashboard.html"
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <style>
+      /* Style the header */
+      .header {
+        padding: 10px;
+        text-align: center;
+        background: blue;
+        color: white;
+        font-size: 25px;
+      }
+
+      /* Style the top navigation bar */
+      .navbar {
+        overflow: hidden;
+        background-color: yellow;
+      }
+
+      /* Style the navigation bar links */
+      .navbar a {
+        color: black;
+        text-align: center;
+        padding: 14px 20px;
+      }
+
+      /* Change color on hover */
+      .navbar a:hover {
+        background-color: red;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body bgcolor="lightgreen">
+    <div class="header">
+      <h1>DASH BOARD</h1>
+      <p>(Admin control Panel)</p>
+    </div>
+
+    <div class="navbar">
+      <b
+        ><a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a></b
+      >
+    </div>
+  </body>
+</html>
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/dfN1ArJ.png"} style={{ borderRadius: "10px" }} />
+
+</details>
+
+## Explanation of above code
+
+### Header
+
+- The `<head>` section contains embedded styles (`<style>`) defining the appearance of the header.
+- The header (`<div class="header">`) is styled with padding, centered text, a blue background, white text, and a larger font size. It displays the text "DASH BOARD" as the main title and "(Admin control Panel)" as a smaller subtext.
+
+### Navigation Bar
+
+- Following the header, there's a navigation bar (`<div class="navbar">`) styled with a yellow background.
+- Links within the navigation bar (`<a>`) are styled with specific padding, alignment, and color.
+- Hover effects are added to the links; when hovered over, they change their background color to red while maintaining black text color.
+
+### Body
+
+- The body of the document (`<body>`) has a light green background (bgcolor="lightgreen").
+
+This structure creates a simple dashboard view with a prominent header displaying the title and additional information. The navigation bar presents three links without any specific destinations indicated by the "#" symbol. Hovering over the links triggers a color change to provide visual feedback to users.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/g6HqL18plx4" title="Create Responsive Admin Dashboard Using HTML CSS &amp; JavaScript | Dashboard Template Design" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Tutsplus](https://webdesign.tutsplus.com/building-an-admin-dashboard-layout-with-css-and-a-touch-of-javascript--cms-33964t)
+- [Geeks for Geeks](https://www.geeksforgeeks.org/how-to-create-responsive-admin-dashboard-using-html-css-javascript/)

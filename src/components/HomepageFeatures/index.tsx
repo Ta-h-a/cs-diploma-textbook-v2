@@ -5,21 +5,14 @@ import {
   Text,
   Button,
   Stack,
-  Icon,
-  useColorModeValue,
-  createIcon,
-  useColorMode,
-  HStack,
-  IconButton,
-  ChakraProvider,
+  createIcon
 } from '@chakra-ui/react'
 import Link from '@docusaurus/Link';
-import { FiMoon, FiSun } from 'react-icons/fi';
 
 export default function Hero() {
+
   return (
-    <ChakraProvider>
-    <div style={{backgroundColor: useColorModeValue('gray.100', 'gray.100')}}>
+    <div className='home'>
       <Container maxW={'3xl'}>
         <Stack
           as={Box}
@@ -49,6 +42,7 @@ export default function Hero() {
                 <Button
                 colorScheme={'green'}
                 bg={'green.400'}
+                textColor={'black'}
                 rounded={'full'}
                 px={6}
                 _hover={{
@@ -65,7 +59,6 @@ export default function Hero() {
         </Stack>
       </Container>
     </div>
-      </ChakraProvider>
   )
 }
 

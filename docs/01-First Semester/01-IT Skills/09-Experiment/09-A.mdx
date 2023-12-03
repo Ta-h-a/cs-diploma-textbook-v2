@@ -1,0 +1,176 @@
+---
+id: IT_Skills_Experiment_09_A
+title: Design and create web page with JavaScript to Design simple calculator to perform the following operations- sum, product, difference and quotient
+sidebar_label: A
+slug: /first-semester/it-skills/experiment-9/a
+description: This HTML file combines a basic calculator interface with CSS and JavaScript code embedded within the HTML itself. For compatibility reasons, the CSS and JavaScript are placed directly in the file instead of separate external files. The calculator allows users to perform simple arithmetic operations like addition, subtraction, multiplication, and division. The styling is defined within the HTML and CSS, while JavaScript manages the calculator's functionality, enabling number input, calculation execution, and screen clearing.
+---
+
+# Design and create web page with JavaScript to Design simple calculator to perform the following operations: sum, product, difference and quotient
+
+## Description
+
+This HTML file combines a basic calculator interface with CSS and JavaScript code embedded within the HTML itself. CSS and JS are written in separate files which helps in separation of concerns. The calculator allows users to perform simple arithmetic operations like addition, subtraction, multiplication, and division. The styling is defined within CSS, while JavaScript manages the calculator's functionality, enabling number input, calculation execution, and screen clearing.
+
+## Code
+
+```html title="Prog9.html"
+<!-- /* Save HTML file as: Prog9.html* / -->
+<html>
+
+<head>
+    <meta name=”viewport” content=”width=device-width,initial-scale=1”>
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+      <form name="form">
+          <input class="textview" name="textview">
+      </form>
+
+      <table>
+          <tr>
+              <td><input class="button" type="button" value="C" onclick="clean()"></td>
+              <td><input class="button" type="button" value="<" onclick="back()"></td>
+              <td><input class="button" type="button" value="/" onclick="insert('/')"></td>
+              <td><input class="button" type="button" value="x" onclick="insert('*')"></td>
+          </tr>
+
+          <tr>
+              <td><input class="button" type="button" value="7" onclick="insert(7)"></td>
+              <td><input class="button" type="button" value="8" onclick="insert(8)"></td>
+              <td><input class="button" type="button" value="9" onclick="insert(9)"></td>
+              <td><input class="button" type="button" value="-" onclick="insert('-')"></td>
+          </tr>
+
+          <tr>
+              <td><input class="button" type="button" value="4" onclick="insert(4)"></td>
+              <td><input class="button" type="button" value="5" onclick="insert(5)"></td>
+              <td><input class="button" type="button" value="6" onclick="insert(6)"></td>
+              <td><input class="button" type="button" value="+" onclick="insert('+')"></td>
+          </tr>
+
+          <tr>
+              <td><input class="button" type="button" value="1" onclick="insert(1)"></td>
+              <td><input class="button" type="button" value="2" onclick="insert(2)"></td>
+              <td><input class="button" type="button" value="3" onclick="insert(3)"></td>
+              <td><input class="button" type="button" value="=" onclick="equal()"></td>
+          </tr>
+
+          <tr>
+              <td><input class="button" type="button" value="0" onclick="insert(0)"></td>
+              <td><input class="button" type="button" value="." onclick="insert('.')"></td>
+          </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+```css title="style.css"
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    width: 50;
+    height: 50;
+    font-size: 25;
+    margin: 2;
+    cursor: pointer;
+}
+
+.textview {
+    width: 217;
+    margin: 5;
+    font-size: 25;
+    padding: 5;
+}
+```
+
+```javascript title="script.js"
+
+function insert(num){
+    document.form.textview.value=document.form.textview.value+num;
+}
+
+function equal(){
+    var exp=document.form.textview.value;
+    if(exp){
+        document.form.textview.value=eval(exp);
+    }
+}
+
+function clean(){
+    document.form.textview.value="";
+}
+
+function back(){
+    var exp=document.form.textview.value;
+    document.form.textview.value=exp.substring(0,exp.length-1);
+}
+
+```
+
+<details>
+  <summary>Output</summary>
+
+<img
+  src={"https://i.imgur.com/LfFq4fB.png"}
+  style={{ borderRadius: "10px" }}
+/>
+
+</details>
+
+## Explanation of above code
+
+### Prog9.html
+This HTML file serves as the framework for a basic calculator interface.
+
+Head Section
+- `<head>` contains metadata like the viewport settings, title, and links to external files:
+    - `<meta>` sets the viewport to ensure proper rendering on various devices.
+    - `<title>` specifies the title displayed on the browser tab.
+    - `<link>` references an external stylesheet named "style.css" for styling the calculator.
+
+Body Section
+- `<body>` holds the calculator interface elements:
+  - A `<div>` element with a class of "main" acts as a container for the calculator.
+  - Inside this container:
+    - A `<form>` with a name attribute "form" wraps an `<input>` field with the class "textview" for displaying input and results.
+    - A `<table>` structure contains rows and cells representing the calculator buttons. Each cell contains an `<input>` element with the class "button" representing various calculator functionalities.
+    - JavaScript code linked externally to "script.js" handles the functionality of the calculator, such as number insertion, arithmetic operations, clearing the display, and backspacing.
+
+### style.css
+
+This CSS file now holds the styling rules previously embedded within the HTML.
+
+- Defines CSS rules for:
+  - Resetting margins and paddings to zero for all elements (`* { margin: 0; padding: 0; }`).
+  -Styling the calculator buttons (button class).
+  -Styling the text view (textview class).
+
+### script.js
+
+This JavaScript file contains the functions that were initially within `<script>` tags in the HTML.
+
+- Functions include:
+  - insert(num): Inserts numbers and operators into the text view.
+  - equal(): Evaluates the expression in the text view.
+  - clean(): Clears the text view.
+  - back(): Deletes the last character from the text view.
+
+By separating concerns into different files (HTML, CSS, and JS), the code becomes more organized and maintainable, making it easier to update and modify specific aspects of the calculator without altering other functionalities or the layout.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/LX8_z1nvqk4" title="How to make a Calculator using HTML CSS JavaScript" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Dev](https://dev.to/javascriptacademy/create-a-simple-calculator-using-html-css-and-javascript-4o7k)
+- [Make Use Of](https://www.makeuseof.com/build-a-simple-calculator-using-html-css-javascript/)

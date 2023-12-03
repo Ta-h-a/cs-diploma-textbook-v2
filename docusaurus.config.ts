@@ -38,9 +38,10 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
         },
-        blog: {
-          showReadingTime: true
-        },
+        // blog: {
+        //   showReadingTime: true,
+        // },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -88,8 +89,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Original',
+              to: 'https://cs-diploma-notebook.vercel.app/docs',
             },
           ],
         },
@@ -97,16 +98,8 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Github',
+              href: 'https://github.com/Ta-h-a/cs-diploma-textbook-v2',
             },
           ],
         },
@@ -119,12 +112,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Ta-h-a',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Made with ❤️ by Taha Sindoli.`,
     },
     prism: {
       theme: prismThemes.github,

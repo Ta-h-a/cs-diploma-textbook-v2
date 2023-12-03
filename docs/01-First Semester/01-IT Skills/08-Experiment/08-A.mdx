@@ -1,0 +1,297 @@
+---
+id: IT_Skills_Experiment_08_A
+title: Design and create web page for a travel book with more than 3 pages, table to list places (iframe, hyperlink)
+sidebar_label: A
+slug: /first-semester/it-skills/experiment-8/a
+description: This set of HTML files forms an interactive travel website. "homepage.html" acts as the central hub, displaying two iframes. "frame1.html" presents various tourist spots like Gokak Falls and Mysore Palace, detailing each location's information and images. "frame2.html" is currently empty. There's also "contact.html" providing site details. Together, these files construct an engaging platform to explore destinations and access essential information.
+---
+
+# Design and create web page for a travel book
+
+## Description
+
+This set of HTML files forms an interactive travel website. "homepage.html" acts as the central hub, displaying two iframes. "frame1.html" presents various tourist spots like Gokak Falls and Mysore Palace, detailing each location's information and images. "frame2.html" is currently empty. There's also "contact.html" providing site details. Together, these files construct an engaging platform to explore destinations and access essential information.
+
+## Code
+
+```html title="homepage.html"
+<!-- /* Save HTML file as: homepage.html* / -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel Book</title>
+  </head>
+
+  <body bgcolor="purple">
+    <center>
+      <font size="7" color="yellow"> MY TRAVEL BOOK WEBSITE </font>
+
+      <font size="4" color="yellow">
+        <marquee> Welcome to my Travel book website </marquee><br />
+
+        <iframe
+          src="frame1.html"
+          name="f1"
+          style="width:30%; height:80%;"
+        ></iframe>
+        <iframe
+          src="frame2.html"
+          name="f2"
+          style="width:65%; height:80%;"
+        ></iframe>
+
+        <marquee>
+          Contact for more details X.Y.Z M.L.B. Polytechnic, Belagavi
+        </marquee>
+      </font>
+    </center>
+  </body>
+</html>
+```
+
+```html title="frame1.html"
+<!-- frame1.html - Save this in a html file with the following name in the same directory -->
+<html>
+  <body bgcolor="lightpink">
+    <font size="6">
+      <center>
+        <table border="2" bordercolor="blue" cellpadding="10">
+          <tr>
+            <th bgcolor="lightgreen">*TOURIST PLACES*</th>
+          </tr>
+          <tr>
+            <td><a href="gokak.html" target="f2"> Gokak Falls</a></td>
+          </tr>
+          <tr>
+            <td><a href="mysore.html" target="f2"> Mysore Palace </a></td>
+          </tr>
+          <tr>
+            <td><a href="golgumbaz.html" target="f2"> Golgumbaz</a></td>
+          </tr>
+          <tr>
+            <td><a href="badami.html" target="f2"> Badami Caves</a></td>
+          </tr>
+          <tr>
+            <td><a href="contact.html" target="f2"> Contact Details</a></td>
+          </tr>
+        </table>
+      </center>
+    </font>
+  </body>
+</html>
+```
+
+```html title="frame2.html"
+<!-- frame2.html - Save this in a html file with the following name in the same directory -->
+<html>
+  <body bgcolor="lightpink"></body>
+</html>
+```
+
+```html title="gokak.html"
+<!-- gokak.html - Save this in a html file with the following name in the same directory -->
+<html>
+  <body>
+    <center>
+      <font color="white"> <h1>GOKAK FALLS</h1> </font
+      ><img
+        src="https://2.bp.blogspot.com/-OabbDTIevwg/WpVAuCvfiQI/AAAAAAAAO98/zCc_XUwLyMIH5nmG8dlo1ezLRH_svalfwCLcBGAs/s1600/1.jpg"
+        width="400"
+        height="300"
+      />
+
+      <table border="2" cellpadding="20">
+        <caption>
+          <font size="5" color="white">INFORMATION ABOUT GOKAKFALLS</font>
+        </caption>
+        <tr bgcolor="yellow">
+          <th>FOOD</th>
+          <th>HALT</th>
+          <th>GUIDE</th>
+          <th>TOURIST BUS</th>
+        </tr>
+        <tr bgcolor="lightyellow">
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+```
+
+```html title="mysore.html"
+<!-- mysore.html - Save this in a html file with the following name in the same directory -->
+<html>
+  <body>
+    <center>
+      <font color="white"> <h1>MYSORE PALACE</h1> </font
+      ><img
+        src="https://th.bing.com/th/id/OIP.jWJ0UUluSEaVjLmgfeFObAHaE7?pid=ImgDet&rs=1"
+        width="500"
+        height="300"
+      />
+
+      <table border="2" cellpadding="20">
+        <caption>
+          <font size="5" color="white">INFORMATION ABOUT MYSORE PALACE </font>
+        </caption>
+        <tr bgcolor="yellow">
+          <th>FOOD</th>
+          <th>HALT</th>
+          <th>GUIDE</th>
+          <th>TOURIST BUS</th>
+        </tr>
+        <tr bgcolor="lightyellow">
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+```
+
+```html title="badami.html"
+<!-- badami.html - Save this in a html file with the following name in the same directory -->
+<html>
+  <body>
+    <center>
+      <font color="white">
+        <h1>BADAMI CAVES</h1> </font
+      ><img
+        src="https://www.mustvisitplace.com/wp-content/uploads/2019/04/badami-cave-temples-scaled.jpg"
+        width="400"
+        height="300"
+      />
+
+      <table border="2" cellpadding="20">
+        <caption>
+          <font size="5" color="white">INFORMATION ABOUTT BADAMI </font>
+        </caption>
+        <tr bgcolor="yellow">
+          <th>FOOD</th>
+          <th>HALT</th>
+          <th>GUIDE</th>
+          <th>TOURIST BUS</th>
+        </tr>
+        <tr bgcolor="lightyellow">
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+```
+
+```html title="golgumbaz.html"
+<!-- golgumbaz.html - Save this in a html file with the following name in the same directory -->
+
+<html>
+  <body>
+    <center>
+      <font color="white">
+        <h1>GOLGUMBAZ</h1> </font
+      ><img
+        src="https://th.bing.com/th/id/R.f9c991a53d7ab1544d66526ca81f4eaa?rik=LtvE%2fTNE3UgAuA&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2fb%2fb6%2fGol_Gumbaz.jpg&ehk=tdLI5yhAv3%2bEk%2bweOPgnTWCGKnpkd8oPEVx43fVj%2fJU%3d&risl=&pid=ImgRaw&r=0"
+        width="400"
+        height="300"
+      />
+
+      <table border="2" cellpadding="20">
+        <caption>
+          <font size="5" color="white">INFORMATION ABOUT GOLGUMBAZ</font>
+        </caption>
+        <tr bgcolor="yellow">
+          <th>FOOD</th>
+          <th>HALT</th>
+          <th>GUIDE</th>
+          <th>TOURIST BUS</th>
+        </tr>
+        <tr bgcolor="lightyellow">
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+          <td>Available</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+```
+
+```html title="contact.html"
+<!-- contact.html - Save this in a html file with the following name in the same directory -->
+<html>
+  <body bgcolor="lightpink">
+    <h2>
+      <center>CONTACT DETAILS</center>
+    </h2>
+    <font size="6">
+      <p>
+        X.Y.Z<br/>
+        M.L.B POLYTECHNIC <br />
+        BELAGAVI
+      </p>
+    </font>
+  </body>
+</html>
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/VIARmKT.png"} style={{marginBottom: 5, borderRadius: '10px'}} />
+<img src={"https://i.imgur.com/eC9s0Sk.png"} style={{marginBottom: 5, borderRadius: '10px'}} />
+<img src={"https://i.imgur.com/WsNXEjp.png"} style={{marginBottom: 5, borderRadius: '10px'}} />
+<img src={"https://i.imgur.com/mcIN4kE.png"} style={{marginBottom: 5, borderRadius: '10px'}} />
+<img src={"https://i.imgur.com/FyzO2Mr.png"} style={{marginBottom: 5, borderRadius: '10px'}} />
+<img src={"https://i.imgur.com/dgPoFKq.png"} style={{marginBottom: 5, borderRadius: '10px'}} />
+
+
+
+</details>
+
+## Explanation of above code
+
+- `HTML file`: Save as homepage.html. Save this code as a file named "homepage.html" to create the main HTML file for the website.
+- `DOCTYPE HTML`: Declares the HTML version being used. This declaration specifies that the HTML version being used is HTML5.
+- `Root HTML Element`: Root element that encapsulates the entire HTML content. The `<html>` element is the root element that encapsulates all the content on the webpage.
+- `Head Section`: Contains meta-information about the document. The `<head>` section contains meta-information, links to stylesheets, and other data that helps describe the document.
+- `Title`: Sets the title of the webpage. The `<title>` element sets the title of the webpage, which is displayed in the browser's title bar or tab.
+- `Body Section`: Contains the visible content of the webpage. The `<body>` section contains the visible content of the webpage, including text, images, and other elements.
+- `Background Color`: Sets the background color of the webpage. The "bgcolor" attribute in the `<body>` tag sets the background color of the webpage.
+- `Centering Content`: Centers content on the webpage. The `<center>` tag is used to center content within its parent element.
+- `Styling Fonts and Marquee`: Styles fonts and creates scrolling text. The `<font>` tag with "size" and "color" attributes is used to style fonts, and the `<marquee>` tag creates scrolling text.
+- `Displaying External Content`: Displays external content (HTML files) within iframes. The `<iframe>` tag is used to display external content (in this case, other HTML files) within the webpage.
+- `Closing HTML`: Closes the HTML structure. The closing `</html`> tag signifies the end of the HTML document.
+- `frame1.html`: Save this as an HTML file. Save the content provided under "frame1.html Content" as a file named "frame1.html".
+- `frame1.html Content`: Displays a table with links to tourist places. The HTML content that creates a table with links to various tourist places.
+- `frame2.html`: Save this as an HTML file. Save the content provided under "frame2.html Content" as a file named "frame2.html".
+- `frame2.html Content`: Empty page with a light pink background. The HTML content for an empty page with a light pink background.
+- `gokak.html`: Save this as an HTML file. Save the content provided under "gokak.html Content" as a file named "gokak.html".
+- `gokak.html Content`: Information about Gokak Falls. The HTML content that provides information about Gokak Falls.
+- `mysore.html`: Save this as an HTML file. Save the content provided under "mysore.html Content" as a file named "mysore.html".
+- `mysore.html Content`: Information about Mysore Palace. The HTML content that provides information about Mysore Palace.
+- `badami.html`: Save this as an HTML file. Save the content provided under "badami.html Content" as a file named "badami.html".
+- `badami.html Content`: Information about Badami Caves. The HTML content that provides information about Badami Caves.
+- `golgumbaz.html`: Save this as an HTML file. Save the content provided under "golgumbaz.html Content" as a file named "golgumbaz.html".
+- `golgumbaz.html Content`: Information about Golgumbaz. The HTML content that provides information about Golgumbaz.
+- `contact.html`: Save this as an HTML file. Save the content provided under "contact.html Content" as a file named "contact.html".
+- `contact.html Content`: Displays contact details. The HTML content that displays contact details.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/aRGdDy18qfY" title="Learn HTML iframes in 3 minutes 🖼️" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [W3S](https://www.w3schools.com/html/html_iframe.asp)
+- [Geeks for Geeks](https://www.geeksforgeeks.org/html-iframes/)

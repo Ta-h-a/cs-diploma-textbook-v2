@@ -1,0 +1,160 @@
+---
+id: IT_Skills_Experiment_11_A
+title: Design and create web page about advantages of business process automation with respect to your branch of engineering
+sidebar_label: A
+slug: /first-semester/it-skills/experiment-11/a
+description: The HTML code comprises multiple interconnected files. Prog11.html serves as the main page, styled with a centered red header and iframes. frame1.html presents engineering branches as clickable links, linking to content in frame2.html. cs.html details advantages of process automation specific to Computer Science. The structure allows centralized control and display of diverse content through iframes, enhancing user experience and information presentation.
+---
+
+# Design and create web page about advantages of business process automation with respect to your branch of engineering
+
+## Description
+
+The HTML code comprises multiple interconnected files. Prog11.html serves as the main page, styled with a centered red header and iframes. frame1.html presents engineering branches as clickable links, linking to content in frame2.html. cs.html details advantages of process automation specific to Computer Science. The structure allows centralized control and display of diverse content through iframes, enhancing user experience and information presentation.
+
+## Code
+
+```html title="Prog11.html"
+<!-- Prog11.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BPA</title>
+    <style>
+        header {
+            color: red;
+            font-size: 75px;
+            text-shadow: 5px 5px 5px yellow;
+        }
+    </style>
+</head>
+
+
+<body bgcolor="lightgreen">
+    <center>
+        <header>BUSINESS PROCESS AUTOMATION</header>
+
+
+        <iframe src="frame1.html" name="f1" style="width:30%; height:80vh;"></iframe>
+        <iframe src="frame2.html" name="f2" style="width:65%; height:80vh;"></iframe>
+
+
+        <marquee>Advantage of Process Automation for Computer Science branch</marquee>
+    </center>
+</body>
+
+</html>
+```
+
+```html title="frame1.html"
+<html>
+
+<body bgcolor="lightpink">
+    <font size="6">
+      <center>
+        <table border=2 bordercolor="blue" cellpadding="25" colspan="10">
+          <tr>
+              <th bgcolor="lightgreen">*ENGINEERING BRANCHES*</th>
+          </tr>
+          <tr>
+              <td><a href="CS.html" target="f2">COMPUTER SCI.</a></td>
+          </tr>
+          <tr>
+              <td>CIVIL ENGINEERING</td>
+          </tr>
+          <tr>
+              <td>ELECTRONICS & COMM.</td>
+          </tr>
+          <tr>
+              <td>MECHANICAL ENGG.</td>
+          </tr>
+          <tr>
+              <td>ELECTRICAL & ELELC</td>
+          </tr>
+        </table>
+      </center>
+    </font>
+</body>
+
+</html>
+```
+
+```html title="frame2.html"
+<html>
+    <body bgcolor="lightpink">
+
+    </body>
+</html>
+```
+
+
+```html title="cs.html"
+<html>
+<body>
+    <center>
+        <h1>ADVANTAGES OF PROCESS AUTOMATION</h1>
+        <h3>COMPUTER SCIENCE</h3>
+    </center>
+    <font size="4" color="blue">
+        <p>•Companies implementing process automation have a competitive advantage over their competitors, both in
+            operability and reliability.</p>
+        <p>•Process automation reduces operative costs and increases both, speed and reliability of task implementation,
+            development, and support.</p>
+        <p>•Enhances work continuity, and satisfies the demand for IT departments and computer systems.</p>
+        <p>•It improves strategic analysis and streamlines the deployment of applications through automated job
+            execution.</p>
+        <p>•Eliminates manual execution of command sequences subjected to human error, increasing efficiency and
+            productivity of the organization.</p>
+        <p>•It enables visibility and control of all workflows and tasks, providing status reports of completed
+            processes, in progress and incoming tasks.</p>
+        <p>•It supports both, local, virtual and hybrid environments in the Cloud, increasing the possibilities of
+            management and process control.</p>
+    </font>
+</body>
+
+</html>
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/7h11S2d.png"} style={{ borderRadius: "10px" }} />
+<img src={"https://i.imgur.com/AFbokkP.png"} style={{ borderRadius: "10px" }} />
+
+</details>
+
+## Explanation of above code
+
+### **Prog11.html**:
+
+- **Header**: Displays "BUSINESS PROCESS AUTOMATION" in red, with a large font and a yellow text shadow.
+- **Frames**:
+  - `frame1.html`: Contains a table listing various engineering branches, including a link to "CS.html" targeting frame2.html.
+  - `frame2.html`: Initially empty, meant to load content based on links from frame1.html.
+- **Marquee**: Scrolls a message about the advantages of process automation for the Computer Science branch.
+
+### **frame1.html**:
+
+- **Content**: Displays a table showcasing different engineering branches.
+- **Links**: Directs to specific HTML pages (CS.html and others) when clicked, targeting frame2.html.
+
+### **frame2.html**:
+
+-Initially blank, intended to display content loaded from links in frame1.html.
+
+### **CS.html**:
+
+- Focuses specifically on the advantages of process automation in Computer Science.
+- Contains descriptive text detailing the benefits of process automation in various aspects of operations, productivity, error reduction, and control.
+
+Together, these HTML files create a webpage emphasizing Business Process Automation, providing information on engineering branches and specifically highlighting the advantages within the realm of Computer Science. The frames enable the loading of specific content based on user interaction with the links.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/npnp--SSx_8" title="How To Embed YouTube Videos with iframe Tag in HTML - Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [W3S](https://www.w3schools.com/howto/howto_css_responsive_iframes.asp)
+- [StackOverflow](https://stackoverflow.com/questions/2979860/how-are-iframes-used-in-html)
