@@ -38,10 +38,9 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
         },
-        // blog: {
-        //   showReadingTime: true,
-        // },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
