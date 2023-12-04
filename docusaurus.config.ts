@@ -60,11 +60,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    colorMode: {
-      defaultMode: 'dark',
-      disableSwitch: false,
-      respectPrefersColorScheme: true,
-    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -124,10 +119,6 @@ const config: Config = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Made with ❤️ by Taha Sindoli.`,
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
 };
