@@ -4,11 +4,11 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'CS Diploma Textbook',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Learning is made fun',
   favicon: 'img/logo.png',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://csd-textbook.vercel.app/',
   baseUrl: '/',
 
   // // GitHub pages deployment config.
