@@ -11,32 +11,74 @@
     /* color: #2580919a; */
 }
 
+p{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+  
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #2e8b9a;
+  --ifm-color-primary-dark: #2a7d8a;
+  --ifm-color-primary-darker: #297c89;
+  --ifm-color-primary-darkest: #1e5e68;
+  --ifm-color-primary-light: #2e8288;
+  --ifm-color-primary-lighter: rgb(53, 153, 148);
+  --ifm-color-primary-lightest: #3c94ad;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #f0fb0d;
+  --ifm-color-primary-dark: #dbe617;
+  --ifm-color-primary-darker: #dce715;
+  --ifm-color-primary-darkest: #c2cb12;
+  --ifm-color-primary-light: #eaf526;
+  --ifm-color-primary-lighter: #e9f148;
+  --ifm-color-primary-lightest: #e6ec63;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 /* Styling one class specially in dark mode */
 [data-theme='dark'] .home {
   background-color: #1b1b1d;
+}
+
+[data-theme="dark"] .hero-text-secondary{
+  color: #f0fb0d;
+}
+
+[data-theme="dark"] .hero-button-primary{
+  background-color: #f0fb0d;
+  color: black;
+}
+
+[data-theme="light"] .hero-button-primary{
+  background-color: #2e8b9a;
+  color: white;
+}
+
+[data-theme="light"] :hover.hero-button-primary{
+  background-color: #1e5e68;
+}
+
+[data-theme="dark"] :hover.hero-button-primary{
+  background-color: #c2cb12;
+}
+
+[data-theme="light"] .hero-text-secondary{
+  color: #2e8b9a;
+}
+
+article.margin-bottom--xl {
+  background-color: #2a859316;
+  border: 1px solid rgba(0, 0, 0, 0.412);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+[data-theme="dark"] article.margin-bottom--xl {
+  background-color: #effb0d07;
+  border: 1px solid rgba(255, 255, 255, 0.418);
 }

@@ -5,66 +5,67 @@ import {
   Text,
   Button,
   Stack,
-  createIcon
-} from '@chakra-ui/react'
-import Link from '@docusaurus/Link';
+  createIcon,
+} from "@chakra-ui/react";
+import Link from "@docusaurus/Link";
 
 export default function Hero() {
-
   return (
-    <div className='home'>
-      <Container maxW={'3xl'}>
+    <div className="home">
+      <Container maxW={"3xl"}>
         <Stack
           as={Box}
-          textAlign={'center'}
+          textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
+          py={{ base: 20, md: 36 }}
+        >
           <Heading
             fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
+            fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
+            lineHeight={"110%"}
+          >
             CS Textbook <br />
-            <Text as={'span'} color={'green.400'}>
+            <Text as={"span"} className="hero-text-secondary">
               For Diploma Students
             </Text>
           </Heading>
-          <Text color={'gray.500'}>
-          Ace your practical exams with our comprehensive and easy-to-understand documentation on practical subjects. Learn the concepts, not just the words, and set yourself up for success.
+          <Text color={"gray.500"}>
+            Ace your practical exams with our comprehensive and
+            easy-to-understand documentation on practical subjects. Learn the
+            concepts, not just the words, and set yourself up for success. We are currently working on personalized notes in the form of blogs for students to understand the concepts more easily.
           </Text>
           <Stack
-            direction={'column'}
+            direction={"column"}
             spacing={3}
-            align={'center'}
-            alignSelf={'center'}
-            position={'relative'}>
+            align={"center"}
+            alignSelf={"center"}
+            position={"relative"}
+          >
+            <Link to={"/docs/intro"}>
+              <Button className="hero-button-primary" rounded={"full"} px={6}>
+                Start Experiments
+              </Button>
+            </Link>
 
-                <Link to={'/docs/intro'}>
-                <Button
-                colorScheme={'green'}
-                bg={'green.400'}
-                textColor={'black'}
-                rounded={'full'}
-                px={6}
-                _hover={{
-                    bg: 'green.500',
-                }}>
-                Get Started
-                </Button>
-                </Link>
+            <Link to={"/blog"}>
+              <Button className="hero-button-primary" rounded={"full"} px={6}>
+                Personal Blogs & Notes
+              </Button>
+            </Link>
 
-                <Button variant={'link'} colorScheme={'blue'} mt={2} size={'sm'}>
-                Login for Staff
-                </Button>
+            {/* <Button variant={"link"} colorScheme={"blue"} mt={2} size={"sm"}>
+              Login for Staff
+            </Button> */}
           </Stack>
         </Stack>
       </Container>
     </div>
-  )
+  );
 }
 
 const Arrow = createIcon({
-  displayName: 'Arrow',
-  viewBox: '0 0 72 24',
+  displayName: "Arrow",
+  viewBox: "0 0 72 24",
   path: (
     <path
       fillRule="evenodd"
@@ -73,4 +74,4 @@ const Arrow = createIcon({
       fill="currentColor"
     />
   ),
-})
+});

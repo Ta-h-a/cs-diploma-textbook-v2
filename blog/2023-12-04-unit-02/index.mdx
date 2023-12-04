@@ -1,0 +1,267 @@
+---
+slug: unit-02
+authors: [taha]
+tags: [cybersecurity, cipher, key exchanges]
+# toc_max_heading_level: 4
+hide_table_of_contents: false
+---
+
+# Chapter 02 - Cyber Security
+
+## History Of Cryptography
+
+Humans have two basic needs when we take about communication. One is the need to communicate selectively, to communicate and share information. These two basic needs while communicating gave rise to coding and encrypting the messages in such a way that only intended people could have access to the information.
+The word `cryptography` originated from two greek words `Krypto` means hidden and `graphene` means writing.
+
+{/* truncate */}
+
+
+
+<details>
+  <summary>Concepts we should be familiar with</summary>
+  <div>
+    <br />
+    <details>
+      <summary>What is a cipher ??</summary>
+      <div>
+        A Cipher is a algorithm for performing encryption and decryption - a
+        series of well defined steps that can be followed as a procedure
+      </div>
+    </details>
+    <details>
+      <summary>What is cryptography ??</summary>
+      <div>
+        Cryptography is the practice and study of techniques for secure
+        communications between two parties
+      </div>
+    </details>
+    <details>
+      <summary>What is Transposition cipher ??</summary>
+      <div>
+        Here the units of the plaintext are rearranged or shuffled without
+        changing the actual letters themselves using a key
+      </div>
+    </details>
+    <details>
+      <summary>What is a substitution cipher ??</summary>
+      <div>
+        In [cryptography](https://www.wikiwand.com/en/Cryptography), a
+        **substitution cipher** is a method of
+        [encrypting](https://www.wikiwand.com/en/Encrypting) in which units of
+        [plaintext](https://www.wikiwand.com/en/Plaintext) are replaced with the
+        [ciphertext](https://www.wikiwand.com/en/Ciphertext), in a defined
+        manner, with the help of a key; the "units" may be single letters (the
+        most common), pairs of letters, triplets of letters, mixtures of the
+        above, and so forth. The receiver deciphers the text by performing the
+        inverse substitution process to extract the original message.
+      </div>
+    </details>
+  </div>
+</details>
+
+### Caeser Cipher
+
+In cryptography, a **Caesar cipher**, also known as **Caesar's cipher**, the **shift cipher**, **Caesar's code**, or **Caesar shift**, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+As with all single-alphabet substitution ciphers, the Caesar cipher is easily broken and in modern practice offers essentially no communications security.
+
+### Wikipedia - Caesar cipher
+
+In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code, or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+
+- [Wikipedia - Caesar cipher](https://www.wikiwand.com/en/Caesar_cipher#Example)
+
+In simple words - this cipher is used to encrypt the plain text by taking each letter of the plain text and shifting them to the right or left (depends on which direction we are deciding to) shift of `key` , this key is the shift parameter that we provide and this value determines the cipher text that results after encryption
+We can also represent encryption in the form of modular arithmetic by transforming each letters into numbers, so A would be 0, B would be 1 and so on. Encryption of a letter x by a shift n can be described mathematically as -
+
+### Enigma Cipher -
+
+Enigma Machine - A German Cipher Machine
+Enigma machine is a cipher device that was used during mid 20th century by German for dipomatic, commercial and military communication
+![enigma](files\330px-enigma_-28crittografia-29_-_museo_scienza_.jpg)
+
+#### How does it contribute to encrypting and decrypting messages ??
+
+The Enigma has an electromechanical rotor mechanism that scrambles the 26 letters of the alphabet.
+Now is this machine used ???
+In use, one person enters the text on the enigma's keyboard and another person writes down which of the 26 lights above the keyboard illuminated at each keypress
+If plain text is entered, the illuminated letters are cipher text
+Entering ciphertext transforms it back into readable plaintext
+So at each key press, enigma performs complex substituions resulting in the cipher letter we get from the illuminated light
+
+The main thing to notice that is the security of the system depends on the machine settings - when the nazi were using it to encrypt messgaes, the settings were changed daily. So the receiving station would have to know the same exact machine settings of those of the transmitting station in order to decrypt the messages
+This setting of rotors, the plugboard connections, all of those acted as the symmetric key between both parties for encryption and decryption
+
+## Introduction (high level overview)
+
+### Encryption
+
+In the context of cryptography, encryption serves as a mechanism to ensure confidentiality. Since data may be visible on the Internet, sensitive information such as passwords and personal communication may be exposed to potential interceptors.The process of encrypting and decrypting messages involves [keys](<https://www.wikiwand.com/en/Key_(cryptography)>). The two main types of keys in cryptographic systems are symmetric-key and public-key (also known as asymmetric-key)
+Many complex cryptographic algorithms often use simple [modular arithmetic](https://www.wikiwand.com/en/Modular_arithmetic) in their implementations
+
+### Symmetric Key Algorithms
+
+As we know that there are two types of keys in cryptography - symmetric and asymmetric
+what is symmetric key
+![480px-Simple_symmetric_encryption.png](files\480px-simple_symmetric_encryption.png)
+Symmetric key cryptographic algorithms use only one single key for encryption and decryption - what this means is, when the plain text is encrypted, a cryptographic symmetric key is used - and when the cipher text is decrypted, the same key that was used in encryption is going to be used for decryption of the cipher text
+Easy hai - And we should know that in such algorithms that use symmetric key, the necessary requirement is that the communicating parties should have access to the shared secret key - Due to this, asymmetric key encryption is often used to exchange the secret key for symmetric key encryption
+Now you might ask - Brother, we understand what is symmetric keys and they are used in algorithms for encryption and decryption, but can they be used in any kind of ciphers ??
+No, symmetric key encryption can use either `stream cipher` or `block cipher`
+This is interesting
+Stream ciphers encrypt the digits (typically bytes), or letters (in substitution ciphers) of a message one at a time.
+Block ciphers take a number of bits and encrypt them in a single unit, padding the plaintext to achieve a multiple of the block size. The Advanced Encryption Standard (AES) algorithm, approved by NIST in December 2001, uses 128-bit blocks.
+
+### Asymmetric i.e Public key Cryptography
+
+In this cryptographic system, a pair of related keys are used
+Each pair consists of a public key and private key
+In asymmetric key encryption scheme, anyone can encrypt messages using the public key, but only the one who is holding the other key of the paired keys i.e private key can decrypt such message…..
+Here the security of the system depends on the secrey of the private key - which must not become known to any other
+
+<details>
+  <summary>You might ask this -</summary>
+  <div>
+    Taha, you said that only two types of keys are there which can be used in
+    cryptographic systems, the systems where we use one key is symmetric key
+    cryptography and the cipher algorithms that are used can be either stream
+    cipher or block cipher For both of these ciphers, we require only one cipher
+    key which can be easily managed But the thing is - In public key
+    cryptographic systems, we can use ciphers - but for those ciphers, two keys
+    are required And its not that we can take any two keys at random - we need
+    two keys that are related to each other So for generating such keys, we have
+    some algorithms - not ciphers - We have Algorithms
+  </div>
+</details>
+
+In a **public-key encryption** system, anyone with a public key can encrypt a message, yielding a **ciphertext**, but only those who know the corresponding private key can decrypt the ciphertext to obtain the original message. For example, a journalist can publish the public
+key of an encryption key pair on a web site so that sources can send secret messages
+to the news organization in ciphertext. Only the journalist who knows the corresponding
+private key can decrypt the ciphertexts to obtain the sources' messages—an eavesdropper
+reading email on its way to the journalist cannot decrypt the ciphertexts. However,
+public-key encryption does not conceal metadata like what computer a source used
+to send a message, when they sent it, or how long it is. Public-key encryption on
+its own also does not tell the recipient anything about who sent a message—it just
+conceals the content of a message in a ciphertext that can only be decrypted with
+the private key.
+
+### Hashing
+
+In cryptography, hashing is a process that involves converting an input (this input can be a message or some data) into a fixed-size string of characters…. this fixed size string is what we call `hash value` or `hash`
+Hashing is commonly used -
+
+- To verify the integrity of data
+- Creating digital signatures (i'll explain about these later)
+- Store passwords
+
+`Working`
+
+#### Input data -
+
+First, you take some data or message which is usually referred as `messages`
+
+#### Hash function
+
+A hash function is applied to the input data. This function takes the input data and performs various mathematical calculations and operations on it and produce a unique hash value. Hash functions are so coool (don't write coool in your exam paper 🥲) that even a small change in the input is going to drastically impact the final result from the hash function.
+
+#### Fixed output Length
+
+The cool thing about this hashing process is that - no matter what size or length your input data is - the hash function always produces a output with fixed length
+
+#### Irreversibiltiy
+
+Always remember - Hashing is a one way process, which means that when you provide a input to the hash function and we get the hash value, it is computationally impossible to reconstruct the original input data…. this is used to ensure integrity of data in cyber security
+
+#### Deterministic
+
+If you take some input and provide to the hash function and then you get the hash value, the same hash value is going to be generated no matter how many times you do it…. hash function always produces same hash value for the same input - makes sense to be honest
+
+#### Collision Resistance
+
+A good hash function should make it really difficult to find two different input that provides the same hash value, this property is kown as collision resistance
+
+<details className="alert--warning">
+  <summary>My personal experience</summary>
+  <div>
+    Once i was working on a project where the passwords were hashed and salted,
+    and then the passwords were stored in the database, hashed passwords that is
+    So that when the user logged in, we do not take the hashed password from the
+    db and then reverse it back to the way it was originally, what we do is -
+    take the user input, hash it and then compare it with the one that was
+    stored in the DB, if those two match then its all good This way, the
+    password is only known to the users
+  </div>
+</details>
+
+### Digital Signature
+
+A digital signature is a cryptographic technique used to ensure the authenticity, integrity, and non-repudiation of electronic documents, messages or data.
+It provides a way to verify that the content of the digital item (it can be a document or a message or something that is a digital entity) has not been altered since it was signed and that the signature itself is a valid signature (meaning, that the signature is coming from the right source)
+
+<details>
+  <summary>Analogy - </summary>
+  <div>
+    You have a document that you send to your friend, how is he going to know
+    that it is sent by you and how is he going to know that the document that
+    you sent in the initial stage (the original document) - is the document that
+    your friend received ?? how are we going to know these two answers above ??
+    Here we can use digital signature
+  </div>
+</details>
+
+`Working`
+
+#### Signing process -
+
+The signer generates a pair of cryptographic keys
+We did study that when we talk about two keys or pair of keys, the one that comes to mind is asymmetric keys - which are public and private keys
+So the signer generates two keys - public and private key
+The private key is used by the signer and kept secret - it is used to create digital signatures
+The public key is widely shared and this public key is only used by others to verify the signature
+So what we learn from this is -
+
+- Private key to create signature
+- Public key to verify signature
+
+This is the overall signing process of a digital signature
+
+#### Creating the signature
+
+How does the signer create a signature using only the private key ??
+To sign a document, the signer uses a hash function to generate a hash value (digest) of the document content.
+The hash value is then encrypted using the private key. This encrypted hash value is the digital signature.
+
+#### Verification process
+
+To verify a signature, the recipient of the document uses the signers public key to decrypt the encrypted hash value i.e the digital signature - revealing the original hash value of the document contents
+
+<details className="alert--warning">
+  <summary>Note -</summary>
+  <div>
+    The recipient receives the document as well as the signature, so dont be
+    confused when i say that the document is hashed - you might ask which
+    document, so know that the document is also present in this verification
+    process
+  </div>
+</details>
+
+The recipient then generates a new hash value of the document's content (the documents that the recipient received) using the same hash function
+If the decrypted hash value matches this new hash value that is generated using hash function, this ensures that -
+
+- The document was not altered since it was signed
+- Non-repudiation - signer cannot deny that he has signed the document
+- Authenticity - it is likely that it was signed by the right owner
+
+### MAC (Message Authentication Code)
+
+A message authentication code (MAC) is a cryptographic checksum or tag that is generated and appended to a message to ensure it's integrity (ensuring the message is not changed) and authenticity (the person who has sent it is the valid sender).
+A MAC provides a way to verify that a message has not been altered during transmission and it was sent by the expected sender. It is created using a secret key and a specific algorithms along with the message
+
+<details className="alert--warning">
+  <summary>simple words mei -</summary>
+  <div>
+    You take the message, use a secret key i.e symmetric key to create a MAC
+    code which is attached to a message and then they are sent to the receiver
+    The receiver can verify that the message is not altered when it was being
+    transmitted and it was sent by the expected sender by using MAC
+  </div>
+</details>
