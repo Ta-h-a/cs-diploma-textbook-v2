@@ -5,16 +5,15 @@ import Layout from "@theme/Layout";
 import Hero from "@site/src/components/HomepageFeatures";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../components";
-import {useColorMode} from '@docusaurus/theme-common';
 
 export default function Home(): JSX.Element {
   return (
-    <ChakraProvider theme={theme}>
-      <Layout noFooter={true} title="Home">
+    <Layout noFooter={true} title="Home">
+        <ChakraProvider theme={theme}>
         <main>
           <Hero />
         </main>
-      </Layout>
     </ChakraProvider>
+      </Layout>
   );
 }
