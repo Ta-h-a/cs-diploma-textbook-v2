@@ -8,7 +8,6 @@
 
 *{
     font-family: 'Poppins', sans-serif;
-    /* color: #2580919a; */
 }
 
 p{
@@ -30,7 +29,7 @@ p{
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #f0fb0d;
+  --ifm-color-primary: #d5e00b;
   --ifm-color-primary-dark: #dbe617;
   --ifm-color-primary-darker: #dce715;
   --ifm-color-primary-darkest: #c2cb12;
@@ -50,7 +49,7 @@ p{
 }
 
 [data-theme="dark"] .hero-button-primary{
-  background-color: #f0fb0d;
+  background-color: #c2cb12;
   color: black;
 }
 
@@ -64,7 +63,7 @@ p{
 }
 
 [data-theme="dark"] :hover.hero-button-primary{
-  background-color: #c2cb12;
+  background-color: #f0fb0d;
 }
 
 [data-theme="light"] .hero-text-secondary{
@@ -81,4 +80,8 @@ article.margin-bottom--xl {
 [data-theme="dark"] article.margin-bottom--xl {
   background-color: #effb0d07;
   border: 1px solid rgba(255, 255, 255, 0.418);
+}
+
+iframe{
+  border-radius: 10px;
 }

@@ -5,6 +5,7 @@ import Layout from "@theme/Layout";
 import Hero from "@site/src/components/HomepageFeatures";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../components";
+import {useColorMode} from '@docusaurus/theme-common';
 
 export default function Home(): JSX.Element {
   return (
