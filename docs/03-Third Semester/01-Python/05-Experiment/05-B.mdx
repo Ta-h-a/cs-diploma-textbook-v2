@@ -1,0 +1,46 @@
+---
+id: Python_Programming_Experiment_05_B
+title: Python program for `UNION method`
+sidebar_label: B
+slug: /third-semester/python-programming/experiment-5/b
+description: This Python code works with sets, demonstrating the concept of set union. It initializes two sets, 'set1' and 'set2,' and uses the union operation to create a new set containing all unique elements from both sets. Duplicate elements are automatically removed, showcasing the fundamental set operation of union.
+---
+
+# Python program for `UNION method`
+
+## Description
+
+This Python code works with sets, demonstrating the concept of set union. It initializes two sets, 'set1' and 'set2,' and uses the union operation to create a new set containing all unique elements from both sets. Duplicate elements are automatically removed, showcasing the fundamental set operation of union.
+
+## Code
+
+```python title="program5b.py"
+set1={'python','Java'}
+set2={'C++','Java','pgmC'}
+set=set1.union(set2)
+print(set)
+```
+
+## Explanation of above code
+
+- Set Initialization: The code initializes two sets, set1 and set2, using curly braces {}.
+- set1 contains the elements 'python' and 'Java', while set2 contains 'C++', 'Java', and 'pgmC'.
+- Sets automatically remove duplicates, ensuring that only unique elements are stored, so any duplicates in the initialization will be treated as a single occurrence in the sets.
+- Union of Sets: The code utilizes the union method to perform the union operation on set1 and set2.
+- Set union combines the elements from both sets while eliminating duplicates, creating a new set named set.
+- This new set contains all the unique elements from both set1 and set2.
+- Displaying the Result: To visualize the result of the union operation, the code employs the print function to display the contents of the set.
+- The output will show all the unique elements that exist in either set1 or set2, without any duplicates.
+- Concept of Set Union: In the context of sets, the union operation is a fundamental set operation.
+- It combines two sets, creating a new set containing all the unique elements from both sets, ensuring that duplicates are removed.
+- The union operation is often symbolized using U and is widely used in set theory and various applications like database queries and data analysis.
+- In this specific example, the code effectively demonstrates the concept of set union by uniting set1 and set2. The result, stored in the variable set, contains all the distinct elements from both sets, with duplicates removed. This is a valuable operation when working with datasets that require unique elements.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/uzoN0XEshDo" title="Union of Sets in Python | union() method | Python Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [W3S](https://www.w3schools.com/python/ref_set_union.asp)
+- [Stack Overflow](https://stackoverflow.com/questions/52431546/different-ways-of-unioning-sets)

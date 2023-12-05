@@ -1,0 +1,48 @@
+---
+id: Python_Programming_Experiment_02_B
+title: Write a python program for `QUADRATIC EQUATION`
+sidebar_label: B
+slug: /third-semester/python-programming/experiment-2/b
+description: This Python code solves a quadratic equation of the form ax^2 + bx + c = 0 using the quadratic formula. It imports the cmath module to handle complex numbers and calculates the discriminant to determine the nature of the solutions (real, repeated, or complex). The solutions are computed and displayed in the expected output.
+---
+
+# Write a python program for `QUADRATIC EQUATION`
+
+## Description
+
+This Python code solves a quadratic equation of the form ax^2 + bx + c = 0 using the quadratic formula. It imports the cmath module to handle complex numbers and calculates the discriminant to determine the nature of the solutions (real, repeated, or complex). The solutions are computed and displayed in the expected output.
+
+## Code
+
+```python title="program2b.py"
+import cmath
+a=1
+b=5
+c=6
+d=(b**2)-(4*a*c)
+ans1=(-b-cmath.sqrt(d))/(2*a)
+ans2=(-b+cmath.sqrt(d))/(2*a)
+print("the solution is",ans1,ans2)
+```
+
+## Explanation of above code
+- The Python code's purpose is to solve quadratic equations of the form ax^2 + bx + c = 0 using the quadratic formula.
+- It starts by importing the cmath module to handle complex numbers, which may be necessary for certain quadratic equations.
+- The coefficients a, b, and c are initialized with specific values representing the coefficients of the quadratic equation: a = 1, b = 5, and c = 6 in this case.
+- The code calculates the discriminant (d) using the formula d = b^2 - 4ac, which is essential in determining the nature of the solutions.
+- Based on the discriminant value, the code determines the type of solutions:
+- If d is positive, there are two real solutions.
+- If d is zero, there is one real solution (a repeated root).
+- If d is negative, two complex solutions exist.
+- The program utilizes the quadratic formula to compute the two solutions, ans1 and ans2, using the equations ans1 = (-b - sqrt(d)) / (2a) and ans2 = (-b + sqrt(d)) / (2a). The sqrt function from the cmath module ensures accurate handling of complex solutions.
+- To conclude, the code displays the solutions to the quadratic equation, preceded by the message 'the solution is.'
+- The results for ans1 and ans2 represent the two possible solutions for the given quadratic equation, and they are presented in the expected output within parentheses with a potential imaginary component (e.g., '(-3+0j) (-2+0j)').
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/aX-PRr1KOZc" title="Python Math Module Functions - Examples (sqrt, ceil, floor, pow, fabs, sin, cos, cos, tan, log)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [GFGPython](https://docs.python.org/3/library/cmath.html)
+- [W3S](https://www.w3schools.com/python/module_cmath.asp)

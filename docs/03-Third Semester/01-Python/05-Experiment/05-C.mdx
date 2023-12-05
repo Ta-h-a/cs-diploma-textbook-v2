@@ -1,0 +1,46 @@
+---
+id: Python_Programming_Experiment_05_C
+title: Python program for `INTERSECTION method`
+sidebar_label: C
+slug: /third-semester/python-programming/experiment-5/c
+description: This Python code works with sets and demonstrates the concept of set intersection. It initializes two sets, 'set1' and 'set2,' and uses the intersection operation to create a new set containing elements that are common to both sets. Duplicate elements are automatically removed. The code illustrates the fundamental set operation of intersection.
+---
+
+# Python program for `INTERSECTION method`
+
+## Description
+
+This Python code works with sets and demonstrates the concept of set intersection. It initializes two sets, 'set1' and 'set2,' and uses the intersection operation to create a new set containing elements that are common to both sets. Duplicate elements are automatically removed. The code illustrates the fundamental set operation of intersection.
+
+## Code
+
+```python title="program5c.py"
+set1={'python','Java'}
+set2={'C++','Java','pgmC','python'}
+set=set1.intersection(set2)
+print(set)
+```
+
+## Explanation of above code
+
+- The Python code focuses on working with sets and demonstrates the concept of set intersection.
+- Sets are unordered collections of unique elements and support various set operations.
+- The code initializes two sets, set1 and set2, using curly braces {}.
+- set1 contains the elements 'python' and 'Java,' while set2 contains 'C++,' 'Java,' 'pgmC,' and 'python.'
+- Sets automatically eliminate duplicate elements, so even if there are duplicates in the initialization, they will be stored as unique elements in the sets.
+- The code employs the intersection method to perform the intersection operation on set1 and set2.
+- Set intersection extracts elements that are common to both sets, creating a new set, which is also named set.
+- To visualize the outcome of the intersection operation, the code uses the print function to display the contents of the set.
+- The output will reveal all the elements that are common to both set1 and set2, without any duplicates.
+- Set intersection is a fundamental set operation that extracts elements shared by two sets, often represented using the symbol ∩ in set theory.
+- In practical applications, set intersection is used in various scenarios, such as database queries, identifying common elements in datasets, and ensuring data integrity by checking for overlaps.
+- When set1 and set2 are intersected, the result, stored in the variable set, contains all the elements that exist in both sets, helping identify common elements.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/lWK_XBY8U2Y" title="Python Program To Find Intersection Of Two Sets | Python Set | Intersection | Tech Blooded | #Shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [W3S](https://www.w3schools.com/python/ref_set_intersection.asp)
+- [GFG](https://www.geeksforgeeks.org/intersection-function-python/)

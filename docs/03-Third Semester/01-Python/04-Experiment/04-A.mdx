@@ -1,0 +1,40 @@
+---
+id: Python_Programming_Experiment_04_A
+title: Execute and perform python program by using `Looping Statement`
+sidebar_label: A
+slug: /third-semester/python-programming/experiment-4/a
+description: This Python code generates a multiplication table for a user-specified number 'n.' It collects user input using the input function, then uses a for loop to calculate and display the product of 'n' with numbers from 1 to 10.
+---
+
+# Execute and perform python program by using `Looping Statement`
+
+## Description
+
+This Python code generates a multiplication table for a user-specified number 'n.' It collects user input using the input function, then uses a for loop to calculate and display the product of 'n' with numbers from 1 to 10.
+
+## Code
+
+```python title="program4a.py"
+n=int(input("Enter the number"))
+for i in range(1,11):
+    c=n*i
+    print(n,"*",i,"=",c)
+```
+
+## Explanation of above code
+
+- The Python code's purpose is to create a multiplication table for a user-specified number, denoted as 'n.'
+- It initiates by using the input function to gather user input, representing the number for which the multiplication table will be generated.
+- The code employs a 'for' loop to iterate through numbers from 1 to 10 (inclusive), using the 'range' function with the argument (1, 11).
+- During each iteration, the program calculates the product of the user-defined number 'n' and the current value of 'i' and stores it in the variable 'c.'
+- The code then prints each multiplication operation in the format 'n * i = c,' where 'n' represents the user-input number, 'i' represents the numbers from 1 to 10, and 'c' represents the result of the multiplication.
+- For example, if the user enters 7 as 'n,' the code will generate and display the multiplication table for 7, showcasing the results of 7 multiplied by each integer from 1 to 10. This code provides a clear demonstration of using loops and basic arithmetic operations in Python to create multiplication tables for educational or practical purposes.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/OnDr4J2UXSA" title="Introduction to For Loops in Python (Python Tutorial #5)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [GFG](https://www.geeksforgeeks.org/python-for-loops/)
+- [W3S](https://www.w3schools.com/python/python_for_loops.asp)

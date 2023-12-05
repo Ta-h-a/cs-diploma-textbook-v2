@@ -1,0 +1,53 @@
+---
+id: Python_Programming_Experiment_12_A
+title: Write a python program to perform `read` operation in FILE
+sidebar_label: A
+slug: /third-semester/python-programming/experiment-12/a
+description: The Python code reads the content of a text file, "file1.txt," and displays it in the console, illustrating the essential steps of file handling in Python.
+---
+
+# Write a python program to perform `read` operation in FILE
+
+## Description
+
+The Python code reads the content of a text file, "file1.txt," and displays it in the console, illustrating the essential steps of file handling in Python.
+
+## Code
+
+```markdown title="file1.txt"
+Hello Welcome to Python
+Welcome to MLBP
+Welcome to Computer Science Dept
+(Type in notepad,and save as file1.txt or whatever name you want.)
+```
+
+```python title="index.py"
+myfile=open("file1.txt","r")
+print(myfile.read())
+```
+
+## Explanation of above code
+
+- The provided Python code serves as a straightforward program for reading and displaying the contents of a text file named 'file1.txt.' Its functionality is summarized as follows:
+
+### File Opening:
+
+- The code commences by utilizing the 'open()' function to establish a connection with the 'file1.txt' in read mode. This operation creates a file object, and it is assigned to the variable 'myfile.'
+
+### Reading File Content:
+
+- The 'read()' method, employed on the 'myfile' file object, is called to retrieve the entire content of 'file1.txt' as a string. This method reads the text within the file, capturing it as a string.
+
+### Console Output:
+
+- Subsequently, the code employs the 'print' function to display the content of the file. Consequently, the text stored within 'file1.txt' is presented in the terminal or console.
+- In essence, this code provides a basic illustration of how to read and present the contents of a text file in Python. Its execution entails opening the specified file, retrieving its content, and subsequently printing that content in the console for user observation.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/DmHSwTiD5Tk" title="File Handling In Python | Python File IO | Python Read &amp; Write Files | Python Tutorial | Simplilearn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [W3S](https://www.w3schools.com/python/python_file_handling.asp)
+- [GFG](https://www.geeksforgeeks.org/how-to-read-from-a-file-in-python/)

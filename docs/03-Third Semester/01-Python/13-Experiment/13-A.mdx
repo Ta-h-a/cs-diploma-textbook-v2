@@ -1,0 +1,59 @@
+---
+id: Python_Programming_Experiment_13_A
+title: Write the python program to `identify and resolve exceptions and handling methods` in python
+sidebar_label: A
+slug: /third-semester/python-programming/experiment-13/a
+description: This Python code snippet effectively employs exception handling to manage potential issues during program execution. It interacts with the user to input two integers ('a' and 'b'), attempts to perform a division operation ('c = a / b'), and handles exceptions that may arise. If an exception occurs, such as division by zero, it gracefully prints an error message and the specific exception details. If no exception occurs, it prints "else block." This code demonstrates the robustness of Python's exception handling mechanism.
+---
+
+# Write the python program to `identify and resolve exceptions and handling methods` in python
+
+## Description
+
+This Python code snippet effectively employs exception handling to manage potential issues during program execution. It interacts with the user to input two integers ('a' and 'b'), attempts to perform a division operation ('c = a / b'), and handles exceptions that may arise. If an exception occurs, such as division by zero, it gracefully prints an error message and the specific exception details. If no exception occurs, it prints "else block." This code demonstrates the robustness of Python's exception handling mechanism.
+
+## Code
+
+```python title="program13a.py"
+try:
+    a=int(input("Enter value of a"))
+    b=int(input("Enter value of b"))
+    c=a/b
+    print("a/b=%d"%c)
+except Exception as e:
+    print("can't divide by zero")
+    print(e)
+else:
+    print("else block")
+```
+
+## Explanation of above code
+
+### Taking User Input:
+- **User Input Prompt:** The code begins by using the input() function to interact with the user. The user is prompted to enter two integer values, which correspond to variables 'a' and 'b.'
+- **User Input Conversion:** The values entered by the user are converted to integers using the int() function. These converted values are stored in the variables 'a' and 'b.'
+### Performing Division:
+- **Division Operation:** The code attempts to perform a division operation to calculate 'c' as the result of 'a' divided by 'b' (c = a / b).
+### Handling Exceptions:
+- **Try Block:** The code implements a try block, within which the division operation is executed. It monitors for exceptions that might occur during this operation.
+- **Exception Handling:** In the try block, the code specifies that it is looking for exceptions that inherit from the base Exception class, which is a general class for handling exceptions.
+### Except Block:
+- **Exception Handling Block:** If an exception occurs during the division operation, the code gracefully handles it by jumping to the except block.
+- **Error Message Display:** In the except block, the code prints 'can't divide by zero' to indicate that a division by zero error has occurred. It also displays the specific error message associated with the exception using print(e) to provide more context about the error.
+### Else Block:
+- **Non-Exception Scenario:** The else block is executed only if no exception is raised during the division operation in the try block. In this case, it prints 'a/b=' followed by the result and 'else block.'
+- **Exception Control:** This block is not executed if an exception is raised in the try block.
+- **Output:** When the code is executed, it prompts the user to enter values for 'a' and 'b.'
+- If the user enters valid values and the division is performed without errors, it prints 'a/b=' followed by the result and 'else block.'
+- If the user enters 0 for 'b' (leading to a division by zero), the code catches the exception, prints 'can't divide by zero,' and displays the specific error message associated with the exception. The 'else block' is not executed in this case.
+- This code exemplifies how to handle exceptions gracefully in Python, allowing the program to continue running even if errors occur during execution.
+
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/6SPDvPK38tw" title="#63 Python Tutorial for Beginners | Exception Handling" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Programiz](https://www.programiz.com/python-programming/exception-handling)
+- [GFG](https://www.geeksforgeeks.org/python-exception-handling/)
