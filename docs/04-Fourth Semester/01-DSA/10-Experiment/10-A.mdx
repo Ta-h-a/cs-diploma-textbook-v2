@@ -1,0 +1,71 @@
+---
+id: Python_Programming_Experiment_10_A
+title: Write a python program to define module to `find Fibonacci Numbers Import the Module to Another Program`
+sidebar_label: A
+slug: /third-semester/python-programming/experiment-10/a
+description: The provided Python code consists of two parts- a module (fibonacci.py) and a main script. The module defines a function named 'fibonacci(n)' that generates and prints Fibonacci numbers up to a specified range 'n.' It uses a for loop, starting with initial values of 0 and 1, to compute the Fibonacci sequence. The main script imports the module and interacts with the user to input a non-negative integer 'n,' which represents the range for Fibonacci number generation. If 'n' is valid, it calls the 'fibonacci' function from the module to display the Fibonacci numbers up to the specified range, with the sequence correctly updated within the loop.
+---
+
+# Write a python program to define module to `find Fibonacci Numbers Import the Module to Another Program`
+
+## Description
+
+The provided Python code consists of two parts: a module (fibonacci.py) and a main script. The module defines a function named 'fibonacci(n)' that generates and prints Fibonacci numbers up to a specified range 'n.' It uses a for loop, starting with initial values of 0 and 1, to compute the Fibonacci sequence. The main script imports the module and interacts with the user to input a non-negative integer 'n,' which represents the range for Fibonacci number generation. If 'n' is valid, it calls the 'fibonacci' function from the module to display the Fibonacci numbers up to the specified range, with the sequence correctly updated within the loop.
+
+## Code
+
+```python title="fibonacci.py"
+def fibonacci(n):
+    n1 = 0
+    n2 = 1
+    print(n1)
+    print(n2)
+    for x in range(0, n):
+        n3 = n1+n2
+        if (n3 >= n):
+            break
+        print(n3, end=' ')
+        n1 = n2
+        n2 = n3
+# (save it as fibonacci.py)
+```
+
+```python title="main.py"
+import fibonacci
+n = int(input("enter range"))
+if (n < 0):
+    print("enter valied range")
+else:
+    print("the range is :")
+    fibonacci.fibonacci(n)
+```
+
+## Explanation of above code
+
+### Part 1: The Fibonacci Module (fibonacci.py):
+
+- The Fibonacci module, encapsulated in 'fibonacci.py,' defines a Python function known as 'fibonacci(n).' This function is purpose-built to generate and present Fibonacci numbers within a designated range, n. Here's an overview of its core functionality:
+- Commencing with two crucial variables, n1 and n2, initialized with values corresponding to the first two Fibonacci numbers (0 and 1).
+- The process initiates with the display of the initial values of n1 and n2, thereby kickstarting the Fibonacci sequence, and these initial values are presented as 0 and 1.
+- The code orchestrates a 'for' loop, the backbone of Fibonacci number generation. The loop's purpose is to craft and exhibit Fibonacci numbers, stretching from 0 to n. The upper limit, n, is determined by user input.
+- Nestled within the loop, the next Fibonacci number, n3, takes shape by summing n1 and n2.
+- The code includes a conditional check to ascertain whether n3 surpasses or equals the specified range, n. When this condition is met, the loop gracefully concludes, having either reached or exceeded the target range.
+- Upon calculating and displaying n3, the function meticulously updates the values of n1 and n2. This update is pivotal, ensuring the accurate generation of the Fibonacci sequence.
+
+### Part 2: The Main Script:
+
+- The primary script functions as the orchestrator of interactions with the user and can be summarized as follows:
+- It takes on the role of importing the fibonacci module, establishing a vital bridge that allows access to the 'fibonacci' function within the main script.
+- The script, in its interactive capacity, extends an invitation to the user, prompting the input of a range value, referred to as 'n.' The user's contribution is anticipated in the form of an integer.
+- It enforces a robust conditional statement, exercising due diligence by verifying whether the user's input, 'n,' falls below the threshold of zero. If this condition is met, the script promptly issues an instruction: 'enter a valid range.' This stern communication is grounded in the understanding that the Fibonacci sequence remains undefined for negative values.
+- When 'n' emerges as a non-negative integer, the script delights in announcing 'the range is.' Subsequently, the script proceeds to orchestrate a call to the 'fibonacci.fibonacci(n)' function sourced from the imported module. This function, now at the script's disposal, excels in crafting and presenting Fibonacci numbers up to the user-defined range.
+- In essence, this codebase's mission revolves around the orchestration of Fibonacci numbers. The module, 'fibonacci.py,' is a dedicated Fibonacci artisan, weaving the sequence with precision, while the main script, the conductor of this Fibonacci symphony, ensures user interaction and directs the performance. Together, they create a harmonious code composition that explores the Fibonacci realm up to a specified range, 'n.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/OK81K_zoY-M" title="Fibonacci series using recursion in python" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Programiz](https://www.programiz.com/python-programming/examples/fibonacci-sequence)
+- [edureka](https://www.edureka.co/blog/python-fibonacci-series)

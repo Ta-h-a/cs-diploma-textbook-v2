@@ -1,0 +1,58 @@
+---
+id: Python_Programming_Experiment_12_B
+title: Write a python program to perform `Write` operation in `FILE`
+sidebar_label: B
+slug: /third-semester/python-programming/experiment-12/b
+description: This Python code creates a new text file, "file2.txt," and writes the text "Welcome to BELAGAVI" into it using the 'open()' function with write mode ('w') and the 'write()' method. Proper file closure is ensured. The resulting content within "file2.txt" is "Welcome to BELAGAVI," illustrating the file creation and writing process in Python.
+---
+
+# Write a python program to perform `Write` operation in `FILE`
+
+## Description
+
+This Python code creates a new text file, "file2.txt," and writes the text "Welcome to BELAGAVI" into it using the 'open()' function with write mode ('w') and the 'write()' method. Proper file closure is ensured. The resulting content within "file2.txt" is "Welcome to BELAGAVI," illustrating the file creation and writing process in Python.
+
+<div class="alert alert--danger" role="alert">
+Create a new file .txt file
+(Save as file2.txt)
+</div>
+
+## Code
+
+
+```python title="main.py"
+myfile=open("file2.txt","w")
+myfile.write("Welcome to BELAGAVI")
+myfile.close()
+```
+
+## Explanation of above code
+
+- The provided Python code serves as a script for creating a new text file named 'file2.txt' and writing the text 'Welcome to BELAGAVI' into it. Here's a breakdown of its functionality:
+
+### File Handling:
+
+- The code starts by using the 'open()' function to open a file named 'file2.txt' in write mode ('w'). The 'w' mode is used for writing to files and creates a new file if it doesn't already exist.
+
+### Writing to the File:
+
+- After opening the file in write mode, the 'write()' method is used to insert the text 'Welcome to BELAGAVI' into the file. This text is predefined within the script and is transferred to the specified file.
+
+### Properly Closing the File:
+
+- It's essential to close the file using the 'close()' method to ensure that any changes are saved and system resources are released.
+
+### Result:
+
+- When the code is executed, it creates a new text file named 'file2.txt' if it doesn't already exist. It then writes the text 'Welcome to BELAGAVI' into this file.
+- The content within 'file2.txt' will appear as: Welcome to BELAGAVI
+- In summary, this code demonstrates the process of generating a new text file, adding specific content to it, and correctly closing the file in Python.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/GJ5LJnIEEYo" title="Python write a file 📝" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [W3S](https://www.w3schools.com/python/python_file_write.asp)
+- [GFG](https://www.geeksforgeeks.org/writing-to-file-in-python/)

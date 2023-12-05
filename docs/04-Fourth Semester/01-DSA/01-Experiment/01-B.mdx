@@ -1,0 +1,70 @@
+---
+id: Data_structures_and_algorithms_with_python_Experiment_01_B
+title: Implement an ADT with all its Operations
+sidebar_label: B
+slug: /fourth-semester/data-structures-and-algorithms-with-python/experiment-1/b
+description: This code demonstrates a basic implementation of a stack data structure using Python. A stack follows the last-in, first-out (LIFO) principle, where elements are added and removed from the top of the stack.
+---
+
+# Implement an ADT with all its Operations
+
+## Description
+
+This code demonstrates a basic implementation of a stack data structure using Python. A stack follows the last-in, first-out (LIFO) principle, where elements are added and removed from the top of the stack.
+
+## Code
+
+```python title="index.py"
+stack = []
+
+def push(size):
+    if len(stack) == size:
+        print("List is full!")
+    else:
+        element = input("Enter the element: ")
+        stack.append(element)
+        print(stack)
+
+def pop():
+    if not stack:
+        print("Stack is empty.")
+    else:
+        e = stack.pop()
+        print("Removed element is:", e)
+        print(stack)
+
+size = int(input("Enter the limit for the stack: "))
+
+while True:
+    print("Select the operation: 1. PUSH 2. POP 3. QUIT")
+    choice = int(input())
+    
+    if choice == 1:
+        push(size)
+    elif choice == 2:
+        pop()
+    elif choice == 3:
+        break
+    else:
+        print("Enter the correct operation.")
+```
+
+## Explanation of above code
+
+- The code begins by initializing an empty stack, represented by a Python list called stack.
+- The code prompts the user to enter the size limit of the stack, which determines the maximum number of elements it can hold.
+- The code enters a loop that allows the user to perform three operations: push, pop, or quit.
+- **Push Operation:** If the user selects the push operation, the code checks if the length of the stack is equal to the size limit. If it is, it means the stack is full, and the code displays a message indicating that the stack is full. Otherwise, the code prompts the user to input an element to be added to the stack. This element is then appended to the end of the stack using the append() method. Finally, the updated stack is displayed.
+- **Pop Operation:** If the user chooses the pop operation, the code first checks if the stack is empty. This is done by evaluating the truthiness of the stack list. If it is empty, it means there are no elements in the stack, and the code displays a message indicating that the stack is empty. Otherwise, the code removes the topmost element from the stack using the pop() method, which eliminates the last element of the list. The popped element is stored in a variable called e for reference. The code then displays the removed element and the updated stack.
+- **Quit Operation:** If the user selects the quit operation, the loop breaks, and the program terminates.
+- If the user enters an invalid choice that does not correspond to any of the available operations, the code displays a message indicating that the correct operation should be entered.
+- Overall, this code allows users to interact with a stack data structure by adding elements to the top of the stack (push), removing elements from the top (pop), or quitting the program. It provides a practical demonstration of how stacks work and can be used as a foundation for more complex stack-based applications.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/aCVpMz7_gn8" title="What is Stack Explained in Hindi l Data Structure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Stack using Linked List](https://www.studytonight.com/data-structures/stack-using-linked-list)
+- [Stack Data Structure](https://www.geeksforgeeks.org/stack-data-structure/)

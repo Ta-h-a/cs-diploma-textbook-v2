@@ -1,0 +1,48 @@
+---
+id: Python_Programming_Experiment_11_A
+title: Write a python program by using `NumPy module`
+sidebar_label: A
+slug: /third-semester/python-programming/experiment-11/a
+description: The provided Python code demonstrates the use of the NumPy library for sorting operations within arrays. It imports the NumPy library, creates a 3x3 array named 'a' filled with integer values, and showcases two sorting operations- column-wise sorting using 'np.sort(a, axis=0)' and row-wise sorting using 'np.sort(a, axis=1).'
+---
+
+# Write a python program by using `NumPy module`
+
+## Description
+
+The provided Python code demonstrates the use of the NumPy library for sorting operations within arrays. It imports the NumPy library, creates a 3x3 array named 'a' filled with integer values, and showcases two sorting operations: column-wise sorting using 'np.sort(a, axis=0)' and row-wise sorting using 'np.sort(a, axis=1).'
+
+## Code
+
+```python title="program11a.py"
+import numpy as np
+a = np.array([[10, 2, 3], [4, 5, 6], [7, 8, 9]])
+print("Sorting along the columns")
+print(np.sort(a, axis=0))
+print("Sorting along the rows")
+print(np.sort(a, axis=1))
+datatype = np.dtype([('name', 'S10'), ('mark', int)])
+array = np.array([('mlbp', 315), ('bet', 100)], dtype=datatype)
+print("Sorting the structured array by the 'name' field")
+print(np.sort(array, order='name'))
+```
+
+## Explanation of above code
+
+- The code initiates by importing the NumPy library, a fundamental tool for numerical and array operations in Python, with the standard alias `np.`
+- It proceeds to create a 3x3 NumPy array named `a,` filled with integer values. This array is utilized for sorting demonstrations.
+- The first sorting operation focuses on sorting the elements along the columns (axis 0) using the `np.sort(a, axis=0)` function. This function sorts `a` along the specified axis and returns a sorted array. The sorted array is then displayed, demonstrating column-wise sorting.
+- The second sorting operation similarly employs the `np.sort` function to sort the elements along the rows (axis 1) using `np.sort(a, axis=1).` The resultant sorted array is showcased, illustrating the sorting along rows.
+- The code takes a significant step by defining a structured data type using the `np.dtype()` function. This structured data type, termed `datatype,` defines two fields: `name,` characterized by a string data type with a maximum length of 10 characters (`S10`), and `mark,` using an integer data type.
+- Subsequently, a structured NumPy array, named `array,` is instantiated to contain two records. Each record holds values for `name` and `mark.`
+- The code demonstrates structured array sorting by sorting `array` based on the `name` field using `np.sort(array, order=`name`).` This command sorts `array` based on the specified field and prints the sorted structured array.
+- In summary, this code exemplifies the application of NumPy for sorting elements within arrays, including both column-wise and row-wise sorting. Additionally, it demonstrates structured array sorting based on specific fields. NumPy is an essential library for numerical and data manipulation tasks, extensively used in scientific and data analysis domains.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/eQAuGKayM80" title="Sorting Numpy Arrays The Right Way - Numpy For Machine Learning 7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Stack Overflow](https://stackoverflow.com/questions/2828059/sorting-arrays-in-numpy-by-column)
+- [Open source Options](https://opensourceoptions.com/sort-numpy-arrays-by-columns-or-rows/)

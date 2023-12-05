@@ -1,0 +1,52 @@
+---
+id: Python_Programming_Experiment_09_A
+title: Write a python program to `Find Largest of 3 Numbers by Using in-built Function`
+sidebar_label: A
+slug: /third-semester/python-programming/experiment-9/a
+description: The provided Python code defines a function called 'maximum' that takes three arguments ('a,' 'b,' and 'c') and returns the maximum value among them. It employs conditional statements to compare the values of 'a,' 'b,' and 'c' and uses the 'return' statement to convey the result. The code initializes three variables with numerical values, invokes the 'maximum' function with these variables as arguments, and prints the maximum value. This code exemplifies the creation and usage of a custom Python function for logical decision-making.
+---
+
+# Write a python program to `Find Largest of 3 Numbers by Using in-built Function`
+
+## Description
+
+The provided Python code defines a function called 'maximum' that takes three arguments ('a,' 'b,' and 'c') and returns the maximum value among them. It employs conditional statements to compare the values of 'a,' 'b,' and 'c' and uses the 'return' statement to convey the result. The code initializes three variables with numerical values, invokes the 'maximum' function with these variables as arguments, and prints the maximum value. This code exemplifies the creation and usage of a custom Python function for logical decision-making.
+
+## Code
+
+```python title="program9a.py"
+def maximum (a,b,c):
+    if (a>=b) and (a>=c):
+        largest=a
+    elif (b>=a) and (b>=c):
+        largest=b
+    else:
+        largest=c
+    return largest
+a=10
+b=20
+c=30
+print(maximum(a,b,c))
+```
+
+## Explanation of above code
+
+- Function Definition: The code initiates by defining a Python function called 'maximum' with three parameters: 'a,' 'b,' and 'c.' The function's primary purpose is to determine and return the largest value among these parameters.
+- Conditional Statements: Inside the 'maximum' function, conditional statements are used for comparisons. It employs 'if,' 'elif' (else if), and 'else' constructs to evaluate 'a,' 'b,' and 'c':
+- If 'a' is greater than or equal to both 'b' and 'c,' 'a' is assigned as the maximum.
+- If 'b' is greater than both 'a' and 'c,' 'b' is chosen as the maximum.
+- If none of the above conditions are met, 'c' is identified as the maximum.
+- Returning the Maximum: The 'maximum' function concludes by returning the determined maximum value using the 'return' statement.
+- Variable Initialization: Before invoking the 'maximum' function, the code sets the initial values of 'a,' 'b,' and 'c' to 10, 20, and 30, respectively. These variables represent the numeric inputs to be compared.
+- Function Call: The 'maximum' function is called with 'a,' 'b,' and 'c' as arguments. The function processes these arguments and delivers the largest value among them, which is then printed using 'print(maximum(a, b, c)).'
+- Function Usage: This code showcases the practical application of a custom Python function, 'maximum,' designed for numerical comparison. It demonstrates the formulation of a function to perform logical decision-making tasks.
+- Output: In this specific example, with 'a=10,' 'b=20,' and 'c=30,' the 'maximum' function returns '30' as the largest value. This illustrates the function's ability to effectively identify and report the maximum value among the inputs.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/Cz6q5u4iW5w" title="Python Program to find the Biggest and Smallest of 3 numbers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Programiz](https://www.programiz.com/python-programming/examples/largest-number-three)
+- [Toppr](https://www.toppr.com/guides/python-guide/examples/python-examples/python-program-to-find-the-largest-among-three-numbers/)

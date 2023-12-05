@@ -1,0 +1,52 @@
+---
+id: Python_Programming_Experiment_12_C
+title: Write a python program to perform `APPEND` operation in `FILE`
+sidebar_label: C
+slug: /third-semester/python-programming/experiment-12/c
+description: The Python code effectively opens a file named "file3.txt" in append mode ("a+"), allowing both reading and appending to an existing file or creating a new one if it doesn't exist. It uses the 'write()' method to append the specified text to the end of the file. Proper file closure is ensured using the 'close()' method. The result is the addition of the text "This is the string text written by my program in file3.txt" to the file "file3.txt," illustrating the file handling process in Python.
+---
+
+# Write a python program to perform `APPEND` operation in `FILE`
+
+
+## Description
+
+The Python code effectively opens a file named "file3.txt" in append mode ("a+"), allowing both reading and appending to an existing file or creating a new one if it doesn't exist. It uses the 'write()' method to append the specified text to the end of the file. Proper file closure is ensured using the 'close()' method. The result is the addition of the text "This is the string text written by my program in file3.txt" to the file "file3.txt," illustrating the file handling process in Python.
+
+<div class="alert alert--danger" role="alert">
+Create a new .txt file
+(Save as file3.txt)
+</div>
+
+## Code
+
+```python title="main.py"
+myfile=open("file3.txt","a+")
+myfile.write("This is the string text written by my program in file3.txt")
+myfile.close()
+```
+
+## Explanation of above code
+
+### Part 1: Opening or Creating the File
+- Opening the File: The code initiates by employing the 'open()' function to open a file called 'file3.txt' in append mode ('a+'). This function takes two arguments: the file name and the mode for opening the file.
+- **Append Mode ('a+'):** 'a+' mode serves the purpose of opening a file in both append and read modes. When this mode is used, it ensures that if the file already exists, it opens it for both reading and appending. However, if the file does not exist, it creates a new one.
+### Part 2: Writing to the File
+- Writing to the File: The code utilizes the 'write()' method associated with the 'myfile' file object. This method is responsible for appending the specified text, which reads, 'This is the string text written by my program in file3.txt,' to the end of the file. Essentially, it appends this text to the pre-existing content in the file or writes it to a newly created file.
+### Part 3: Closing the File
+**Closing the File:** Properly closing the file is a crucial step to ensure that any modifications are saved, and system resources are efficiently released. The 'close()' method is applied to the 'myfile' file object for this purpose.
+- **Result:** Upon executing this code, it performs the following actions:
+    - Opens 'file3.txt' in append mode.
+    - If the file already exists, it adds the specified text to the end of the file.
+    - If the file does not exist, it creates a new file named 'file3.txt' and appends the text to it.
+    - As a result, the file 'file3.txt' will contain the appended text: This is the string text written by my program in file3.txt
+    - In summary, this code effectively demonstrates the process of opening a file in append mode, writing designated text to it, and appropriately closing the file in Python.
+
+## Learn more
+
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/O3KAyaDvM-k" title="Python 3 Programming Tutorial - Appending Files" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Stack Overflow](https://stackoverflow.com/questions/4706499/how-do-i-append-to-a-file)
+- [GFG](https://www.geeksforgeeks.org/python-append-to-a-file/)
