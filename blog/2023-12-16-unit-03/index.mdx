@@ -1,0 +1,569 @@
+---
+slug: unit-03
+authors: [taha]
+tags: [cybersecurity, key exchanges]
+toc_max_heading_level: 2
+hide_table_of_contents: false
+---
+
+# Chapter 03 - Cyber Security
+Please note that all my notes are referenced from my college notes. As a result, you might find them a little confusing in terms of their order. However, this is intentional to maintain consistency with the notes provided by the college.
+   
+{/* truncate */}
+
+## How internet/application works (security aspects - E2E packet path)   
+   
+### E2E   
+E2E is a network design principle in which the application related features and critical functionalities are kept in the communication end points   
+What does this mean ??   
+
+
+It means that in contrast to the features being implemented in infrastructure components in a network like routers and firewalls, all the necessary features are kept in the originating and terminating end points   
+
+<details className="alert--primary">
+  <summary>
+Example   
+  </summary>
+  <div>
+  - I have been working with a friend to create a chat application and the way he implemented this design is beautiful, the data is being encrypted and sent to the server and all of the things that need to be secure and reliable in communication are being done in the application itself and then sent to the server which then lets say decrypts some message and then sends it to the other user but this time, he might use data integrity as a security aspect to protect the communication between both parties - i dont know what he is gonna do, maybe something better than this   
+  - Anyways, dont be confused - this is a network design principle - the way we implement it is through code usually, we can take E2EE as an example, we implement features like authentication and authorization which adds up to the application features being kept at the communication end points
+  </div>
+</details>
+   
+### What are the five aspects of security   
+1. Confidentiality   
+2. Integrity   
+3. Availability   
+4. Authenticity   
+5. Non-repudiation of user data   
+   
+   
+### What is network security measures ??   
+Network security measures are tools and technologies such as firewalls, and IPS that are added to the network to secure stored and transmitted data, voice and video   
+   
+## Network Architecture Concepts   
+Network architecture refers to a network’s structural and logical layout. It describes how the network devices are connected and the rules that govern data transfer between them.   
+There are many ways to approach network architecture design, which depend on the purpose and size of the network. Wide area networks (WAN), for example, refer to a group of interconnected networks often spanning large distances. Its network architecture will be vastly different from that of a local area network (LAN) of a smaller office branch.   
+   
+## Understanding vulnerabilities in different OSI Layers
+
+:::tip
+
+[Check out OSI Model blog post here to understand more about how OSI works](/blog/osi-model-a-high-level-overview)
+
+:::
+
+   
+### Application Layer   
+“The application layer is the hardest to defend. The vulnerabilities encountered here often rely on complex user input scenarios that are hard to define with an intrusion detection signature. This layer is also the most accessible and the most exposed to the outside world. For the application to function, it must be accessible over Port 80 (HTTP) or Port 443 (HTTPS).” Other possible exploits at the Application Layer include viruses, worms, phishing, key loggers, backdoors, program logic flaws, bugs, and trojan horses.   
+   
+### Presentation Layer   
+The most prevalent attacks to this layer are malformed SSL requests. Knowing that inspecting SSL encryption packets are resoure-intensive, attackers use SSL to tunnel HTTP attacks to target the server   
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+  - See, when SSL requests come to the receiving end, they are going to be encrypted… so we need to decrypt them in order to deal with the contents of the packets - now hackers know that decrypting the SSL requests are resource-intensive, meaning it can take a huge load on the system to complete this process and while this process is happening, they are going to use this SSL as a tunnel to hide their HTTP attacks that they are going to perform on the server   
+  - This way, the HTTP attacks may not be analysed properly, this way attackers pose a threat to the server.
+  </div>
+</details>
+   
+So include in your mitigation plans - offloading the SSL from the origin infrastructure and inspecting the application traffic for signs of attacks or policy violation at an ADP - Application delivery platform. A good ADP will also ensure that your traffic has been re-encrypted and forwarded back to the origin infrastructure    
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+  - When you are planning risk mitigation, include that the incoming application traffic should first go through a ADP which is going to decrypt the malformed SSL requests, this way the workload is reduced on the origin infrastructure…. and then it can inspect the content whether it contains any malware or is violating any policy guidelines or regulations…. so once it is done inspecting the requests, if it is OK then the request is again encrypted and then sent back to the origin infrastructure for further processing   
+  - And yes, the origin infrastructure is again going to decyrpt the request, but this time we know that the request has been validated, still i think there will be a delay in latency   
+</div>
+</details>
+
+
+   
+### Session Layer   
+DDoS-attackers exploit a flaw in a Telnet server running on the switch, rendering Telnet services unavailable.   
+In the regular maintenance portion of your plan be sure to remind operators to check with your hardware
+provider to determine if there's a version update or patch to mitigate the vulnerability.   
+<details className="alert--primary">
+  <summary>
+What is Telnet and SSH ?   
+  </summary>
+  <div>
+  - Telnet is a protocol that is used for remote access of computers   
+  - What does this mean taha ??   
+  - It means that we can have control to another system and access the resources on it using this protocol   
+  - But there are some issues, the data that travels is not encrypted so its not secure, and it also has plain text authentication which is not secure at all over the communication channel - so this is why a better version and more robust protocol exists which is SSH   
+  - SSH is basically telnet but secure - this is my personal opinion, i have no prior experience in this so i dont know much, you can research on your own.
+  </div>
+</details>
+   
+### Transport Layer   
+The data that is being sent across the network to the destination host, attackers may try to infiltrate that data and try to tamper the content of the data or do something malicious to that data   
+So my point is - even if the application data that is sent from the source host - even if it is encrypted, there is some level of risk that is posed during the transmission of the data across the network   
+So in the network world, many businesses use protocols like TLS or SSL (older version of TLS, now SSL is used instead) - to secure the communication between the web server and the web browser even if the data that is being sent over is sensitive or not   
+TLS is a cryptographic protocol that provides end to end communication security over networks and is widely used for internet communications and transactions   
+   
+### Network Layer   
+Most of the common network layer threats are related to routers. These threats include spoofing, information gathering, sniffing and DDos attacks in which multiple hosts bombard a target router with requests to the point where it gets overloaded and cannot accept genuine requests   
+   
+The best protetion for this layer can be consistently observing best practices for routers, switches and firewalls. Making sure that the router OS is up to date and all security pacthes, packet filtering is enabled and keep logging enabled in order to analyze if some unusual activity occurs.   
+   
+### Data Link Layer   
+The data link layer provides reliable transmission of data across physical link. The data link layer is concerned with physical, and not with the logical addressing, network access, secure communication etc… so frame level exploits and vulnerabilities can be spoofing, sniffing, lack of VLANS etc   
+   
+### Physical Layer   
+The theats at this layer involves interruption of electrical signals that travel between network nodes including physical cutting of cables, natural disasters that might cause short circuits etc   
+   
+## Network Security Concepts   
+   
+### Firewall   
+A firewall is a software or hardware device that inspets the incoming and outgoing traffic.   
+Based on predetermined rules and policies, or an access control List (ACL), the firewall filters and restricts those traffic that do not abide by those rules. The main purpose of firewall is to separate trusted networks from the external network or the internet   
+From this we can say that firewall is one of the security measures we can take for network security.   
+   
+#### Firewall Policy   
+When deploying a firewall, certain rules and policies need to be configured in the firewall, as they become the basis on which traffic is filtered. Policies and rules allow of certain type of network traffic to be blocked or allowed   
+![firewall-1.png](files\firewall-1.png)    
+   
+### IDS - Intrusion Detection System   
+IDS is a system that monitors network traffic for any suspicious activity and issues alerts when such activity is detected. It is a software application that scans traffic within the network and reports any unsual activity. Any malicious or suspicious activity is detected by the IDS, is usually reported to the administrator or collected centrally in a security information and event management system (SIEM). A SIEM System integrates outputs from various sources and uses alarm filtering to differentiate malicious activity from false alarams   
+
+<details className="alert--primary">
+  <summary>
+    Difference between IDS and firewall   
+  </summary>
+  <div>
+  - you might think - taha, firewall and IDS both of them monitor the traffic - what logic is this   
+  - See, imagine firewall as a body guard that stands outside of your private network gate - so it checks the traffic that is going outside and coming inside - and this body guard, or security guard, has some rules like - only those are allowed with a ID card, so it allows those that have ID card and the ones who don't, he restricts them   
+  - Now what about IDS   
+  - Imagine IDS as CCTV camera - now entirely but just as an example   
+  - See, IDS monitors a network - i said a network, which means your own private network or any network (singular hai). So it monitors a network traffic for any malicious activity or unusual activity and once such activity is detected - IDS is not going to throw that traffic out. It is going to report it to the administrator or collection it in a SIEM system   
+  - What does this mean ??   
+  - Just like how CCTV is going to monitor if any bad thing has happened, and if it did then the one who has access to CCTV is going to report either to the principal or write in a book which can be then further discussed.    
+  - So a good SIEM system is going to use alarm filtering on the activities it has collected to see whether the activities that IDS says are malicious are false or actually harmful   
+
+  </div>
+</details>
+
+   
+IDS are classified into 5 types   
+   
+#### 1. Network IDS -    
+Network IDS are set up at a planned point within the network to monitor the traffic coming from all the devices within the network   
+
+<details className="alert--primary">
+  <summary>
+analogy
+  </summary>
+  <div>
+  - Imagine this as a device that is placed in a network that is going to detect any abnormal behaviour within the network by monitoring and interpreting the traffic within the network
+  </div>
+</details>
+   
+   
+#### 2. Host IDS -   
+Host IDS run on independent hosts or devices on the network. A HIDS monitors the incoming and outgoing traffic packets from the device only and will alert the administrator if suspicious activity is detected   
+   
+#### 3. Protocol-based IDS -    
+PIDS is a application or agent or system that would consistently reside in the front end of the server and monitor and interpret the communication protocols that is being used between client and the specific server   
+<details className="alert--primary">
+  <summary>
+analogy
+  </summary>
+  <div>
+  - Imagine it this way - In your private network, you have a server and a client, PIDS is like a software that is placed on the end point of a server - meaning, inside the server - it is placed where the client requests are catched, according to my experience, communication point in the server are Controllers, basically a API…. so they are placed there- now what PIDS does is, it is going to monitor and interpret the communication protocol, meaning that it is going to look at the protocols that is used by the client, normally if client are using HTTP, then PIDS looks at the behaviour and other factors of the protocol, ensuring that it is not emitting any unusual behavior or activity   
+  </div>
+</details>
+   
+#### 4. Application Protocol-based IDS -    
+APIDS is a sytem or agent that generally resides within the a cluster or a group of servers. It observs the network traffic, interpret the communication protocols and identify any abnormal or potential security threats within those protocols.    
+<details className="alert--primary">
+  <summary>
+analogy
+  </summary>
+  <div>
+  - In my opinion, APIDS is like PIDS but for a group of servers   
+  - Both are software based applications or agents…. PIDS resides on a single server where as APIDS resides on a group of servers - both serving the purpose to monitor the network traffic and interpret the communication protocols the traffic is using and identifying any abnormal activity   
+  </div>
+</details>
+   
+#### 5. Hybrid IDS   
+Hybrid IDS is made by the combination of two or more approaches of the IDS   
+   
+### IPS -    
+An IPS is a network security tool which can be hardware device or software, that continously monitors a network for malicious activity and takes action to prevent it, including reporting, blocking or dropping it when it does occur   
+it is more advanced than IDS which simply detects malicious activity, but cannot take action against it beyond alerting an administrator.    
+IPS must be powerful enough to scan a high volume of traffic without slowing down the network performance   
+   
+There are types of IPS, each with different purpose   
+   
+#### 1. Network IPS   
+This type of IPS is installed only at strategic points to monitor all network traffic and proactively scan for threats   
+   
+#### 2. Host IPS   
+This type of IPS is installed on an endpoint (such as a PC) and observes the inbound and outbound traffic from that machine only. It works best in combination with NIPS, as it serves as a last line of defense for threats that have made it past the NIPS   
+   
+#### 3. Network Behavior Analysis   
+This analyzes network traffic for unusual traffic flows, such as DDos attacks   
+   
+#### 4. Wireless IPS   
+This type of IPS simply scans a Wi-Fi network for unauthorized access and kicks unauthorized devices off the network.   
+   
+### VPN - Virtual Private Network   
+VPN is a technology that establishes a secure and encrypted connection between your device and the internet through an intermediary server.    
+How VPN works is quite interesting - You send a request to a web service, the VPN application on your device encrypts this request, enabling secure communication over the communication channel….. and this request is then fetched by the VPN server that the user selected to use as a VPN server - there are many servers that a VPN service provides, so once it gets the request, it decrypts it - this way, we have a secure VPN tunnel where traffic is secure and encrypted. So then the request appears to originate from the VPN server itself, since your original IP is hidden   
+then the destination service responds back to the VPN server, the VPN server ecnrypts the response and then sends back to our IP address, our device's VPN application decrypts the response and content is displayed on our screens   
+   
+Types of VPN   
+   
+#### Site to Site VPN   
+A site-to-site VPN, also known as a router-to-router VPN establishes a secure and encrypted connection between two or more separate networks or sites that are geographically distant from each other.   
+This type of VPN allows to have secure connect two geographical distributed sites   
+   
+#### Remote Access VPN   
+A remote access VPN is designed to link remote users securely to a corporate network. For instance when the COVID-19 pandemic emerged in 2020, many organizations transitioned to a remote workforce, and set up secure remote access VPNs from the remote clients to connect to critical business operations at the corporate site.   
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+  - I did say that we can use SSH for having secure remote access to systems - but these protocols are limited to a single device   
+  - We can use remote access VPN to connect to a different network or a set of resources, in our case we said that we can link remote users to a corporate netwoks - this means users can connect to a different network remotely using this type of VPN   
+  - I repeat, SSH can be used to have secure remote access to a single device or server   
+  - But in order to "connect" to a different private network lets say, we can use VPN in order to have a secure and encrypted connection as a end device in the network.
+  </div>
+</details>
+
+   
+#### VPN as a service   
+VPN as a Service or a cloud VPN is a VPN hosted in cloud-based infrastructure where
+packets from the client enter the Internet from that cloud infrastructure instead of the client’s local address.   
+   
+## Protocols : IPSec, SSL, TLS (versions and vulnerabilities)   
+   
+### IPSec - IP Security   
+IPSec is a set of protocols that ensures secure communication between two end points over IP network, like the Internet…. that provides data integrity, authentication and confidentiality. It also defines security key exchange and key management protocols in it   
+The IP security (IPSec) is an Internet Engineering Task Force (IETF) standard suite of protocols between 2 communication points across the IP network that provide data authentication, integrity, and confidentiality. It also defines the encrypted,decrypted and authenticated packets. The protocols needed for secure key exchange and key management are defined in it.   
+Uses of IP Security =    
+- To encrypt application layer data   
+- To provide security for routers sending routing data across the public internet.   
+- To provide authentication without encryption, like to authenticate that the data originates from a known sender.   
+- To protect network data by setting up circuits using IPsec tunneling in which all data is being sent between the two endpoints is encrypted, as with a Virtual Private Network(VPN) connection.   
+ 
+#### How to find ipsec version   
+To view status information about active IPsec tunnels, use the show ipsec tunnel command. This command prints status output for all IPsec tunnels, and it also supports printing tunnel information individually by providing the tunnel ID.   
+   
+### SSL - Secure Socket Layer   
+SSL provides security to the data that is transferred between web browser and server.    
+SSL encrypts the data usually at the transport layer and then sends the encrypted data across the network to the server, where this data is decrypted, this way the security of data during tranmission is guaranteed   
+SSL makes sure all data passed between client and server remains private   
+SSL 1 - Never released due to high insecurity.
+SSL 2 - Released in 1995.
+SSL 3 - Released in 1996.
+TLS 1.0 - Released in 1999.
+TLS 1.1 - Released in 2006.
+TLS 1.2 - Released in 2008.
+TLS 1.3 - Released in 2018
+Vulnerability: Heartbleed bug is a vulnerability in the OpenSSL, a popular open source cryptographic library that helps in the implementation of SSL and TLS protocols. This bug allows attackers to steal private keys attached to SSL certificates, usernames, passwords and other sensitive data without leaving a trace.   
+
+<details className="alert--primary">
+  <summary>
+How did this work ??   
+  </summary>
+  <div>
+  - OpenSSL had a heartbeat extension that was used to verify the connectivity   
+  - So what attackers did was, craft a heartbeat request and send it to the server, tricking the server into returning data more than it should return - resulting in sending confidential data that leads to adverse effects on the communication and the overall system   
+  </div>
+</details>
+   
+### TLS - Transport Layer Protocol   
+Transport layer securities TLS are designed to provide security at the transport layer   
+TLS is an improved version of SSL. TLS ensures that no third party may eavesdrop or tampers with any message   
+There are several benefits of TLS:   
+- Encryption   
+- Interoperability   
+- Algorithm flexibility   
+- Ease of Deployment   
+- Ease of Use   
+   
+   
+Version: TLS was proposed by the Internet Engineering Task Force (IETF), an international standards organization, and the first version of the protocol was published in 1999. The most recent version is TLS 1.3, which was published in 2018.   
+   
+Vulnerability - CRIME (Compression Ratio Info-leak made easy) exploits a vulnerability in TLS data compression.The attacker may use it to hijack a session. This vulnerability was present in older versions of
+most browsers and web servers so you can be safe by making sure you use the latest versions.   
+   
+## Web Security Concepts : HTTP, HTML, Frames, browser design   
+   
+### Frames   
+First read what the actual notes say -    
+Web sites contain content from sources of varying trustworthiness. For example, many web sites contain third-party advertising supplied by advertisement networks or their sub-syndicates. Other common aggregations of third-party content include Flickr albums, Facebook badges, and personalized home pages offered by the three major web portals. More advanced uses of third-party components include Yelp's use of Google Maps to display restaurant locations and the Windows Live Contacts gadget .    
+A web site combining content from multiple sources is called a mashup, with the party combining the content called the integrator and integrated content called a gadget.   
+In simple mashups, the integrator does not intend to communicate with the gadgets and requires only that the browser isolate frames. In more complex mashups, the integrator does intend to communicate with the gadgets and requires secure inter-frame communication.   
+
+<details className="alert--primary">
+  <summary>
+What does this mean taha ??   
+  </summary>
+  <div>
+  - This section solely focuses on the concept of frames and mashups   
+  - I will try to explain this in extremely simple manner from my experience   
+  - Websites are usually created by using databases and servers and client applications and it is not something that can be done by having some basic knowledge, it requires a lot of effort and logical thinking, a good secure application is very complex   
+  - Now that i have told you the truth, there are few websites as well which use the content or the data from other sources and just create the UI that fetches the data from other sources and displays them   
+  - Such websites that contain information from various third party sources are called mashups where the integrator is the website and the gadget are the components that contain the data. You might see the weather app on your phone, it shows the weather data…. in reality, it is using an api to fetch the weather information from some other source that only deals with getting the weather information from satellites or whatever, so such apps just take the data and show them or do something more interactive with them   
+  - Now where do frames come in ??   
+  - Some simple mashups has integrators that does not wish to communicate with the gadgets and displasy the gadgets in their isolated frames. But in more complex mashups, gadgets might need to have inter frame communication, which leads to concerns about secure communication among the gadgets making sure that their interactions are protected   
+  </div>
+</details>
+   
+   
+## Attacks and vulnerabilities: Injection attacks :
+SQL, HTTP header, OS command   
+   
+- SQL Injection Attacks   
+- HTTP Header Attacks   
+- OS command Attacks   
+   
+   
+### SQL Injection   
+Structured Query Language (SQL\*) Injection is a code injection technique used to modify or retrieve data from SQL databases.    
+- By inserting specialized SQL statements into an entry field, an attacker is able to execute commands that allow for the retrieval of data from the database, the destruction of sensitive data, or other manipulative behaviors.   
+- With the proper SQL command execution, the unauthorized user is able to spoof the identity of a more privileged user, make themselves or others database administrators, tamper with existing data, modify transactions and balances, and retrieve and/or destroy all server data.   
+- In modern computing, SQL injection typically occurs over the Internet by sending malicious SQL queries to an API endpoint provided by a website or service. In its most severe form, SQL injection can allow an attacker to gain root access to a machine, giving them complete control.   
+- Note :SQL is a programming language used to maintain most databases.   
+   
+   
+How does a SQL injection attack work ?    
+Imagine a courtroom in which a man named Bob is on trial, and is about to appear before a judge. When filling out paperwork before the trial, Bob writes his name as “Bob is free to go”. When the judge reaches his case and reads aloud “Now calling Bob is free to go”, the bailiff lets Bob go because the judge said so.While there are slightly different varieties of SQLi, the core vulnerability is essentially the same: a SQL query field that is supposed to be reserved for a particular type of data, such as a number is instead passed unexpected information, such as a command. The command, when run, escapes beyond the intended confines, allowing for potentially nefarious behavior. A query field is commonly populated from data entered into a form on a webpage.   
+   
+### HTTP Header attack   
+What is HTML Injection   
+HTML Injection also known as Cross Site Scripting. It is a security vulnerability that allows an attacker to inject HTML code into web pages that are viewed by other users.   
+Attackers often inject malicious JavaScript, VBScript, ActiveX, and/or HTML into vulnerable applications to deceive the user in order to gather data from them. Cross-site scripting (XSS) vulnerabilities can be used by attackers to bypass authentication controls there by gaining access to sensitive data on your system. Well crafted malicious code can even help the attacker gain access to the entire system.   
+   
+Example Of Html Injection   
+- First the attacker finds out a site which is vulnerable to HTML injection   
+- Then the attacker sends the URL with malicious code injected in the URL to the victim user either through
+email or some other mechanism.   
+- If the victim user click this malicious URL, it will run the JavaScript or VBScript code with the privileges of the victim user.   
+- Depending on the code being executed it can give out sensitive information of the user or even compromise the victim’s computer.   
+   
+Avoiding Html Injections?   
+Web programming best practices should include: Validation of user input by checking for length, type, format and data range. Encode any user input that will be output by the application.   
+   
+### OS Command Attack   
+Command injection is a cyber attack that involves executing arbitrary commands on a host operating system (OS).    
+Typically, the threat actor injects the commands by exploiting an application vulnerability, such as insufficient input validation.   
+How command injection works - arbitrary commands   
+   
+For example, a threat actor can use insecure transmissions of user data, such as cookies and forms, to inject a command into the system shell on a web server. The attacker can then leverage the privileges of the vulnerable application to compromise the server.   
+Command injection takes various forms, including direct execution of shell commands, injecting malicious files into a server’s runtime environment, and exploiting vulnerabilities in configuration files.   
+   
+## Wireless Security   
+   
+### Introduction to Security issues in cellular networks, Wi-Fi , LAN systems ,RFID systems.   
+ 
+#### Wireless Security   
+Wireless security is the prevention of unauthorized access or damage to computers or data using wireless networks, which include Wi-Fi networks. The term may also refer to the protection of the wireless network itself from adversaries seeking to damage the CIA of the network   
+   
+There are two security standards to protect the wireless networks :   
+- WPA - Wifi protected access   
+- WPA2 - Wifi protected access 2   
+   
+   
+#### Wireless security Basics   
+- One of the most important basic fundamentals that a person or company needs to be aware of when
+deploying a wireless network is the importance of frequencies. Frequencies are used by equipment that is
+being deployed, and it affects the amount of interference that the network will be subject to, depending on
+the specific environment.   
+- As has been the case for years, there are two main frequency bands that are used for wireless LANs:    
+    2.4 GHz and 5 GHz bands. From a security perspective, the choice of frequency does not greatly
+affect the security risk of the network. What it does affect is the number of available non-overlapping
+channels that are available on the network.   
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+  - See, frequencies is something that is very important in wireless networks, and it is used by the devices in such network, so we have two main frequency ranges or bands which are used for wireless LANS, they are -    
+  - 2.4 GHz and 5 GHz. so the range of frequency won't affect the security of the network   
+  - What it does affect is the number of available non-overlapping channels that are available on the network   
+  - This simply means that, the frequency range is going to affect the number of available channels that are used…. so lesser frequency has less channels and for higher frequency, more channels…. and if more channels then there is less percentage of a interference occuring, but if more devices are there then it is a different story.
+  </div>
+</details>
+
+   
+- For most part, the frequency band does not affect the security. That is except when an attacker is attempting to jam or block a specific frequency to force wireless endpoints to switch Access points (AP)   
+
+<details className="alert--primary">
+  <summary>
+WHATTTT DO YOU MEAN TAHAAA ??
+  </summary>
+  <div>
+  - See, when a network has a frequency band, each specific frequency in that range is a channel, so devices use channels in order to form the wireless network   
+  - So the thing is, when a device connects to a Access point (basically a wireless router), the device connects through a specific frequency, so an attacker may try to jam this frequency, in order to break your connection, and it does break this way, when it does then the device tries to reconnect to the AP, here the attacker sets up a similar rogue AP which your device might connect to - then this way, all your network information goes through the attacker.
+  </div>
+</details>
+   
+- Another fundamental you need to understand is that endpoint devices identify wireless networks using a SSID (service set identifier) along with a set of security parameters. On most wireless deployments, the SSID is broadcast from the Access Points, allowing clients the ability to easily associate   
+- It is possible not to broadcast the SSID, which provides a little protection from wireless networks attackers who have little Operating knowledge   
+    However, it is not that effective   
+- The real security for a wireless network comes from the selection of approven security technique   
+    Right now, WPA3 is the latetst   
+       
+   
+#### Cellular network   
+A cellular network is a radio network distributed over land through cells where each cell includes a fixed
+location transceiver known as base station. These cells together provide radio coverage over larger
+geographical areas. User equipment (UE), such as mobile phones, is therefore able to communicate even if the
+equipment is moving through cells during transmission.   
+   
+Cellular networks give subscribers advanced features over alternative solutions, including increased
+capacity, small battery power usage, a larger geographical coverage area and reduced interference from
+other signals.   
+`Just read this if you want, i am going to skipp it 😼` 
+   
+### WIFI   
+Wifi is a wireless technology used to connect computers, phones, and other devices that are wifi enabled to the internet   
+Wi-fi signals are the radio signals sent from a wireless router to a nearby device, which translates into data you can see and use. The device trasmits a signal back to the router which connects to the internet by cable or wire   
+   
+#### What is a wifi network   
+A Wi-Fi network refers to a wireless network that uses Wi-Fi technology to enable devices to connect and communicate without the need for physical cables. It's a network created using Wi-Fi routers or access points that emit radio signals, allowing devices within range to connect and access resources like the internet, printers, shared files, and other devices on the network. The router is connected directly to your internet modem and acts as a hub to broadcast the internet signal to all your Wi-Fi enabled devices. This gives you flexibility to stay connected to the internet as long as you're within your network coverage area.   
+   
+#### How does wifi work ??   
+Wi-Fi uses radio waves to transmit data from your wireless router to your Wi-Fi enabled devices like your
+TV, smartphone, tablet and computer. Because they communicate with each other over airwaves, your
+devices and personal information can become vulnerable to hackers, cyber-attacks and other threats. This is
+especially true when you connect to a public Wi-Fi network at places like a coffee shop or airport. When
+possible, it's best to connect to a wireless network that is password-protected or a personal hotspot.   
+   
+#### Wireless Router   
+Most homes use a wireless router to access the internet these days. The pros include convenience of setup,
+mobility within range of the Wi-Fi access point (router) and the ability to connect multiple devices. The cons: limited bandwidth and reduced speed as more devices are connected to the same Wi-Fi network, as well as potential interference from other electromagnetic devices in the home.   
+   
+### LAN   
+A local area network (LAN) consists of a series of computers linked together to form a network in a circumscribed location. The computers in a LAN connect to each other via TCP/IP ethernet or Wi-Fi.   
+   
+#### What does 'LAN' stand for?   
+LAN stands for local area network. A network is a group of two or more connected computers, and a LAN is
+a network contained within a small geographic area, usually within the same building. Home WiFi networks
+and small business networks are common examples of LANs. LANs can also be fairly large, although if they
+take up multiple buildings, it is usually more accurate to classify them as wide area networks (WAN) or
+metropolitan area networks (MAN).
+   
+   
+#### How do LANs work?   
+Most LANs connect to the Internet at a central point: a router. Home LANs often use a single router, while LANs in larger spaces may additionally use network switches for more efficient packet delivery.   
+LANs almost always use Ethernet, WiFi, or both in order to connect devices within the network. Ethernet
+is a protocol for physical network connections that requires the use of Ethernet cables. WiFi is a protocol
+for connecting to a network via radio waves.   
+A variety of devices can connect to LANs, including servers, desktop computers, laptops, printers, IoT
+devices, and even game consoles. In offices, LANs are often used to provide shared access to internal
+employees to connected printers or servers.   
+   
+#### What equipment is needed to set up a LAN?   
+The simplest Internet-connected LANs require only a router and a way for computing devices to connect
+to the router, such as via Ethernet cables or a WiFi hotspot. LANs without an Internet connection need a
+switch for exchanging data.   
+Not all LANs connect to the Internet. In fact, LANs predate the Internet: the first LANs were used in
+businesses in the late 1970s. (These old LANs used network protocols that are no longer in use today.) The
+only requirement for setting up a LAN is that the connected devices are able to exchange data. This usually
+requires a piece of networking equipment for packet switching, such as a network switch.    
+   
+#### What is a virtual LAN ??   
+Virtual LANs, or VLANs, are a way of splitting up traffic on the same physical network into two
+networks. Imagine setting up two separate LANs, each with their own router and Internet connection, in
+the same room. VLANs are like that, but they are divided virtually using software instead of physically
+using hardware — only one router with one Internet connection is necessary.   
+VLANs help with network management, especially with very large LANs. By subdividing the network,
+administrators can manage the network much more easily. (VLANs are very different from subnets, which
+are another way of subdividing networks for greater efficiency.)   
+   
+#### What is the difference between a LAN and a WAN ??   
+A WAN, or wide area network, is a collection of connected LANs. It is a widespread network of local networks. A WAN can be any size, even thousands of miles wide… it is not restricted to a given area.   
+   
+#### How do LANs relate to the rest of the Internet?   
+The Internet is a network of networks. LANs usually connect to a much larger network, an Autonomous System (AS). These are very large networks with their own routing policies and with control over certain IP addresses. An ISP is one example of AS.   
+Picture a LAN as a small network, that connects to a much larger network, that connects to other very large networks, all of which contain LANs. This is the internet, and two computers connected to two different LANS thousands of miles apart can talk to each other by sending data over these connections between networks   
+   
+### RFID   
+`i am skipping this because i am not good at explaining this, and it contains a lot of theory stuff to remember as well. You can learn more about this if you want -`
+[RFID - Wikipedia](https://www.wikiwand.com/en/Radio-frequency_identification)
+   
+## DOS attacks, countermeasures   
+   
+### What is Denial of Service Attack ??   
+A Denial-of-Service (DoS) attack is an attack meant to shut down a machine or network, making it
+inaccessible to its intended users.   
+DoS attacks accomplish this by flooding the target with traffic, or sending it information that triggers a crash. In both instances, the DoS attack deprives legitimate users (i.e. employees, members, or account holders) of the service or resource they expected.
+   
+DoS attacks often target web servers of high-profile organizations such as banking, commerce,
+and media companies, or government and trade organizations. Though DoS attacks do not typically result in
+the theft or loss of significant information or other assets, they can cost the victim a great deal of time and
+money to handle.
+
+<details className="alert--primary">
+  <summary>
+In a nutshell
+  </summary>
+  <div>
+  - Dos attacks are simply a cyber attack which is meant to shut down a server or network of the target, making it inaccessible to its intended users   
+  - So, imagine there is a company that has a network which has servers, so this server serves the resources of the company to its users…. so an attacker can use a Dos attack to shut down this server so that the services are not accessible to the intended audience.
+  </div>
+</details>
+
+   
+### Types of Denial of service attacks   
+   
+#### Application Layer Flood   
+In this attack type, an attacker simply floods the service with requests from a spoofed IP address in an attempt
+to slow or crash the service. This could take the form of millions of requests per second or a
+few thousand requests to a particularly resource-intensive service that eat up resources until the service is
+unable to continue processing the requests.
+   
+Preventing application-layer DoS attacks can be tricky. The best way to help mitigate these types of attacks is
+to outsource pattern detection and IP filtering to a third party   
+
+<details className="alert--primary">
+  <summary>
+Let me explain   
+  </summary>
+  <div>
+  - this type of Dos attack targets a service with the intention of crashing or bringing the services down, and it does so by flooding it with requests from a spoofed IP address….. By spoofed i mean, the IP address in the requests packets is not of the attacker, either it is a false one or it is one of the legitimate IP address of someone else's device. So this way, the target won't know where the requests are coming from. So the attackers sends millions of requests to the service, where the service is resource-intensive, the requests eat up the resources until the service is unable to process any more requests and this way, the service finally crashes   
+  - In order to prevent such attacks, the target can perform pattern detection and IP filtering, this is basically a mechanism which can be used to validate the incoming requests and check for some kind of unusual patterns in the requests and then deal with them, you guessed it - IPS does this work.
+  </div>
+</details>
+   
+#### Distributed Denial of service attack (DDos)   
+Distributed Denial of Service (DDoS) attacks occur in much the same way as DoS attacks except that requests are sent from many clients as opposed to just one. DDoS attacks often involve many "zombie" machines (machines that have been previously compromised and are being controlled by attackers). These "zombie" machines then send massive amounts of requests to a service to disable it. DDoS attacks are famously hard to mitigate, which is why outsourcing network filtering to a third party is the recommended approach.   
+   
+#### Unintended Denial of service attack   
+All Dos attacks does not intentially intend to crash the services. This type of attack is the "unintended" Dos attack. An example of an unintended Dos attack is called "The Slashdot effect"   
+Slashdot is an internet news site where anyone can post news stories and link to other sites. If a linked story becomes popular, it can cause millions of users to visit the site overloading the site with requests. If the site isn't built to handle that kind of load, the increased traffic can slow or even crash the linked site.   
+The only way to prevent these types of unintended DoS attacks is to architect your application for scale. Use
+patterns like edge-caching with CDNs, HTTP caching headers, auto-scaling groups and other methods to ensure that even when you receive a large amount of burst-traffic, your site will not go down.   
+
+<details className="alert--primary">
+  <summary>
+Example   
+  </summary>
+  <div>
+  - Imagine the exam result day when the result site goes down, it is kind of unintended Dos attack where many students visit the result site and the site crashes because of the overwhelming load and unable to process the requests all at once   
+  </div>
+</details>
+   
+Another type of unintentional DoS attack can occur when servicing low bandwidth areas. For instance,
+streaming content internationally means that people in certain areas of the world with slow or bad internet
+connections might cause problems. When your service attempts to send information to these low
+areas, packets drop. In an attempt to get the information to the destination, your service will attempt to
+resend all dropped packets. If the connection drops the packets again, your service may make another attempt. This cycle can cause your service's load to double or triple, causing your service to be slow or
+unreachable for everyone.   
+   
+If you want to learn about counter measures for Dos attacks, you can read this -    
+[Wikiwand - Denial-of-service attack](https://www.wikiwand.com/en/Denial-of-service_attack#Defense_techniques)    
+   

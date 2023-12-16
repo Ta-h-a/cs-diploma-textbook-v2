@@ -1,0 +1,128 @@
+---
+slug: osi-model-a-high-level-overview
+authors: [taha]
+tags: [cybersecurity, networking]
+toc_max_heading_level: 3
+hide_table_of_contents: false
+---
+
+# OSI Model - A High Level Overview
+
+OSI stands for Open system interconnection which was introduced by ISO in 1976 i think so. This is a conceptual model that contains several layers that has protocols and things being used. The main part of such like OSI or TCP/IP is to streamline the process and explain how data is transmitted between two devices.... Khalas, that is what this model is. An abstract model that describes how data is going and for this each layer has rules that govern how data is sent and in what format   
+
+{/* truncate */}
+
+There are 7 layers in OSI -   
+The first 4 are working in the software only and the other three uses software as well as hardware.   
+   
+Let's look at each layer from top to bottom - we are going to see this from receiver's side - imagine data coming back from a friend to your device in your network   
+Note that each layer has some rules that define how data is going to be formatted/sent and these rules are implemented using some interfaces like hardware or software etc   
+
+<details className="alert--primary">
+  <summary>
+What is a PDU ??   
+  </summary>
+  <div>
+    - PDU stands for protocol data unit and this is a data unit that is specific to each layer of OSI   
+    - So for different layers, the data comes in, the protocol for that layers does its work and changes the data into its layer's PDU    
+    - So for physical it is bits, for data it is frames and so on.
+  </div>
+</details>
+
+
+## Layers of OSI      
+   
+### Physical Layer   
+This is the layer where hardware medium sends and receives data in the form of bits, so bits of data are trasmitted and received, this layer contains the actual physical means through which data transfer occurs   
+The lowerst layer of OSI Model   
+The main functionality of physical layer is to trasmit the individual bits from one node to another (i am referring node as a node in a network).   
+I said individual - which means one by one the bits are going to go from sender to receiver    
+This layer establishes, maintains and deactivates the physical connection   
+Also determines the type of signal used for transmitting information   
+See, user can send any type of data and there are few protocols depending on the data that is being transmitted to the receiving end - so protocols will be used as per the data    
+   
+### Data Link Layer   
+This layer is mainly responsible for error-free transfer of data frames   
+Well, how does it do it ??   
+See, when the PDU (protocol data unit) from network layer comes in, it is in packets - so first off, this layer is going to add control information to those PDU such as source and destination MAC addresses, and error checking information like CRC. so this error checking information is calculated based on the data in a frame, so that when the receiver gets this frame, it is checked whether the frame was altered or corrupted during transmission   
+So in short, PDU comes from network layer in the form of packets, this is then encapsulated into frames by adding control information such as sender source and destination MAC addresses, and error checking information like CRC, this CRC is going to be calculated based on the data in a frame and then the calculated information is appended to the frame.   
+This reminds me of digital signatures where we sign something and then the receiver hashes the content and then uses the public key to get the hash and the compare both to check whether the document has been altered   
+Basically this mechanism of error checking is mainly to check whether the data has not been altered - if it did a ACK is sent back requesting to send back the frame that is corrupted    
+This way, data link layers does such operations using various entities like NIC, hubs and all of those thing in order to - deliver the frames in a complete form from one node to another   
+   
+### Network Layer   
+This is interesting    
+This layer is responsible for device addressing, tracks the location of the devices on the network   
+What does this mean ??   
+   
+#### Addressing   
+This layer receives the PDU in the form of segments - so we add IP addresses of the source and destination devices in the packets so this enables us to find the devices on the network and figure out which device has sent the packets   
+So this processes is called addressing, adding IP address to segments that turn to packets    
+   
+#### Routing   
+It uses various routing protocols which are among the network layer protocols that determine the best path for the packets to take from source to destination   
+The routers are not only the physical devices on the network, we have softwares as well as hardwares   
+   
+So the point is - network layer determines the best shortest path for the packets to take, which router should the packets hop to next and so on - this is based on the destination IP address   
+   
+### Trasport Layer -    
+This layer carries out the functionality of ensuring complete transfer of data   
+It ensures that the data is transmitted in the order they are received    
+The transport layer takes services from the Application layer and provides services to the Network layer.   
+**At the sender's side:** The transport layer receives data (message) from the Application layer and then performs Segmentation, divides the actual message into segments, adds the source and destination’s port numbers into the header of the segment, and transfers the message to the Network layer.   
+**At the receiver's side:** The transport layer receives data from the Network layer, reassembles the segmented data, reads its header, identifies the port number, and forwards the message to the appropriate port in the Application laye   
+   
+So at this layer, data is separated into segments - so the segments are the divided units of a entire data unit that comes from the upper layer when sending data    
+Each segment contains the port number of sender and receiver host machines in the header   
+
+<details className="alert--primary">
+  <summary>
+Why ports ??   
+  </summary>
+  <div>
+    Application and processes running in a system like servers, run on a specific port…. so when data or request goes from the system to the network, before sending that data - we are atatching the port number of the sender as well as the receiver in order to know which application on the receiver's machine should this data go to - so that app would be running on a port as well so when the data is being received, it goes to the necessary application as it knows which port is the app running on.
+  </div>
+</details>
+
+   
+As Data link layer requires MAC address of source destinations hosts in order to properly deliver a frame and as network layer requires IP address for appropriate routing of packets - in a similar way, transport layer requires a Port number to correctly deliver the segments of data to the correct process among the many processing running on the host machine   
+   
+So as i have said that each layer uses some protocols for managing the data in their domain, here in transport layer, TCP and UDP is used
+
+#### TCP - Tranmission control protocol   
+
+this protocol divides the data into smaller segments and each segment is given a sequence number - this sequence number determines the order of segments which make up the entire data - at the receving end, the segments come together as per the sequence number of the segments, this is because when the segments are received at the destination, they are unordered and so this is why sequence number is essential   
+
+#### UDP - User datagram protocol
+
+This can also be used in transport layer - but this layer does not send any ACK back when the data is received - this is why it is fast but unreliable   
+
+We also provide port numbers to each datagram(segment) and i have explained as well ki why we need port number   
+   
+### Session Layer   
+This layer is used to establish, manage and terminate sessions between communicating devices   
+So it is responsible for handling the sessions and as we know, sessions exist for data exchange so until the data is entirely transmitted to the destination host, a session is maintained between the source and destination host - then after completion of data transmission, the session is terminated by this layer itself   
+   
+### Presentation Layer   
+This is my favourite layer   
+This layer is responsible for managing the syntax and semantics of the information that is being exchanged   
+But taha, what happens here  ??
+   
+See, when we are using applications, we use the normal unicode characters like strings and numbers whatever, in order to send the data as per our understanding of our language - so the problem can arise as the encoding of a sender dependent format can be different from receiver dependent format   
+Taha dont confuse me with this stuff   
+I know, i won't   
+see. you might speak english and your friend might speak french   
+So if your computer sends english to your french speaking friend, he won't get anything   
+So what this layer does is, it acts as a translator for a network, by translating the incoming data from applications into a binary format like EBCDIC (it can use any other, idk)… this is like extended binary format - so this is going to be the common format between source and destination machines, so once the data is received at the receiving end, the binary is then decoded into the receiver's dependent format   
+So my point is - data is encoded into some other format, which is then decoded at the receiver's end   
+   
+This layer also encrypts the data, so this data that is in a common format between both the parties, is encrypted and decrypted    
+It also handles data compression - this is very crucial as it reduces the size of the original data into a compressed form which is a lot better for tramission over a network as it speeds up the process.    
+   
+### Application Layer   
+This layer consists of the applications and systems that users use to send data across a network, so it provides a interface for remote access and management as well as transfering of data   
+In application layer, data is in visual form so it is easy for us to read the data rather than read the 0 and 1   
+The data from this layer is sent to the presentation and we know what happens in presentation layer   
+And when the data comes from the presentation, this layer handles the process of displaying and managing the data.   
+So this layer has applications right, so they might use protocols like HTTP, HTTPS which define how data is going to be sent   
+   
