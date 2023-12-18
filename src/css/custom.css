@@ -16,7 +16,7 @@ p{
   
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8b9a;
+  --ifm-color-primary: #0D7377;
   --ifm-color-primary-dark: #2a7d8a;
   --ifm-color-primary-darker: #297c89;
   --ifm-color-primary-darkest: #1e5e68;
@@ -54,7 +54,7 @@ p{
 }
 
 [data-theme="light"] .hero-button-primary{
-  background-color: #2e8b9a;
+  background-color: #0D7377;
   color: white;
 }
 
@@ -67,7 +67,7 @@ p{
 }
 
 [data-theme="light"] .hero-text-secondary{
-  color: #2e8b9a;
+  color: #0D7377;
 }
 
 article.margin-bottom--xl {
