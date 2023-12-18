@@ -1,0 +1,633 @@
+---
+slug: unit-05
+authors: [taha]
+tags: [cybersecurity, security, sdlc]
+hide_table_of_contents: true
+---
+
+import TOCInline from '@theme/TOCInline';
+
+# Chapter 05 - Cyber Security
+
+{/* truncate */}
+
+## Table Of Content
+
+<TOCInline toc={toc} maxHeadingLevel={4} />
+
+## Introduction to Software Application Development   
+   
+### How was it created ??   
+Software development refers to the series of computer science activities which are carried our in order to create, design, test and deploy the software. Software itself is a set of instructions which are given to the system to carry out.    
+There are three basic types of software -    
+- System software 
+    - These softwares provide core functionality to the system such as OS, disk management, utilities, hardware management and other operational necessities   
+- Programming software   
+    - These software are created as tools for programmers to use such as text editors, compilers, debuggers, linters etc in order to create applications or software efficiently   
+- Application software   
+    - To help users perform tasks. These software are created for certain tasks to be carried out where the application can perform operations as instructed by the user.
+    - Applications also refer to web and mobile applications like amazon.com
+   
+### Why is it important ??
+- Software development can greatly improve the financial growth of the company in field of marketing, as clients can access your company's resources from almost anywhere.
+- It improves sales and services. Software provides a way to display and sell your services as the way your customers experience your business is very important   
+- If any new product or service has been launched in your business, using software you can easily promote your products at any place and at any time without additional expenses and extra time needed. Plus this activity of promoting your products is better because it does not matter where your customers are   
+- Customers engagement   
+- Direct communication, as with any other strategy, direct communication cannot be achieved with proper efficieny as this one. Direct communication is very important in marketing business assets   
+   
+   
+## Types of Application Software   
+   
+### Thick Client   
+These applications are installed locally on the users desktop and they are full featured. Thick client applications run independently without internet connection unlike web application which require internet connection all the time   
+   
+### Web Applications   
+A web application is a computer program that utilizes web browsers and web technology to perform tasks over the Internet. The web application requires a web server to manage requests from the client, an application server to perform the tasks requested, and, sometimes, a database to store the information   
+   
+### Web services   
+Web services is basically a software system or application that enables communication and interaction between different devices and software applications over the internet.   
+So web services provide a standarized way for applications to communicate with each other on the internet   
+   
+### RESTful services   
+REpresentational State Transfer (REST) is a software architectural style that developers apply to web APIs. REST APIs provide simple, uniform interfaces because they can be used to make data, content, algorithms, media, and other digital resources available through web URLs. Essentially, REST APIs are the most common APIs used across the web today.   
+   
+### Middleware   
+Middleware is software that provides common services and capabilities to applications outside of what’s offered by the operating system. Data management, application services, messaging, authentication, and API management are all commonly handled by middleware. Middleware helps developers build applications more efficiently. It acts like the connective tissue between applications, data, and users   
+   
+### Mobile Applications   
+A mobile application (also called a mobile app) is a type of application designed to run on a mobile device, which can be a smartphone or tablet computer. Even if apps are usually small software units with limited function, they still manage to provide users with quality services and experience   
+   
+## Software Development Life Cycle   
+Software Development Life Cycle (SDLC) is a process used by the software industry to
+design, develop and test high quality software’s. The SDLC aims to produce a high-quality
+software that meets or exceeds customer expectations, reaches completion within time and
+cost estimated.   
+   
+So there are phases within this life cycle which make up the SDLC   
+   
+### Requirement and Analysis    
+SDLC begins with requirement analysis phase, where the stakeholders discuss the requirements of the software that needs to be developed to achieve the business goal   
+
+<details className="alert--primary">
+  <summary>
+What is a stakeholder ??   
+  </summary>
+  <div>
+    - Anyone who has an interest in the project's outcome or are impacted by the software being developed are stakeholders   
+    - They cna be client, managers, developers etc   
+    - The client provides the high level insight into what needs to be developed - like, he wants a watermellon app showing watermellons   
+    - Now the developers might take that into consideration and analyze the requirements - they translate the high level specifications into technical details and see what are the constraints i.e what things can be developed and what cannot be developed…. imagine the client saying he wants a app that finds him a wife that is ready to marry him… Habibi, even AI can't do that.
+  </div>
+</details>
+   
+### Design   
+During the design phase, the developers and the technical architects start the high-level design of the software and system so that the designs meet the expectations of the client and fulfill the requirements as well   
+   
+### Coding   
+In this phase, developers start programming according to the requirements and design discussed in the previous phases. Database administrators create the necessary database, frontend engineers create the UI based on the design and back end developers create the overall structure of the application's data flow and how the server is going to respond to the requests. They decide which architectural style to use for API etc.   
+   
+### Testing   
+In this phase, the testers start to test the application and system. They have two things to handle -    
+- Find defects or errors within the application that was programmed in the previous phase  against the requirements, so that the application does work as per the requirements   
+- Verify the behavior of the application against the requirements. The question should arise - "Is the application's functionality as per the requirements that was discussed in the requirement analysis phase ?". so they should verify that the application's behavior is as expected according to what was documented in the first phase   
+   
+   
+### Deployment   
+Once the software has been fully tested and no issues remain, it meets the requirements of the client and works efficiently without any bugs. Now it is time to deploy the application to a production environment where the software can be used by users. Once a version of the software has been deployed to the production environment, there is a maintenance team that looks after any post-deployment issues.   
+   
+## Life Cycle Models   
+   
+### Waterfall Model   
+Waterfall model is the simplest model of SDLC or sofware development paradigm. This model states that all the phases of the SDLC function one after the other in a linear fashion. that is - when a phase is finished, then only the second phase will start and so on   
+In this model, each phase assumes that everything is perfectly carried out in the previous phase and nothing is left out.    
+Waterfall model is best suited for development when the developers have already developed a similar software in the past and are well aware of the domains   
+   
+#### Advantages -    
+- It is simple and easy to understand and use   
+- Works well with smaller projects and low budget projects where requirements are very well understood   
+- Easy to work with   
+   
+   
+#### Disadvantages -   
+- Not a good choice for large projects   
+- Difficult to measure progress within stages   
+- No working software is produced until late during the life cycle   
+    What this means is - a complete working software is only ready when all the phases are complete - this is a problem    
+- Cannot make changes in previous phases   
+    Think about it - in this model, once you finish a phase, there is no going back and if you want to change something - you cannot go back   
+   
+   
+### Agile    
+Agile is a time-bound, iterative approach to software delivery that builds software incrementally from the start of the project, instead of trying to deliver all at once. Agile SDLC model is a combination of iterative and incremental process models with focus on process adaptability and customer satisfaction by rapid delivery of working software product. Agile Methods break the product into small incremental builds. These builds are provided in
+iterations. Each iteration typically lasts from about one to three weeks.   
+![image.png](files\image.png)    
+
+<details className="alert--primary">
+  <summary>
+    What is this agile model ??   
+  </summary>
+  <div>
+    - To be honest, i have no idea what this definition means   
+    - Let's break it down   
+    - Agile is a SDLC model that is used to develop software in a efficient and flexible manner. In this model, it breaks the product into small *incremental builds*. What this menas is - it breaks down the product into small chunks on which work is done   
+    - These builds are provided in iterations. Each iteration lasts from one to three weeks, i think we have a heard something called as sprint - thats it   
+    - So we now know that each incremental build is provided in a iteration which has some time bounds - like one to three weeks, these time period where the team has to develop some features or tasks to be completed is what we call Sprint   
+    - Taha, you said that you break down the product into small chunks and the team works on each chunk for a specific time period - what work is done ??   
+    - Well, our famous SDLC phases are carried out in these iterations and the final outcome of a iterative build is then provided to the next build as feedback as to what to improve and also what the next incremental build aims to offer   
+    - This way, each incremental build goes through the development process and a production based shippable software is ready to use at the end of a iteration which can be used to showcase the progress of the overall development to the clients as well.
+  </div>
+</details>
+   
+### Iterative   
+In this model, the requirements are broken down into multiple standalone modules of SD cycle. These modules or segments are called iterations.    
+Each iteration passes through the requirements, design, coding and testing phases. And
+each subsequent release of the system adds function to the previous release until all designed functionality has been implemented   
+- Requirement Analysis: Requirement and specification of the software are collected.   
+- Design: Some high-end function are designed during this stage   
+- Code: Coding of software is done during this stage   
+- Test: Once the system is deployed, it goes through the testing phase   
+
+<details className="alert--primary">
+  <summary>
+    Let's avoid the confusion   
+  </summary>
+  <div>
+    - Iterative model breaks down the project into iterations which are worked on incrementally. So for a primary business objective, we might have some iterations - each iterations has SDLC phases which they go through and the next iteration is build on top of the previous one.   
+    - Agile is a methodology where the project is broken into incremental builds and each build is iterative…. and each iteration has time bound unlike in iterative model. Here each iteration produces a product that can be shipped….
+  </div>
+</details>   
+   
+`you can read the pros and cons if you want to`    
+
+#### Advantages:   
+
+1. The software will be generated quickly during the software life cycle   
+2. It is flexible and less expensive to change requirements and scope   
+3. Throughout the development stages changes can be done   
+4. This model is less costly compared to others   
+5. A customer can respond to each building   
+6. Errors are easy to be identified.
+   
+   
+#### Disadvantages:   
+
+1. It requires a good planning designing   
+2. Problems might cause due to system architecture as such not all requirements
+collected up front for the entire software lifecycle.   
+3. Each iteration phase is rigid and does not overlap each other   
+4. Rectifying a problem in one unit requires correction in all the units and consumes a
+lot of time.
+   
+   
+## SDLC Best practices   
+   
+- **Maintain Data**: Hygiene Software centers around data. Whether it’s your customer’s
+data, training data used to create models, or usage data on your application, you need
+to keep it secure and clean   
+- **Standardize Your Code Review Process**: Code reviews are a fantastic way to adhere
+to coding guidelines, follow the best practices of particular programming languages,
+prevent bugs, and raise the quality of code.   
+- **Manage Code Quality**: Maintaining high quality code is an investment in long-term
+success. High quality code not only increases the chances you meet customer
+expectations, but because it is also easier to build upon, it allows the team to stay
+agile.   
+- **Optimize Developer Workflow**: Software developers are always striving to be more
+productive. DevOps has helped to make the process of developing and deploying code
+much less time-consuming, but there is still a lot room to optimize the developer
+experience.   
+- **Increase Planning Accuracy**: Planning Accuracy is one of the best indicators of the
+value an engineering team to the business. If you can consistently deliver what you
+say you will, other teams can align to you and customers get new products and
+features when they expect them, which leads to better experiences, less churn, and
+more renewals   
+   
+   
+## Introduction to Application Security   
+Application security aims to protect software application code and data against cyber threats. You can and should apply application security during all phases of development, including design, development, and deployment. Here are several ways to promote application security throughout the software development lifecycle (SDLC):   
+- Introduce security standards and tools during design and application development phases   
+- Implement security procedures and system to protect application in production environment   
+- Implement strong authentication for application that contain sensitive data or are mission critical   
+- Use security systems such as firewalls, web application firewalls (WAF), and intrusion prevention system (IPS)   
+   
+   
+### Secure SDLC   
+The software development life cycle (SDLC) framework maps the entire development
+process. It includes all stages planning, design, build, release, maintenance, and updates, as
+well as the replacement and retirement of the application when the need arises.
+The secure SDLC (SSDLC) builds on this process by incorporating security in all stages of
+the lifecycle. Teams often implement an SSDLC when transitioning to DevSecOps. The
+process involves applying security best practices alongside functional aspects of
+development, and securing the development environment.   
+
+<details className="alert--primary">
+  <summary>
+    What does this mean ??
+  </summary>
+  <div>
+    - See, SDLC maps out the entire process of how a software is developed - it defines planning, design, build, testing, release and more. The SSDLC is build on top of SDLC but applying security in all of the phases of the SDLC   
+    - It is that simple   
+    - Just apply security in all the phases of SDLC   
+    - The process of applying security in all stages involves applying security best practices alongside the fundamental aspects of developement and securing the development environment
+  </div>
+</details>
+   
+## Microsoft Secure SDLC Practice and Security controls covered in each stage at a higher level   
+   
+The Security Development Lifecycle (SDL) is a security assurance process that is focused on software development. As a Microsoft-wide initiative and a mandatory policy since 2004, the SDL has played a critical role in embedding security and privacy in software and culture at Microsoft. With the help of the combination of a holistic and practical approach, the SDL aims to reduce the number and severity of vulnerabilities in software. The SDL introduces security and privacy throughout all phases of the development process.   
+   
+### Pratices and security controls covered in each stage -   
+![image.png](files\image_f.png)    
+   
+#### 1. Provide Training   
+Security is everyone's job. Developers, service engineers, and program
+and product managers must understand security basics and know how to build security into
+software and services to make products more secure while still addressing business needs and delivering user value   
+   
+#### 2. Define Security Requirements   
+The need to consider security and privacy is a fundamental aspect of developing highly secure applications and systems and regardless of development methodology being used, security requirements must be continually updated to reflect changes in required functionality and changes to the threat landscape.   
+   
+#### 3. Define Metrics and Compliance:    
+It is essential to define the minimum acceptable levels of security quality and to hold engineering teams accountable to meeting that criteria. Defining these early helps a team understand risks associated with security issues, identify and fix security defects during development, and apply the standards throughout the entire project.   
+   
+#### 4. Perform Threat Modeling   
+Threat modeling should be used in environments where there
+is meaningful security risk. Threat modeling can be applied at the component, application, or
+system level   
+   
+#### 5. Establish Design Requirements   
+The SDL is typically thought of as assurance activities that help engineers implement “secure features”, in that the features are well engineered with respect to security.   
+   
+#### 6. Define and use Crytography Standards   
+With the rise of mobile and cloud computing, it’s critically important to ensure all data, including security-sensitive information and management and control data, is protected from unintended disclosure or alteration when it’s being transmitted or stored.   
+   
+#### 7. Manage the Security Risk of Using Third-Party Components:    
+Today, the vast majority of software projects are built using third-party components (both commercial and open source). When selecting third-party components to use, it’s important to understand the impact that a security vulnerability in them could have to the security of the larger system into which they are integrated.   
+   
+#### 8. Use approved tools   
+Use Approved Tools: Define and publish a list of approved tools and their associated
+security checks, such as compiler/linker options and warnings. Engineers should strive to use the latest version of approved tools, such as compiler versions, and to take advantage of new security analysis functionality and protections   
+   
+#### 9. Perform Static Analysis security Testing (SAST)   
+Analyzing the source code prior to compilation provides a highly scalable method of security code review and helps ensure that secure coding policies are being followed. SAST is typically integrated into the commit pipeline to identify vulnerabilities each time the software is built or packaged   
+   
+#### 10. Perform Dynamic Analysis security Testing (DAST)   
+Performing run-time verification of your fully compiled or packaged software checks functionality that is only apparent when all components are integrated and running   
+   
+#### 11. Perform Penetration testing   
+Penetration testing is a security analysis of a software system performed by skilled security professionals simulating the actions of a hacker.   
+   
+#### 12. Establish a standard Incident Response Process   
+Preparing an Incident Response Plan is crucial for helping to address new threats that can emerge over time. It should be created in coordination with your organization's dedicated Product Security Incident Response Team (PSIRT)   
+   
+### A. Requirements (Determine Application Risk Profile based on Security Requirements, Determine Control Requirements, Establish Quality Gates)
+   
+Every product, service, and feature Microsoft develops starts with clearly defined security
+and privacy requirements; they're the foundation of secure applications and inform their design. Development teams define these requirements based on factors such as the type of data the product will handle, known threats, best practices, regulations and industry requirements, and lessons learned from previous incidents. Once defined, the requirements are clearly defined, documented, and tracked. Software development is a continuous process, meaning that the associated security and privacy requirements change throughout the product's lifecycle to reflect changes in functionality and the threat landscape.   
+`I think this is not necessary to be explained as it is already well defined`   
+   
+The security risk profile needs to ask several questions about the resource to help determine its sensitivity and criticality in comparison to other resources within the organization. How can you take these likely financial and reputation outcomes and map them to different resources? You need to develop questions for the business owners that will help you to rank the various assurance needs of each resource. The most common categories of impact that should be included in a security risk profile are as follows.   
+- Financial   
+- Legal   
+- Reputational   
+- Regulatory   
+   
+<details className="alert--primary">
+  <summary>
+What is this 🤯 ?? 
+  </summary>
+  <div>
+    - Look, a security risk profile is a list of all the potential problems that could occur, how serious they are and what is their impact   
+    - So it is like a list of items that define what threats your assets pose and what would be the impact   
+    - In our application, we have many resources and assets…. so we are going to check for each resource - we are gonna ask questions about the resource to help determine its sensitivity and criticality in comparition to other resources within the organization. what does this mean ??? - Look, you go to a resource and ask questions about the impact it does to the business if a security incident occured on that resource, so you ask questions like what financial losses do we face, does our reputation go down if this resource is compromised ?…. so this way, we know how much impact and sensitivity a resource carries compared to other resources when a attack happens.   
+    - So in order to create a risk profile, we need to specify the risks and their impacts, so they are ranked based on how much impact a risk does when a security incident occurs. In order to figure out what risks are there - we go to the assets i.e resources and then regarding each resource, we ask questions that relate to various aspects and what is the impact going to be on a specific aspect when some incident occurs…. this way risk profiling is done
+    - And the most common categories of impact i.e the questions that we can ask to the business owners about the resource if a security incident occured and the consequences that would happen due to the resource being compromised in a specific field…. that should be included in every security risk profile are -    
+        - Financial   
+        - Legal   
+        - Reputational   
+        - Regulatory
+  </div>
+</details>
+   
+There are many questions that you could ask in a security risk profile questionnaire. In
+general, you want to ask direct questions with set answers. Giving free-form questions/answers will make scoring the questionnaire very difficult. For example, you might ask who the target user community is for this resource and offer several options to choose
+from
+
+<details className="alert--primary">
+  <summary>
+Wait a minute…
+  </summary>
+  <div>
+    - The topic heading says that application risk profile based on security requirements.   
+    - This means that we need to determine the application risk profile, and the category of impacts should be the security requirements instead of the ones we listed above….. explain in your own words as it might come for exam.
+  </div>
+</details>
+
+ --- 
+   
+Quality Gates enforce a quality policy in organizations by answering one question - "Is my project ready for release ?". To answer this question, you define a set of conditions against which projects are measured. d. For example:   
+- No new blocker issues   
+- Code coverage on new code greater than 80%
+   
+   
+Ideally, all projects will use the same quality gate, but that's not always practical. For
+instance, you may find that:   
+- Technological implementation differs from one application to another   
+- You want to ensure stronger requirements on some of your applications   
+   
+Which is why you can define as many quality gates as you need.   
+
+<details className="alert--primary">
+  <summary>
+    Habibi, what does this quality gate even mean ??   
+  </summary>
+  <div>
+    - Quality gates are checkpoints that we place in different stages of the software development process and quality gates in the end, maintains the high quality aspect of the product and makes sure that the product does not have any weakness that would reduce the quality or standard of the product.   
+    - Quality gates work in a simple manner - you define the criteria or standards that must be met before proceeding to the next phase, so you define some set of conditions against the project which you measuring. Then you can place various quality gates in different stages of the development, this way - when the project comes across a quality gate - it makes sure that the project is meeting the criteria before moving on to the next stage    
+    - This way, you can maintain and control quality of a product.
+  </div>
+</details>
+   
+   
+### B. Design (Architecture Design Review and Threat Modeling)   
+Once the security, privacy and functional requirements have been defined, the design of the software can begin. As a part of the design process, threat models are created to identify, categorize, and rate potential threats according to risk. Threat models must be maintained and updated throughout the lifecycle of each product as changes are made to the software   
+![image.png](files\image_9.png)    
+The threat modeling process begins by defining the different components of a product and
+how they interact with each other in key functional scenarios, such as authentication. Data Flow Diagrams (DFDs) are created to visually represent key data flow interactions, data types, ports, and protocols used. DFDs are used to identify and prioritize threats for mitigation that are added to the product's security requirements. Developers are required to use Microsoft's Threat Modeling Tool for all threat models, which enables the team to.   
+- Communicate about the security design of their systems   
+- Analyze security designs for potential security issues using a proven methodology   
+- Suggest and manage mitigation for security issues    
+   
+Before any product is released, all threat models are reviewed for accuracy and completeness, including mitigation for unacceptable risks.   
+   
+### C. Implementation (Static Analysis, Software Composition Analysis, Secret Detection, Deprecate unsafe functions, use of plugins in IDE, Safe Commit and Change Management in Repositories)   
+   
+Implementation begins with developers writing code according to the plan they created in the previous two phases. Microsoft provides developers with a suite of secure development tools to effectively implement all the security, privacy and functional requirements of the software they design. These tools include compilers, secure development environments, and built-in security checks.   
+   
+#### Static Analysis   
+Static analysis, also called as static code analysis is a method of computer program debugging that is done by examing the code without executing the program. The process involves an understanding of the code structure and can help ensure that the code adheres to industry standards.   
+   
+#### Software Composition Analysis (SCA)   
+Software Composition Analysis (SCA) is the process of automating the visibility into open
+source software (OSS) use for the purpose of risk management, security and license
+compliance. With the rise of open source (OS) use in software across all industries, the need
+to track components increases exponentially to protect companies from issues and open
+source vulnerabilities.   
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+    - These days, industry softwares are using open source softwares in their application as well…. now OSS is something that is developed by someone else and it might contain some vulnerabilities. Those vulberabilities when exploited can be effective on the overall application where it is integrated. So this software composition analysis - it's purpose is to automate the task of monitoring and managing the use of open source software in your application.   
+    - I repeat, it automates the visibility into the use of OSS in our application   
+    - Well, why do we need to monitor and manage the OSS use in our application you may ask   
+    - The main purpose is for risk management, security  and license compliance   
+    - see, OSS component in our application might have some vulnerabilities in it, so this automation - what it does is, performs the monitoring task and then when something wrong is detected, it is going to manage it by alerting the stakeholders like developers or if it is a advanced SCA then it might take action to resolve the vulnerability issue in the use of OSS component in our application.
+  </div>
+</details>
+   
+#### Secret Detection   
+When you commit your changes to your remote repository, you might commit the secrets as well which is very for attackers to exploit by using those secret keys and eating up your sensitive resources   
+To help prevent secrets from being committed to a repository, you can use **Secret Detection  **to scan your repository for secrets. Secret detection uses an analyzer to scan the repo for secrets. The results are saved as a Secret Detection report artifact that you can later download and analyze   
+   
+#### Deprecate unsafe functions   
+The use of deprecated or obsolete functions may indicate neglected code. As programming languages evolve, functions occasionally become obsolete due to:   
+- Advances in the language   
+- Improved understanding of how operations should be performed effectively and
+securely   
+- Changes in the conventions that govern certain operations   
+- Functions that are removed are usually replaced by newer counterparts that perform
+the same task in some different way.
+   
+#### Safe Commit and Change Management in Repositories   
+Application developers can commit their changes on the instance to the linked repository.
+You can either select a few changes to commit, or commit all changes on the instance at
+once. Similar to saving a file that's been edited, a commit records changes to one or more
+files in your branch. Git assigns each commit a unique ID, called a SHA or hash that
+identifies.   
+- The specific changes   
+- When the changes were made   
+- Who created the changes   
+   
+When you make a commit, you must include a commit message that briefly describes the changes. You can also add a co-author on any commits you collaborate on.   
+   
+### D. Verification (Dynamic Analysis, Interactive Application Security Testing, Fuzz Testing, Abuse use case Testing, Architecture Verification).   
+   
+Before any written code can be released, several checks and approvals are required to verify that the code conforms to SDL, meets design requirements, and is free of coding errors. SDL requires that manual reviews are conducted by a reviewer separate from the personnel the developed the code. Separation of duties is an important control in this step to ensure no code can be written and released by the same person leading to potential accidental or malicious harm.
+Various automated checks are also required and are built into the commit pipeline to analyze
+code during check-in and when builds are compiled. The security checks used at Microsoft
+fall into the following categories   
+   
+#### Dynamic Analysis   
+Dynamic analysis finds vulnerabilities in a runtime environment. Automated tools analyze
+the input and output of an application for potential threats like SQL injection. Tools can also
+search for other application-specific issues and analyze server configuration errors. The
+purpose of dynamic analysis is to analyze the program as an attacker would, looking for entry points and vulnerable sections during program execution.   
+   
+#### IAST - Interactive Application security testing   
+IAST (interactive application security testing) analyzes code for security vulnerabilities
+while the app is run by an automated test, human tester, or any activity “interacting” with the application functionality. This technology reports vulnerabilities in real-time, which means it does not add any extra time to your CI/CD pipeline.   
+
+<details className="alert--primary">
+  <summary>
+What is this ??   
+  </summary>
+  <div>
+    - IAST analysis the code during runtime when the application is running and it finds out the security vulnerabilities during program execution   
+    - Any interaction that happens with the application in real-time, IAST analysis the application code and check for any vulnerabilities and also checks for the behavior of the application - this way it does both static analysis and dynamic analysis in order to find security vulnerabilities in the application
+  </div>
+</details>
+   
+#### Fuzz Testing   
+Fuzz Testing or Fuzzing is a software testing technique of putting invalid or random data
+called FUZZ into software system to discover coding errors and security loopholes. The
+purpose of fuzz testing is inserting data using automated or semi-automated techniques and testing the system for various exceptions like system crashing or failure of built-in code, etc   
+   
+#### Abuse use case Testing   
+An abuse case will also test gaps between the use cases, but in a fashion that will try to cause the most harm to the application and environment as possible. The goal is to cause errors, damage data, undermine stability, and call forth crashes. From the testing perspective: we try to cause as much havok as we can, using any tools possible. We hate the application and want to see both it and its users/users' data destroyed.   
+   
+#### Architecture verification   
+Architecture verification should consider whether the software architecture design
+adequately fulfills the software safety requirements specification. In addition, it should be
+ensured that the integration tests specified in the software architecture are adequate. The
+software architecture design should fulfill the software safety requirements specification.
+From a safety point of view, the software architecture phase is where the basic safety strategy for the software is developed.   
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+    - See, we are looking at the practices in the verification phase, so ofcourse they are going to test the software for errors and vulnerabilties   
+    - We have seen the code analysis and behavior analysis, abuse use case testing….. now it is time for architecture design testing   
+    - Architecture verification - How do we verify the architecture design ??? - You might say that the architecture design should fulfill the requirements of the stakeholders   
+    - Well, yeah but here we are talking about security controls - so we need to take security aspect into consideration   
+    - We verify that the software architecture design fulfills the software safety requirements specification   
+    - What do i mean by that ??
+    - Well, the software architecture design - it should fulfill all the safetly requirements of the software….. this is what we verify the software architecture against   
+    - It MUST fulfill the software safety requirements.
+    - Now where does this integration tests come in ??   
+    - Well architecture verification should also ensure that the integration tests specified in the software architecture are adequate - meaning, the integration tests that have been defined for a software architecture must follow all the safety requirements.
+  </div>
+</details>
+   
+   
+### E. Release (Run Time Application Self Protection, Web Application Firewall, and SOP for
+Operations, Secure Provisioning, Deployment and De commissioning)   
+   
+After passing all required security tests and reviews, builds aren't immediately released to all
+customers. Builds are systematically and gradually released to larger and larger groups,
+referred to as rings, in what is called a safe deployment process (SDP). The SDP rings are
+defined as follows.   
+- Ring 0: The development team responsible for the service   
+- Ring 1: All Microsoft employees   
+- Ring 2: Users outside of Microsoft who have configured their organization or specific users to be on the targeted release channel Ring   
+- Ring 3: Worldwide standard release in sub-phases   
+   
+   
+#### RASP   
+RASP is a technology that runs on a server and kicks in when an application runs. It's
+designed to detect attacks on an application in real time. When an application begins to run,
+RASP can protect it from malicious input or behavior by analyzing both the app's behavior
+and the context of that behavior. By using the app to continuously monitor its own behavior,
+attacks can be identified and mitigated immediately without human intervention.   
+
+<details className="alert--primary">
+  <summary>
+    What does this mean ???   
+  </summary>
+  <div>
+    - RASP is a technology that is embedded into the application or its runtime environment, in order to detect any threats or attacks on the application in real time   
+    - You might think that RASP might act like a anti virus which takes care of the incoming malware….. It is not like that   
+    - You see, RASP continuously observes and monitors the application's behavior while it is running, and it checks how the application reacts to various context - RASP considers this as a typical behavior of the application   
+    - now, if incoming requests contain malicious input or something, RASP detects that the behavior of the application is not as it should be and this way it detects a threat or attack and takes action against it to mitigate the risk without us humans having to handle the threat.
+  </div>
+</details>
+
+   
+#### Standard Operating Procedure (SOP)   
+A standard operating procedure (SOP) is a step-by-step instructions guide to help an
+employee in performing specific operations smoothly. The main objective of SOP is to ensure uniform and quality output, while simultaneously reducing miscommunication and
+ambiguity. SOPs are detail-oriented documents and provide step-by-step instructions as to
+how employees within an organization must go about completing certain tasks and processes.   
+   
+#### Web Application Firewall   
+A WAF or web application firewall helps protect web applications by filtering and
+monitoring HTTP traffic between a web application and the Internet. It typically protects web applications from attacks such as cross-site forgery, cross-site-scripting (XSS), file inclusion, and SQL injection, among others.   
+
+<details className="alert--primary">
+  <summary>
+    Don't be confused   
+  </summary>
+  <div>
+    - Traditional Firewalls monitor and filter traffic that is coming from the internet to a private network - so it differentiates the trusted networks from the internet….. this way only requests who follow the firewall guidelines can enter the private network    
+    - WAF is a firewall as well but only for web application   
+    - Meaning that, it protects the web application from all kinds of threats that can cause harm to a web application like XSS, SQL injection etc   
+    - So it's main purpose to protect the web application by monitoring and filtering the HTTP request that is coming and checking whether they do not pose any kind of threat to the web application.
+  </div>
+</details>
+   
+#### Secure Device Provisioning    
+Secure Device Provisioning ensures that secrets are not exposed or manipulated when
+provisioned at manufacturing time, and the innovative code protection and whitebox
+technology ensures that these secrets remain protected for the rest of the device’s lifetime.   
+   
+#### Deployment   
+The deployment is run after one or more evolutionary development phases to put the latest
+increment into production. Some projects have only one deployment at the end, some have a few deployments (e.g., one after every 5 iterations of development), and some deploy every iteration.   
+   
+#### Decommissioning   
+Decommissioning implies the termination phase that is carried out in an orderly manner. It
+requires fulfilling organizational, local, and federal standards to preserve important data,
+information, and documentation. If required, the data retained can be easily retrieved and
+utilized in the future.   
+
+<details className="alert--primary">
+  <summary>
+    What does this mean ??   
+  </summary>
+  <div>
+    - When an application or a service is being shut down - decommissioning ensures that is being terminated in a structured manner by following some rules and protocols.    
+    - But you see, Data is very crucial and we might need to store the data and documents from the service that is being decommissioned. Data must be preserved   
+    - So it says that organizational, local and federal standards must be followed in order to preserve important data.    
+    - In future if you need to retrieve the retained data, you can do so easily and use it.
+  </div>
+</details>
+   
+## Application Security Requirements - (practice hai)   
+   
+#### Requirements   
+The software requirements are the description of features and functionalities of the target system. Requirements convey the expectations of users from the software product. The requirements can be obvious or hidden, known or unknown, expected or unexpected
+from client's point of view.   
+   
+### Functional Requirements   
+Requirements, which are related to functional aspect of software fall into this category. They
+define functions and functionality within and from the software system.   
+Examples:   
+- Search option given to user to search from various invoices.   
+- User should be able to mail any report to management.   
+- Users can be divided into groups and groups can be given separate rights.   
+- Should comply business rules and administrative functions.   
+- Software is developed keeping downward compatibility intact.   
+   
+### Non Functional Requirements   
+Requirements, which are not related to functional aspect of software, fall into this category.    
+They are implicit or expected characteristics of software, which users make assumption of.   
+Non-functional requirements include.   
+- Security   
+- Logging   
+- Storage   
+- Configuration   
+- Performance   
+- Cost   
+- Interoperability   
+- Flexibility   
+- Disaster recovery   
+- Accessibility   
+   
+### Security Requirements for an application   
+   
+#### ASVS - Application Security Verification Standard   
+The OWASP Application Security Verification Standard (ASVS) is a catalog of available
+security requirements and verification criteria. OWASP ASVS can be a source of detailed
+security requirements for development teams. Security requirements are categorized into
+different buckets based on a shared higher order security function. For example, the ASVS
+contains categories such as authentication, access control, error handling / logging, and web services. Each category contains a collection of requirements that represent the best practices for that category drafted as verifiable statements. Requirements are organized by standard   
+   
+The Security Requirements (SR) practice focuses on security requirements that are important in the context of secure software. A first type deals with typical software-related
+requirements, to specify objectives and expectations to protect the service and data at the core of the application. A second type deals with requirements relative to supplier organizations that are part of the development context of the application, in particular for outsourced development. It is important to streamline the expectations in terms of secure development because outsourced development can have significant impact on the security of the application. The security of 3rd party libraries is part of the software supply chains stream and it is not included in this practice   
+
+<details className="alert--primary">
+  <summary>
+    What does this mean ??   
+  </summary>
+  <div>
+    - We have been talking about application's security requirements now - which are necessary for secure software development. So the thing is - security requirements are categorized into two types -   
+        - Software related requirements   
+        - Supplier organization related requirements   
+
+    - Both are security requirements but they relate to different parties during the software development process   
+    - the first one deals with requirements that are software related, the ones that provide objectives and expectations to protect the application data and the core functionality…..   
+    - The second one however deals with requirements that is for the supplier organization that is involved in the software development process   
+    - What do i mean by this ??   
+    - There are third party organizations that can develop a certain part of your software, now you cannot just hand over your software to them and say - "*Hey, do it for me please and let me know when you are done*" - that is crazy   
+    - So in case of outsource development, these requirements relate to the supplier organizations    
+    - This way, the security expectations are streamlined in terms of secure development as outsouce development can have a significant impact on the security of the software.
+  </div>
+</details>
+   
+### Determining Application Risk Profile based on the security requirements   
+[](https://chat.openai.com/share/a595a535-e882-4881-b57e-6b9994720bf1)    
+   
+## Threat Modeling and its methodologies - IMP Qn   
+   
+Threat modeling is a systematic approach used in cybersecurity and software development to identify potential threats, vulnerabilities, and risks to a system or application. It involves analyzing a system's design, architecture, and components to proactively identify potential security weaknesses and then devising strategies to mitigate or eliminate those risks.   
+There are several methodologies used in threat modeling, each with its own approach and focus. Here are some common threat modeling methodologies:   
+1. **STRIDE**: This model, developed by Microsoft, focuses on six types of threats: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. It helps in identifying threats based on these categories and is widely used in software development.   
+2. **DREAD**: This methodology assesses threats based on five criteria: Damage potential, Reproducibility, Exploitability, Affected users, and Discoverability. Each criterion is rated on a scale of 1 to 10 to quantify the risk level.   
+3. **PASTA (Process for Attack Simulation and Threat Analysis)**: PASTA is a risk-centric methodology that involves seven stages: Planning, Preparation, Identification, Threat Analysis, Solution Generation, Solution Implementation, and Review. It focuses on understanding business impacts and aligning security efforts accordingly.   
+4. **Attack Trees**: This visual method uses tree-like structures to represent the potential attacks a system might face. It breaks down threats into smaller, more manageable components, allowing for a systematic analysis of attack scenarios.   
+5. **VAST (Visual, Agile, and Simple Threat modeling)**: VAST emphasizes simplicity and visualization. It involves creating visual representations of a system's architecture and identifying threats through brainstorming sessions and attack scenario mapping.   
+6. **Trike**: This methodology combines elements from other methodologies, emphasizing risk management, and providing a structured approach to threat modeling.
+   
+   

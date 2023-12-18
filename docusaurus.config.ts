@@ -39,6 +39,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
         },
         blog: {
+          blogTitle: "Notes",
           showReadingTime: true,
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
             defaultReadingTime({content, options: {wordsPerMinute: 300}}),
