@@ -1,0 +1,618 @@
+---
+slug: unit-06
+authors: [taha]
+tags: [cybersecurity, security, testing, practices]
+hide_table_of_contents: true
+---
+
+import TOCInline from '@theme/TOCInline';
+
+# Chapter 06 - Cyber Security
+
+This chapter covers about the application security practices that should be applied in verification and deployment phase.
+
+{/* truncate */}
+
+## Table Of Content
+
+<TOCInline toc={toc} maxHeadingLevel={4} />
+   
+## Application Security Verification Standard   
+
+### What is ASVS   
+The OWASP Application Security Verification Standard (ASVS) Project provides a basis for testing web
+application technical security controls and also provides developers with a list of requirements for secure
+development.   
+The standard provides a basis for testing application technical security controls, as well as any technical
+security controls in the environment, that are relied on to protect against vulnerabilities such as Cross-Site
+Scripting (XSS) and SQL injection.   
+This standard can be used to establish a level of confidence in the security of Web applications. The
+requirements were developed with the following objectives in mind:   
+- **Use as a metric** - Provide application developers and application owners with a yardstick with which to
+assess the degree of trust that can be placed in their Web applications.   
+- **Use as guidance** - Provide guidance to security control developers as to what to build into security controls
+in order to satisfy application security requirements.   
+- **Use during procurement** - Provide a basis for specifying application security verification requirements in
+contracts.
+   
+<details className="alert--primary">
+  <summary>
+    What does this mean ??   
+  </summary>
+  <div>
+    - Look, ASVS is a standard - a catalogue that contains a list of security requirements and verification criteria   
+    - So it contains what ?? A list of security requirements that is necessary for a secure software   
+    - It does not just contain requirements   
+    - It also tests the application's technical security controls - this means that the security measures that have been applied in technical aspects, it tests them as well   
+    - How ??   
+    - ASVS also provides a verification criteria - when the application's security controls pass the criteria, then the application is verified by ASVS   
+
+    - Look, let me break it down -    
+    - We have ASVS which has a list of security requirements for our application   
+    - These security requirements should be fulfilled by a application when it is being tested by ASVS   
+    - And the way we do that is by using the other thing that ASVS provides and that is the verification criteria    
+    - This contains the guidelines that is used to test whether the application satisfies the security requirements which ASVS provided in the beginning…… and this does not contain the requirements - it contains the technical security controls, measures that should be present within the application, and if those measures are present and functioning then voila, the security requirements have been implemented perfectly…. Habibi you just understood ASVS in simple words by Mohammed Taha - You're welcome 😎
+  </div>
+</details>
+
+### Understanding Application Security Verification Levels:   
+`Note - Levels are based on the type of application that we have`    
+There are three levels of security verification in ASVS designed to enhance security of applications with
+different security needs. They are as follows:
+   
+- ASVS Level 1 Basic   
+   
+ASVS Level 1 is relevant for applications that don’t deal in sensitive information and are less susceptible to
+attacks. Every application must adhere to the basic security standards stated in ASVS Level 1. This level
+outlines security controls that are designed to safeguard against known vulnerabilities. The security measures
+listed in this level are pen-testable and integration testable. Level 1 is suited for small and medium sized
+businesses facing no major security risks.   
+   
+- ASVS Level 2 Standard   
+
+Level 2 guidelines are applicable to applications that conduct business-to-business transactions. Following
+these guidelines will help app developers secure their applications against illegitimate access, injection flaws,
+validation and authentication errors. ASVS Level 2 Standard ensures that the measures implemented are in line
+with the vulnerabilities and threats that pose a risk to the application in focus. ASVS Level 2 is recommended
+by security experts for safeguarding most applications. Testing at this level requires access to source code,
+documentation, configuration as well as people involved in the development.   
+
+<details className="alert--primary">
+  <summary>
+In short……   
+  </summary>
+  <div>
+    What this means is - the threats and vulnerabilities that you have in your application, proper security measures have been taken against them in order to mitigate their risk or prevent them. So this level lists out the requirements that are necessary to take care of the threats and adversaries   
+  </div>
+</details>
+   
+- ASVS Level 3 Advanced   
+
+Applications that deal in highly sensitive information need to adhere to ASVS Level 3 Advanced. Examples of
+such applications include healthcare, defense, finance, legal document management apps among others. To
+meet the requirements of level 3, app developers must embed security layers into the application right from the earlier stages. Plus, all the security efforts must be documented and audited.   
+   
+### Static Application Security Testing
+`SAST is a methodological approach facilitated by software tools`    
+   
+**White-box testing** -
+SAST is a form of white-box security testing which has full access to the underlying source code and binary. It
+will test your program via an inside-out approach (checking for vulnerabilities from inside). Specialized SAST software such as GitLab, Klockwork or AppThreat will scan your source code automatically either during the coding process, or after you have committed the code to your pipeline.   
+For example, for Klockwork's users, once you have established a link between your project and Klockwork
+Desktop, it allows you to code your program normally using any IDE of your choice as long as it is open in the
+background. Each time you save the file, Klockwork Destop will update the code automatically and perform a
+scan on the spot. If it detects any security issues, it will display them on the user interface.   
+   
+- **Early Detection** :    
+   
+SAST is typically conducted at the early stage of the system development life cycle, usually during or after the
+development stage. This allows you to identify any form of security vulnerabilities before going into the testing
+or quality assurance phase.   
+It is a lot easier to fix problems when they are discovered early. Besides, most SAST executions will flag lines
+of code with the vulnerabilities. This can be extremely useful and serve as pointers to developers when fixing
+vulnerabilities. It also costs less to maintain and develop the project.   
+   
+- **False Positives**:   
+   
+SAST methodology is prone to high number of false positives compared to DAST. As a result, a situation might
+arise where developers have wasted valuable time and resources fixing imaginary problems in their system.
+Such a downfall can be costly in the long term if there are hundreds or thousands of false positives.   
+   
+- **Language-Dependent**:   
+   
+SAST is language-dependent in terms of analyzing the underlying source code and binary. Most SAST tools
+specialize only in a few computer languages. You will not be able to find a one-size-fits-all SAST tool for every
+programming language used in your projects. As a result, scaling and maintaining a project build with different
+computer languages will be an enormous task.   
+   
+- **Does not cover run-time vulnerabilities**:    
+   
+SAST is not capable of detecting any form of run-time vulnerabilities as it only scans the static code and binary. If you have incorrectly configured your system, a SAST tool will not be able to identify run-time issues leading to a false sense of security among the developers.   
+   
+### Dynamic Application Security Testing   
+
+**Black-box testing** -   
+On the other hand, DAST is termed dynamic because it does not have any access to the underlying static code or binary. Tests are conducted from the outside-in. You can think of it as a hacker trying to test the security
+vulnerabilities of your system.   
+Unlike SAST, it analyzes the running application without any knowledge of the technology used to develop the
+system. Once it detects any potential vulnerabilities and risks, it logs the issues for the developers.   
+   
+- **Late Detection**   
+   
+DAST is usually conducted at the end of the system development life cycle. It typically takes place during the
+testing phase, right before the user acceptance tests. It serves as the final gateway to secure your application
+before deploying it out to your users..   
+Most of the time, issues that are detected under DAST will not be fixed immediately unless they are deemed
+critical. This is mainly due to lack of time available before the UAT or deployment phase. So, most of the issues
+are pushed into the next development cycle.
+   
+   
+- **Language-Independent**   
+   
+Since tests are conducted directly on running applications, DAST is not tied to any computer languages. It is a
+lot easier to scale and maintain your test since it is independent of the programming languages used in the
+development of your system.   
+However, most DAST tools only support specific types of applications, like web applications or web services.
+You might need a few different DAST tools if your project consists of web applications, desktop applications
+and mobile applications.   
+   
+- **Cover run-time vulnerabilities**   
+   
+One main advantage of DAST over SAST is that it is capable of finding run-time vulnerabilities. This includes
+configuration issues, authentication issues and system memory issues. You will be able to identify many more
+issues from the user perspective.   
+   
+## Interative Application Security Testing - IAST   
+   
+Application security testing describes the various approaches used by organizations as they attempt to find and eliminate vulnerabilities in their software. Also referred to as AppSec testing and AST, application security
+testing is the process of testing, analyzing, and reporting on the security level of a software application as it
+moves through the software development lifecycle (SDLC).   
+   
+#### Why is it Important?
+   
+Interactive application security testing (IAST) combines static application security testing (SAST) with
+dynamic application security testing (DAST) to create a synergistic and self-learning interactive application
+security testing approach. With IAST, interactive application security testing techniques cover more code,
+produce better results, and verify a broader range of security rules faster than either SAST or DAST tools
+working alone.
+   
+   
+#### Continuous vs. a Snapshot in Time
+   
+In Gartner research, 84% of breaches exploit vulnerabilities in the application layer. Because SAST, DAST,
+and penetration testing only provide a snapshot in time, they can’t keep up with today’s agile software
+development lifecycle processes or the ever-evolving threat landscape. This means that development, ops, and security teams are always at least one step behind as they develop, test, and move software into production.   
+   
+#### The Power of IAST
+   
+IAST security solutions, on the other hand, deploy agents and sensors that continuously monitor and analyze
+applications from within as they run. Because they are self-learning, they produce real-time analysis as
+software is being developed and tested. This makes them ideal for Agile, DevOps,
+and DevSecOps environments as they enable IT to find and fix security flaws early in the SDLC when they are
+easiest and cheapest to remediate.   
+Imagine if you could identify vulnerabilities at DevOps speed, stopping attacks before they occur, and
+preventing problems before they can do real damage to your organization. Contrast has broken through legacy
+barriers with an innovative, automated IAST security solution, Contrast Assess, that infuses software with
+vulnerability assessment capabilities to identify security flaws automatically and in real time wherever software
+is running.
+   
+   
+### Advantages of IAST over SAST and DAST   
+When we honestly assess the strengths and weaknesses of SAST vs. DAST vs, IAST, we see that IAST gets
+far better results across these seven metrics.
+
+
+- **False Positives:**   
+   
+False positives are where ZAP raises alerts for things that are not really vulnerabilities.
+Representing the single biggest weakness in legacy security tools, false positives occur in over 50% of testing
+results. This increases the workload on scarce security resources and makes it difficult to identify the most
+critical flaws. IAST, on the other hand, produces the real-time intelligence and continuous visibility necessary
+to detect and remediate vulnerabilities with virtually no false positives or false negatives.   
+   
+- **Vulnerability Coverage:**   
+   
+Interactive analysis provides the best of static and dynamic testing. Not only do interactive testing tools focus on the most common and most risky flaws found in applications, but they also allow for custom rules to personalize the threat coverage for specific enterprises.   
+   
+- **Code Coverage**:    
+   
+Both static and dynamic testing miss huge portions of most applications. SAST doesn't
+examine libraries or frameworks, severely limiting vulnerability analysis. DAST can only examine an
+application's exposed surface. But IAST examines the entire application from the inside – including the
+libraries and frameworks. So you get far superior coverage over your entire codebase.   
+   
+- **Scalability:**   
+   
+Static and dynamic tools don't scale well. They typically require experts to set up and run as well
+as interpret the results. But an application’s size and complexity don’t affect interactive application security
+testing, which can handle extremely large applications in stride.   
+   
+- **Instant Feedback:**   
+   
+Static and dynamic tools get run on a periodic basis, which means the lag time between
+the mistake and the vulnerability detection could be weeks or even months. IAST provides instant feedback to
+a developer, within seconds of coding and testing new code. With IAST, developers can be sure they are only
+checking in "clean" code.   
+   
+- **Experts Required:**   
+   
+When you buy something, you just want it to work out of the box. IAST interactive
+tools eliminate months of configuration, tuning, and customization. As the application is exercised, the
+application is tested – continuously and automatically.   
+   
+- **Zero Process Disruption:**   
+   
+Businesses put a premium on time-to-market. Agile and DevOps strategies limit
+testing time. Because interactive testing operates transparently during normal QA or unit testing, there is no
+process disruption. IAST integrates smoothly with existing security testing activities.   
+
+<details className="alert--primary">
+  <summary>
+What is this contrast assess and contrast OSS
+  </summary>
+  <div>
+The thing with these terms is, first off let me clear the misunderstanding that we had in our classes as well.... contrast security is a company.... Contrast assess is like a implementation of IAST.... but focuses more on behavior of the application side rather than coding analysis of the application which IAST typically focuses on. You also might doubt what is contrast OSS.... well, the libraries and frameworks used in your application, those are tested for vulnerabilities and the risk they pose to the application by using contrast OSS. It's for testing the thirty party libraries security vulnerabilities.
+  </div>
+</details>
+   
+### What Is the Difference Between Active & Passive Scan ?
+   
+#### What is passive scan?   
+In terms of penetration test, a passive scan is a harmless test that looks only for the responses and checks them against known vulnerabilities. Passive scan doesn't modify your website data. So it's really safe for the
+websites that we don't have permission. As you know OWASP number 1 vulnerability in 2018 is still Injection. And be aware that you cannot detect even a SQL Injection with passive scan.   
+   
+#### What is active scan?   
+Active scan, attacks the website using known techniques to find vulnerabilities. Active scan does modify data
+and can insert malicious scripts to the website. So when you really test your website against security issues
+deploy it to a new environment and run the active scan. And only run the active scan for the sites you have
+permission!   
+
+<details className="alert--primary">
+  <summary>
+In summary -    
+  </summary>
+  <div>
+    - **Passive Scanning** observes and analyzes existing traffic and responses for known patterns or anomalies to identify potential vulnerabilities without directly interacting with the application.   
+    - **Active Scanning** actively sends requests or attacks to the application to identify vulnerabilities through simulated attacks, providing a more proactive and aggressive approach to security testing.
+  </div>
+</details>
+   
+## Manual Penetration Testing
+
+### What is manual penetration testing ??   
+Manual penetration testing is the testing that is done by human beings. In such type of testing, vulnerability and risk of a machine is tested by an expert engineer.   
+![image.png](files\image.png)    
+Generally, testing engineers perform the following methods -
+   
+- **Data Collection**   
+   
+Data collection plays a key role for testing. One can either collect data manually or can
+use tool services (such as webpage source code analysis technique, etc.) freely available online. These tools
+help to collect information like table names, DB versions, database, software, hardware, or even about
+different third party plugins, etc   
+   
+- **Vulnerability Assessment**   
+   
+Once the data is collected, it helps the testers to identify the security weakness and take preventive steps accordingly.   
+   
+- **Actual Exploit**   
+   
+This is a typical method that an expert tester uses to launch an attack on a target system
+and likewise, reduces the risk of attack.   
+   
+- **Report Preparation**   
+   
+Once the penetration is done, the tester prepares a final report that describes
+everything about the system. Finally the report is analyzed to take corrective steps to protect the target
+system.   
+   
+### Types of Manual Penetration Testing   
+Manual penetration testing is normally categorized in two following ways - 
+   
+- **Focused Manual Penetration Testing**   
+   
+It is a much focused method that tests specific vulnerabilities and risks. Automated penetration testing cannot perform this testing; it is done only by human experts who examine specific application vulnerabilities within the given domains.   
+   
+- **Comprehensive Manual Penetration Testing**   
+   
+It is through testing of whole systems connected with each other to identify all sorts of risk and vulnerability. However, the function of this testing is more situational, such as investigating whether multiple lower-risk faults can bring more vulnerable attack scenario, etc   
+   
+## Runtime Application Self Protection - RASP   
+Runtime Application Self Protection (RASP) is a security solution designed to provide personalized
+protection to applications. It takes advantage of insight into an application's internal data and state to
+enable it to identify threats at runtime that may have otherwise been overlooked by other security solutions.
+   
+How RASP Works   
+- RASP wraps around and protects a particular application, rather than a general network-level or endpoint-level defensive solution. This more targeted deployment location enables RASP to monitor the inputs,
+outputs, and internal state of the application that it is protecting. By deploying RASP, developers can
+identify vulnerabilities within their applications. Additionally, the RASP solution can block attempts to
+exploit existing vulnerabilities in deployed applications.   
+- RASP's focused monitoring makes it capable of detecting a wide range of threats, including zero-day
+attacks. Since RASP has insight into the internals of an application, it can detect behavioral changes that
+may have been caused by a novel attack. This enables it to respond to even zero-day attacks based upon
+how they affect the target application.   
+
+<details className="alert--primary">
+  <summary>
+In short -    
+  </summary>
+  <div>
+    - In RASP, remember that it has insights into the application data and state so it can detect behavioral changes in the application and also - RASP wraps the application so it is deployed in such a way that RASP can monitor the inputs, outputs and state of the app.   
+    - Difference between IAST and RASP   
+    - In case you are confused -   
+    - IAST is used to identify vulnerabilities during the runtime of the application from within the code base, so it is going to check for vulnerabilities inside the application, see the behavior and then when it detects vulnerabilities, it generates a report that says about the vulnerabilities and how dev team and fix it   
+    - RASP is a active solution that protects the application during runtime   
+    - Look at the difference   
+    - RASP is not going to find the vulnerabilities and report them   
+    - RASP monitors the application's internal state, traffic and interactions and then takes action against any exploits that occur.
+  </div>
+</details>
+   
+   
+## Define Web Application Firewall   
+A WAF or web application firewall helps protect web applications by filtering and monitoring HTTP traffic
+between a web application and the Internet. It typically protects web applications from attacks such as cross-site forgery, cross-site-scripting (XSS), file inclusion, and SQL injection, among others.
+   
+By deploying a WAF in front of a web application, a shield is placed between the web application and the
+Internet. While a proxy server protects a client machine’s identity by using an intermediary, a WAF is a type
+of reverse-proxy, protecting the server from exposure by having clients pass through the WAF before reaching
+the server.   
+A WAF operates through a set of rules often called policies. These policies aim to protect against
+vulnerabilities in the application by filtering out malicious traffic. The value of a WAF comes in part from the
+speed and ease with which policy modification can be implemented, allowing for faster response to varying
+attack vectors; during a DDoS attack, rate limiting can be quickly implemented by modifying WAF policies.   
+
+<details className="alert--primary">
+  <summary>
+What does this mean ??   
+  </summary>
+  <div>
+    - I have talked about firewalls in unit 03 and they are interesting   
+    - The thing with firewalls is - their task is to filter out traffic according to some rules    
+    - But firewalls works to filter out traffic coming inside a network   
+    - But WAF is a firewall that sits between your web server and the internet and it is going to protect the server by looking at the traffic that is coming in, filter the traffic based on some policies that we define - so these policies are basically rules for the traffic that should be followed, this is done so that no traffic comes in which exploits the vulnerabilities in the web server   
+    - Easy peasy
+  </div>
+</details>
+
+   
+### Types of Web Application Firewalls   
+There are three primary ways to implement a WAF:   
+   
+#### Network-based WAF   
+usually hardware-based, it is installed locally to minimize latency. However, this is the most expensive type of WAF and necessitates storing and maintaining physical equipment.    
+   
+#### Host-based WAF   
+can be fully integrated into the software of an application. This option is cheaper than
+network-based WAFs and is more customizable, but it consumes extensive local server resources, is complex
+to implement, and can be expensive to maintain. The machine used to run a host-based WAF often needs to be hardened and customized, which can take time and be costly.    
+   
+#### Cloud-based WAF   
+an affordable, easily implemented solution, which typically does not require an upfront
+investment, with users paying a monthly or annual security-as-a-service subscription. A cloud-based WAF can
+be regularly updated at no extra cost, and without any effort on the part of the user. However, since you rely on a third party to manage your WAF, it is important to ensure cloud-based WAFs have sufficient customization options to match your organization's business rules.   
+   
+## Elaborate on Standard Operating Procedure for Operations, Secure Provisioning, deployment and decommissioning:   
+   
+### Standard Operating Procedure    
+Imagine you are starting a new job at a car dealership and a customer walks in asking for your latest hatchback.    
+How would you cater to the customer?    
+Most likely, your manager must have given you proper training along with a set of documents to study the
+basics of how to deal with customers. These sets of documents and training guides are often known as
+standard operating procedures or SOPs.    
+A standard operating procedure (SOP) document guides new as well as current employees on how to carry out
+routine tasks and maintain consistency and quality throughout business operations.   
+Since SOPs are crucial documents, we decided to uncover everything there’s to know about standard operating procedures and provide a tool to create SOPs with ease.   
+   
+#### Definition   
+A standard operating procedure (SOP) is a step-by-step instructions guide to help an employee in
+performing specific operations smoothly. The main objective of SOP is to ensure uniform and quality
+output, while simultaneously reducing miscommunication and ambiguity.   
+SOPs are detail-oriented documents and provide step-by-step instructions as to how employees within an
+organization must go about completing certain tasks and processes.   
+   
+#### Types of SOP -    
+- Checklists   
+- Step by step lists   
+- Hierarchical Lists   
+   
+   
+1. Checklists   
+   
+A checklist or the to-do list is one of the simplest methods of writing a standard operating procedures (SOP)
+document. A checklist can be created on an online note-taking app like Bit or can be printed out and handed
+over to employees.
+   
+   
+2. Step-by-Step List
+
+Similar to checklists, a step-by-step bullet list works in the same way where you describe a procedure in
+relevant, easy-to-follow steps.
+   
+   
+3. Hierarchical Lists   
+
+If your procedures are more complex and need additional info, you can create hierarchical checklists or bullet
+lists. If you are unable to explain a task in a single step and at the same time, don’t want to make the SOP
+lengthy, adding hierarchical steps can be beneficial.   
+   
+### Process Flowchart   
+Flowcharts are a wonderful way to represent how a process works visually and help give better context around
+the workflow.   
+A flowchart also shows how one step is related to another, helping employees conceptualize the whole concept and have a better understanding of the work they are doing   
+   
+### Steps for writing a Standard Operating Procedure (SOP)   
+Now you know what a standard operating procedure is and why your organization needs to create one, it’s time to actually get down to business and create one. Standard operating procedures require a ton of effort and planning before you can even begin to document your procedures.   
+Here are the key steps you need to follow to create a robust standard operating procedure document:
+   
+- **Step1 : Generate a list of your business processes**   
+   
+The first thing you need to do in order to create an SOP is to find out which tasks, processes, or workflows,
+you need an SOP for. Conduct a survey or ask your employees to fill out a form defining what tasks they do on a regular basis.   
+This will form the basis of your list for the standard operating procedure (SOP) document. Once you have
+gathered a list, you can review it with other managers and look for any repetitions.
+   
+   
+- **Step 2: Start with why**   
+   
+Once you have your list ready, it’s time to note down your objectives. Having a clear answer to why you are
+creating the SOP document should be your number one priority. Asking yourself questions like “how will this
+document help the employees?” or “how will the SOP impact our bottom line?” are great starting points.   
+For a more granular approach, identify the pain points or challenges your employees face in their day to day
+and create your SOP around it. This gives you a solid “why” to go through all that hard work of creating an
+SOP and also improves employee’s buy-in in the whole process.   
+   
+- **Step 3: Choose a format**   
+   
+Chances are that your organization already has some SOP documents written for past procedures. You can
+refer to those documents as templates and guide your current SOP.   
+Honestly. we have some types of SOP, so you can choose which ever that is best suited for your SOP.   
+   
+- **Step 4: Identify your audience**   
+   
+Knowing your audience is key in creating an awesome SOP document. Ask yourself the following questions in
+order to get an idea about your audience:   
+- Are they new employees?   
+- What’s the size of the audience?   
+- What prior knowledge do they have?   
+- Does an SOP already exist?   
+   
+The more information you have on your audience, the better you can understand their points of view and create an SOP that will be relevant to them.
+   
+   
+- **Step 5: Collaborate with employees**   
+   
+Standard operating procedures (SOP) are written with the end-user, i.e, the employees in mind. Having
+employees collaborate with you in this process is a no-brainer.   
+You cannot really understand their pain points and challenges unless you talk to your employees and ask for
+their honest feedback and suggestions.
+   
+   
+- **Step 6: Get down to writing**   
+   
+Once you have spoken to your employees and have enough data points to start, immediately move to your
+document editor and start adding your notes. Once done creating the document, you can go through the
+document with your employees and management and ask for their feedback and input.   
+This is also a great time to specify who would be responsible for updating and maintaining the standard
+operating procedures and when will you be conducting a periodic review to gauge engagement.   
+   
+- **Step 7: Make it interactive**   
+   
+While SOP documents are text-heavy and boring, they don’t have to be. Add screenshots, screen recordings,
+images, flow charts, videos- anything that’s relevant to the step being talked about. Media like these can help make your SOP’s pop while providing a visual aid to otherwise bland steps. Making your standard operating procedures interactive will boost your engagement levels as employees are surely going to find them more useful and even entertaining!
+   
+   
+- **Step 8: Distribution**   
+   
+After you are done creating the SOPs, you’ve come to the most essential part of the process: distributing them
+to your employees. It’s crucial to find a place to store all your standard operating procedures (SOP) and other
+training material in one place for employees to access as and when they like.   
+   
+- **Step 9: Make them “living documents“**   
+   
+While many organizations view creating SOPs as a one-time process, that’s hardly the case. As processes and
+workflows are often changing and ever-evolving in the hopes of making them more efficient, standard
+operating procedures quickly become outdated.   
+This is why SOPs should be converted to living documents that get reviewed periodically (ideally after every
+six months) so that they don’t get out of sync with the process or workflow they are describing.   
+   
+### Secure Device Provisioning   
+Protect your device secrets throughout the manufacturing process. We revolutionize secure provisioning by
+offering the simplest secure way of injecting secret identity data to a device.   
+
+**How Secure Device Provisioning works**
+   
+- Secure Device Provisioning (formerly from Inside Secure) ensures that secrets are not exposed or manipulated when provisioned at manufacturing time, and the innovative code protection and whitebox technology ensures that these secrets remain protected for the rest of the device’s lifetime. The solution doesn’t require any hardware security resource available on the device, however if available, it can be easily adapted to variety of common hardware and software architectures.   
+- With the Secure Device Provisioning solution, device makers can also remotely monitor the manufacturing
+process and even control it, without setting foot at the manufacturing site. It simplifies provisioning and makes it affordable to all device makers. The client environment can be further secured through the application of secure boot, code protection and whitebox technologies.   
+
+<details className="alert--primary">
+  <summary>
+    What does this mean ??   
+  </summary>
+  <div>
+    - In production env, the code requires to have the secrets in order to use them and carry out the operations   
+    - So we provide those secrets, here the risk is that they can be exposed or modified - Secure device provisioning ensures that the confidentiality and integrity of secrets is maintained throughout the lifecycle of the device. It is not that it "needs" hardware device to do all that, it can carry out using some specific software, but you can use hardware as well, it's flexible i guess   
+    - In case you are using secure device provisioning hardware solution, then know that the device makes can remotely monitor the process of secrets provision in the deployment phase, to make sure that the secrets are being provisioned securely.
+  </div>
+</details>   
+
+   
+### Deployment   
+An automation process workflow must be deployed to send it to the server. From server, the deployed process
+is assigned to a robot for execution. The Deployment tab allows you to deploy the published processes in Automation Studio. It also enables you to decommission the current version, restore the previous version and add a process as a processbot. Published as well as deployed processes are available in this tab. You can view details related to the process such as name of the process, its type, assigned profile, and version and so on. The version of the process displayed in the Deployment tab is the version that gets created while publishing the process. If you edit a deployed process, save and publish the deployed process again. The version of the saved and published process post deployment gets incremental by 1. Every version of the saved process that you publish is available for deployment.
+
+`I am skipping this as it's not that important and i don't understand why they have specified automating process in release section for application security 🥹`
+   
+## OWASP SAMM - Software Assurance security model   
+The Software Assurance Maturity Model (SAMM) is an open framework to help organizations formulate and
+implement a strategy for software security that is tailored to the specific risks facing the organization. SAMM
+helps you:   
+- Evaluate an organization’s existing software security practices   
+- Build a balanced software security assurance program in well-defined iterations   
+- Demonstrate concrete improvements to a security assurance program   
+- Define and measure security-related activities throughout an organization   
+   
+   
+SAMM provides a model for organisations to assess their current level software capabilities. It is not expected nor is it required that an organisation should achieve the maximum maturity level in each category. Instead organisations are encouraged to determine the target maturity levels for each Security Practice that best fits the organisation's goals, and adapt the SAMM templates accordingly.   
+Structurally SAMM defines five critical business functions:   
+- Governance   
+- Design   
+- Implementation   
+- Verification   
+- Operations   
+   
+   
+Each business function has three security practices itself, which can be described through three levels of maturity:   
+
+**Level 0**: an implicit starting point with an unfulfilled Security Practice   
+
+**Level 1**: an initial understanding and ad hoc   
+
+**Level 2**: a structured realisation with increased efficiency and effectiveness of the Security Practice   
+
+**Level 3**: a comprehensive mastery of the Security Practice at the scale that comes with an optimised solution.   
+
+For each level, SAMM defines the objective, a set of activities and describes expected results. How is SAMM utilised in practice with just four (more or less) easy steps:   
+1. Assess the organisation's current software security posture   
+2. Define the organisation's targets for each Security Practice   
+3. Define the implementation roadmap to achieve the set targets   
+4. Make it so! Do the necessary work to implement it all.   
+   
+<details className="alert--primary">
+  <summary>
+I know, even i didn't even read all of that 🥲   
+  </summary>
+  <div>
+    - SAMM is a open framework which helps organizations to devise a strategy to improve their current security practices and controls in software development   
+    - What do i mean by this ???   
+    - We can use SAMM to improve our security practices in the organizations that are always used during software development   
+    - Well, how do we do that ???
+    - SAMM does that by -    
+        - Evaluating the current software security practices within the organization   
+        - Then it creates a strategy, more like a plan called "software assurance program" - this contains the plan to develop the practices and controls   
+        - Improve it   
+        - Then define and measure activities that you need to carry out the plan throughout the organization   
+
+
+    - I know this is too much   
+    - Look - first we figure out the current security practices within the organization - then we create a plan to improve those practices, then we implement that plan   
+    - Here is where SAMM is awesome, the point where it creates the plan
+    - SAMM has five business functions into which it focuses for security practices -    
+        - Governance   
+        - Design   
+        - Implementation   
+        - Verification   
+        - Operations   
+
+    - Each of these areas have different maturity levels - these maturity levels define how much a security practice has maturity and efficieny - i think this might be it, its my own opinion   
+    - So level 0 means starting point of a practice, 1 means intial understanding and implementation of the practice, 2 means a efficient use of practice, 3 means the practice is being implemented as its mastery level with a optimized solution.   
+    - So this way, we take out current security practices, and we check ki where our practices align in these levels in the business functions, once we do that, we can incrementally try to improve the practice maturity levels.    
+    - And lets say, for a security practice, i select a level higher than its current level so that i can improve it sequentially. So for each level, SAMM defines a objective, a set of activities and expected outcome   
+    - What i mean is, when i select a level higher than the one i have, then the target maturity level describes the objective that the security practice must have, and the activities it should carry out in order to be a higher level and what should be the expected result we expect generally from a higher level   
+    - Then this is included in the plan, then the plan is implemented by carrying out the activities which we defined.   
+  </div>
+</details>
+   
+   
+   

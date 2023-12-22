@@ -41,6 +41,7 @@ const config: Config = {
         blog: {
           blogTitle: "Notes",
           showReadingTime: true,
+          blogSidebarCount: 'ALL',
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
             defaultReadingTime({content, options: {wordsPerMinute: 300}}),
         },
