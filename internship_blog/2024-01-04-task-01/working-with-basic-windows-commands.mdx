@@ -1,0 +1,201 @@
+---
+slug: task-01
+authors: [taha]
+tags: [eyesec, commands, tasks]
+toc_max_heading_level: 2
+hide_table_of_contents: false
+---
+
+# Working with basic windows commands
+
+## Commands
+
+### `ping` - pings  IP address with ICMP packtes to check network connectivity   
+ping command is used to test the reachabilitiy and responsiveness of a network device, by sending packets i.e ICMP echo request packets and waiting for echo reply packets.    
+
+{/* truncate */}
+so the way we perform this operation is, type ping followed by domain name or IP address - hitting enter sends ICMP packets to the destination machine. The output specifies how many of responses are returned and how much time it took, what percent of data was transmitted and received. This way, the output signifies how the destination machine responds back to ICMP packets   
+```
+ping google.com
+```
+![image.png](files\image_3.png)    
+*<small>command for ping</small>*
+
+
+---
+   
+### `ipconfig` - shows information about system's IP addresses and connections   
+This command displays the system's ip address information and IP configuration. It provides ip address, subnet mask etc of all network adaptors, that are configured in their respective network interface in the device. So it shows how the IP address are configured for each of them    
+Network adaptor is the physical entity for network connection where as network interface is a driver for network adaptor   
+```
+## This shows all the network inerfaces, and shows MAC< DHCP config as well
+ipconfig /all
+
+ipconfig
+```
+![image.png](files\image_n.png)    
+*<small>Command for getting information on IP configuration for all network adaptors.</small>*
+
+---
+
+### `netstat -an` - Displays network information like active connections
+
+This command is a network utility tool that is used to display network-related information, such as active network connections, routing tables, statistics for protocols etc  
+This command with options a and n, displays all of the active connections (active connections are network connections from our system to another device on a network, netstat displays that connection by first specifying the protocol, then the local address, foreign address, state, so the state for active connenctions is ESTABLISHED) and listening ports as well. So this command displays all of the active connections that are established as well as the listening ports on our device. the state for this is ofcourse LISTENING
+This displaying of active connections and listening ports is due to option a, option n is used to display numerical addressing and port numbers for the local and foregin addresses.
+```
+netstat -an
+```
+
+![image.png](files\image.png)
+*<small>commmand for displaying active network connections and listening ports, with their respective addresses and ports and their state as well.</small>*   
+
+---
+   
+### `driverquery` - Lists all of the installed device drivers   
+`driveryquery`  command is a windows specific command that is used to list all of the installed device driver on a windows system. So when we run the command in the command prompt, we can see the following output - all of the installed device drivers with their specific information.   
+Device drivers are the software components that allow OS to interact with hardware devices.   
+```
+driverquery
+```
+![image.png](files\image_1q.png)    
+*<small>command to list all installed device drivers</small>*
+
+---
+   
+### `cd` - Navigates to specified directory   
+This command is used to change the current working directory to the specified directory   
+cd stands for change directory. So we can change to a specific directory by specifying the directory name   
+NOTE - the specified directory should be present in the working directory if the path is relative to the working directory. When you want to navigate to a directory from the root directory, then start with `/`  .We can also navigate to parent directory from working directory by specifying `..`  as the argument   
+When we provide `/` as the argument for cd command, this takes you to the root directory of your file system   
+Lastly, if the directory name contains spaces like "My new folder", then enclose them in `"`   
+```
+cd anotherFolder
+```
+![image.png](files\image_m.png)    
+*<small>command used to navigate directories in file system</small>*
+
+---
+   
+### `systeminfo` - Provides information about your system   
+This command is a windows specific command that is used to get comprehensive information about your system's configuration and details. It provides details such as CPU information, OS name, Version, BIOS information, Memeory information, Storage information etc.   
+```
+systeminfo
+```
+![image.png](files\image_d.png)    
+*<small>command used to display information about system</small>*
+
+---
+   
+### `set` - used to set, view and modify env variables   
+This command can be used to view, set or modify environment variables. Env variables are dynamic values that affect the behaviour of processes and programs in a system. We have user defined variables and system defined variables.   
+When we type the command without any arguments, it displays all of the environment variables and their values. We can set a new user-defined ENV variable by typing the set command, followed by the name of the environment variable and assigning a new value using the assignment operator `=`    
+```
+set NEW_VARIABLE=someValue
+```
+![image.png](files\image_o.png)    
+*<small>set command used to display all user specific as well as system specific environment variables</small>*
+
+---
+   
+### `prompt` - Used to customize the text before prompt   
+By default, the text before the prompt where we enter commands, it is set to the path from C drive to the user's home directory. This text is commonly known as prompt in Windows or prompt string in Linux based systems. The point is - `prompt`  command is used to change the "prompt" text that is displayed before the > where we enter the commands. Here, we have some special codes which we can use to customize the prompt   
+- **$G**: Displays the greater-than sign (>)   
+- **$P**: Displays the drive and path.   
+- **$D**: Displays the current date.   
+- **$T**: Displays the current time.   
+   
+```
+prompt taha-sindoli $G
+```
+![image.png](files\image_w.png)    
+*<small>Command used to customize the prompt itself</small>*
+
+---
+   
+### `clip` - used to copy output of a command to clipboard   
+This is a windows specific command that redirects the output of a command to the clipboard rather than showing the outuput in the command prompt window. when we want to copy the output of a command, then we can use this clip command with \| operator which is used to take output from one command and provide it as a input to the next command, so we can do the same thing - first we write the command whose output we want to copy, and then we write \| clip so that the output of the command is going to be standard input to the clip command. This way, clip command redirects the output to the clipboard rather than showing the output in the window.   
+```
+dir | clip
+```
+![image.png](files\image_6.png)    
+*<small>Command used to copy output of command to clipboard</small>*
+
+---
+   
+### `assoc` - List the extensions and their associated File types   
+This command is used to display or modify file extension associations. File extension associations are basically file types here, so we can view all the file extensions and their corresponding file types as well as we can modify any file extension association. so we can change the file type of a extension to something else, note that this might affect the behavior of dealing with files whose file types have been changed due to their extension   
+What does file type mean ??   
+  File types provide meta data to operating system about how they should handle files. So when we open a text file, it has a extension .txt and from this we know that we can open this file using notepad. Operating system knows this because of file type of PNG which is pngFile. So as mentioned above, apart from displaying all of the file extensions and their associated file types, we can also modify the file extension's associations.    
+  So when we change the file type of a extension, like changing the file extension association of .txt to something like pngFile `assoc .txt=pngFile`    
+  this doesn't mean that the contents of all txt files are changed to png image format, file types provide meta data to OS to decide which program should we use to open the file, so png are opened with image editor program. So we can see that how we can use assoc to list the file extensions and their associated file types as well as how we can modify a file extension's association.   
+By passing a file extension as argument, assoc outputs its associated file type.   
+```
+## This is used to display all of the file extensions and their associated file types
+assoc
+
+## This is used to display specific file types using file extensions
+assoc .txt
+```
+![image.png](files\image_r.png)    
+*<small>command for displaying file extension associations</small>*
+
+---
+   
+### `title`  - sets the title of command prompt window   
+This command is used to change or set the title of the command prompt window where the command is executed to a new value. This way, we can provide information or context which indicates what type of commands are being executed in the a command prompt window   
+```
+title new-window-title-name
+```
+![image.png](files\image_3n.png)    
+*<small>command to set the title of a command prompt window</small>*
+
+---
+   
+### `fc` - used to compare two individual files   
+This command is used to compare two files and display the differences between them   
+We have many options which are referred to as switches, we can use them to configure the comparision between two files or set of files. For this command, we specify the path for both of the files as arguments, and a option if we want to do something like binary comparision, or ASCII text comparision or compare files ignoring the casing.    
+```
+fc pathForFile1 pathForFile2
+```
+![image.png](files\image_q.png)    
+*<small>Here, two different files are compared and the second command compares two files with same content.</small>*
+
+---
+   
+### `cipher`  - Used to encrypt and decrypt files and directories   
+This command is a windows specific command that is used to encrypt and decrypt files and directories on NTFS drives. We can also view the encryption status of the current directory as well - like, which all files and folders are encrypted in the current directory   
+When we want to view the encryption status, we can simply type the command cipher   
+When we want to encrypt a file, we need to specify some options.   
+We have some options like /e whihc encrypts the file, /d which decrypts the file, /s : Performs the specified operation on the specified directory, so when we are encrypting a directory, then we need to specify this option and then specify the path for the directory we want to encrypt, this is because it specifies the operation on the specified directories and its sub dir i.e the dir and its sub dir are either encrypted reucrsively or decrypted.    
+When we are encrypting or decrypting a file, we don't need /s option, we just need to specify the option for the operation.   
+```
+cipher /e secret.txt
+cipher /d secret.txt
+```
+![image.png](files\image_c.png)    
+*<small>command for encrypting and decrypting files and folders</small>*
+
+---
+   
+   
+### `sfc`  - system file checker   
+This command scans your computer for corrupt files and repairs them   
+The option we can use to run a scan using sfc is `/scannow`    
+This command is going to scan your system for    
+```
+sfc /scannow
+```
+![image.png](files\image_u.png)    
+*<small>command for checking corrupt files and repairing if found any</small>*
+
+---
+   
+### `tree`  - shows the current dir and its sub dir folder structure in a tree format   
+This command is used to show the current directories and sub directories folder structure in a tree like format, showing the hierarchy of files and folders   
+By default it shows all the folders and its sub dir. If we want to show the files as well, we can use the /F option   
+/A for using ASCII characters for the lines of tree structure   
+![image.png](files\image_18.png)    
+*<small>command showing the folder structure from current directory in tree format</small>*
+
+---

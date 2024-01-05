@@ -39,8 +39,11 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
         },
         blog: {
+          id: 'notes',
           blogTitle: "Notes",
           showReadingTime: true,
+          routeBasePath: 'notes',
+          path: 'notes',
           blogSidebarCount: 'ALL',
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
             defaultReadingTime({content, options: {wordsPerMinute: 300}}),
@@ -50,15 +53,17 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
-    // [
-    //   '@docusaurus/preset-classic',
-    //   {
-    //     pages: {
-    //       path: 'src/pages',
-    //       routeBasePath: '',
-    //     }
-    //   }
-    // ]
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'internship', // TODO - change the name
+        routeBasePath: 'internship-blog',
+        path: './internship_blog',
+      },
+    ],
   ],
 
   themeConfig: {
@@ -82,7 +87,8 @@ const config: Config = {
           position: 'left',
           label: 'Docs'
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/notes', label: 'Notes', position: 'left'},
+        {to: '/internship-blog', label: 'Internship', position: 'left'},
         {
           href: 'https://github.com/Ta-h-a',
           label: 'GitHub',

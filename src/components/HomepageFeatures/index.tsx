@@ -47,7 +47,7 @@ export default function Hero() {
               </Button>
             </Link>
 
-            <Link to={"/blog"}>
+            <Link to={"/notes"}>
               <Button className="hero-button-primary" rounded={"full"} px={6}>
                 Personal Blogs & Notes
               </Button>
