@@ -1,0 +1,161 @@
+---
+slug: task-03
+authors: [taha]
+tags: [eyesec, commands, tasks]
+toc_max_heading_level: 2
+hide_table_of_contents: false
+---
+
+# Google Dorking
+   
+We use the web through web browsers, and all of us already know that in order to search for anything, we need to enter our prompt in the search bar in the browser. When we are using Google as search engine, we need to perform a google search.    
+A google dork is an advanced google search using only the search box. Combining google dorks (basically google dork commands) in a single query helps you filter out irrelevant content. When we perform a normal search to download a PDF file, we get results that does not consist what we are looking for, same goes for any resource that we are looking for, so with the help of google dork, we can search the internet for specific resources in a advanced manner, and can also get our hands on legal documents and user identities. Let's look at some google dorks   
+
+{/* truncate */}
+
+## `allintitle`    
+The `allintitle`  dork looks for pages with titles containing the search terms. It applies to the entire query string. You can see each word in the query string in the title of each search engine result returned. It's useful
+when the title of your desired web resource contains a series of keywords.   
+```
+allintitle: cyber security essentials
+```
+![image.png](files\image.png)
+
+---
+   
+## `allinurl`    
+The allinurl: dork finds links containing all words following the colon (:), and it's equivalent to applying inurl: to discrete search strings. You can see all query items in the URL of each Google search result returned. It's a useful dork when you know what to look for in your desired URLs   
+```
+allinurl:cyber security hacker
+```
+![image.png](files\image_j.png)
+
+---
+   
+## `cache`    
+Using the cache: dork, when you press Enter/Return, the Google search engine fetches the last saved copy of a particular website (Google cache) if it exists and displays it. It's useful for rediscovering a website before its downtime or latest update.   
+When you use cache dork and enter a URL, if that website is cached by the search engine then it sends back the cached website as result.   
+```
+cache: wikipedia.com
+```
+![image.png](files\image_b.png)
+
+---
+   
+## `define`    
+The define: dork returns definitions of a word or phrase. The Google search results are various dictionary definitions of the query item. It's useful when you want to find a word or phrase's meaning conveniently.   
+```
+define: football
+```
+![image.png](files\image_1.png)
+
+---
+   
+## `ext`    
+The ext: dork restricts the returned web addresses to the designated extension, such as PDF or XLS. Unlike most other dorks, it requires additional keywords/dorks in the search bar, or it'll return no results. The Google search results have the designated file extensions. You can use it to find leaked passwords and cameras in penetration testing (pentesting).    
+```
+ext: html site:youtube.com intitle: copyright
+```
+![image.png](files\image_z.png)
+
+---
+Here all of the results are html files of youtube.com, if we searched normally then we would get videos as results instead of html files   
+   
+## `filetype`    
+The filetype: dork restricts the returned web addresses to the designated file type, such as PDF or XLS. Unlike most other dorks, it requires additional keywords/dorks in the search bar, or it'll return no results. The Google search results have the designated file type. It's necessary for pentests such as bypassing paywalls to access resources.   
+```
+filetype:pdf site: samsung.com
+```
+![image.png](files\image_a.png)
+
+---
+
+
+<details className="alert--warning">
+  <summary>Note -</summary>
+  <div>
+    You might think that ext and filetype have the same function, the thing is, filetype is used to fetch results that follow a file format. We have some file formats in our file system as we are well aware. So ext does the same thing but it makes sure that the results are returned as per the file extensions. File formats and file extensions are two different things. File formats help OS to know which app it needs to open a file, and file extension explains what type of data is stored in a file   
+  </div>
+</details>   
+
+## `info`    
+The info: dork returns pages that convey information about a website. The Google search engine results are the website's cache, similar pages, and pages that link to it. It's useful when you want to find thirdparty resources about a web page.   
+When using "info:" followed by a URL in a search query (for example, "info:example.com"), it aims to provide details or information related to that particular webpage. However, it's important to note that not all search engines support this operator, and its functionality might vary across different platforms.   
+The "info:" operator can potentially display information such as:   
+1. **Cached Version**: It might show a link to the cached version of the webpage stored by the search engine.   
+2. **Similar Pages**: Some search engines might provide links to pages that are similar or related to the specified URL.   
+3. **Links to the Site**: It could display other links to pages from the same website or domain.   
+4. **Other Information**: Depending on the search engine, it might offer additional details or related information about the specified webpage.   
+   
+```
+info:springboard.com site:springboard.com
+```
+![image.png](files\image_1g.png)
+
+---
+   
+## `intext`    
+The intext: dork finds websites containing the query string. You can see the query string in the text body of each Google search result returned. It's useful when the content body of your desired web page
+contains a certain keyword. In the demonstration below, we're looking for web pages of books with “munira” in the body but include “tom” anywhere   
+```
+intext:munira tom site:goodreads.com
+```
+![image.png](files\image_o.png)
+
+---
+   
+## `intitle`    
+The intitle: dork looks for pages with titles containing the search terms. You can see the query string in the title of each Google search result returned. It's useful when the title of your desired web resource contains a certain keyword. In the example below, we look for all our pages containing “google” in the title.   
+```
+intitle: nextjs site: github.com
+```
+![image.png](files\image_c.png)
+
+---
+   
+## `inurl`    
+The inurl: dork finds URLs containing the character string. You can see the query string in the URL of each Google search result returned. In the example below, the additional dork is to exclude search results from our website. It's a handy dork when your desired URLs follow a certain pattern.   
+```
+inurl:stationx site:stationx.net
+```
+![image.png](files\image_2.png)
+
+---
+   
+## `link`    
+The link: dork finds web pages linking to the given web domain. The Google search results can be from the given domain or third-party websites linking to the given domain. It can help you when you want to estimate the impact of a web resource.   
+```
+link: stackoverflow.com intitle:Nuxt
+```
+![image.png](files\image_u.png)
+
+---
+   
+## `map`    
+The map: dork is for getting a map of the given location. Google returns with the map you're seeking. On macOS, you may see a prompt to open the Maps application. It's useful when you want a quick map of your desired location.   
+```
+map: mecca
+```
+![image.png](files\image_x.png)
+
+---
+   
+## `phonebook`    
+The phonebook: dork is for getting a specific person or business's phone numbers and contact information. The Google search may return no results or several. The screenshot demonstration below has to do with fictional US phone numbers. This command is helpful when you want to look up caller IDs.   
+```
+phonebook:555-555-5555
+```
+![image.png](files\image_5.png)
+
+---
+   
+## `site`    
+The site: dork restricts your search to a particular website, top-level domain, or subdomain. Additional query items are optional. The Google search results are pages within the website, top-level domain, or subdomain that contain your query items. It's essential for focusing on content from a particular web location, such as your server.   
+```
+site:github.com ohmyposh
+```
+![image.png](files\image_1n.png)
+
+---
+   
+   
