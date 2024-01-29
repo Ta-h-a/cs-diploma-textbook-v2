@@ -1,0 +1,137 @@
+---
+slug: task-04
+authors: [taha]
+tags: [eyesec, commands, tasks, testing]
+toc_max_heading_level: 3
+hide_table_of_contents: false
+---
+
+# Penetration Testing
+   
+Let's first discuss what Metasploitable is, it is a testing environment that is very useful for beginner who wants to practice and test their penetration testing skills and security research. It is a target machine that is used to discover and penetrate vulnerabilities so that the user gets an idea of real-life targets and machines.
+{/* truncate */}
+In other words, Metasploitable is a virtual machine intentionally vulnerable version of Ubuntu designed for testing security tools and demonstrating common vulnerabilities.
+To install this virtual machine in your virtual box, We assume that you have a virtual box installed on your system.   
+
+## How to install Metasploitable 2 in Virtual Box   
+   
+### Installation   
+Step 1 → <a href="https://www.vulnhub.com/entry/metasploitable-2,29/">Download</a> the Metasploitable 2 file.   
+![image.png](files\image.png)    
+   
+Step 2 → The file initially will be in zip format so we need to extract it, after extracting the file open VirtualBox.    
+![image.png](files\image_o.png)    
+   
+Step 3: Now as shown in the above image click on the new option in the Virtual box.   
+![image.png](files\image_1.png)    
+   
+now a window will pop up and you will be asked to provide some details like the name of your
+machine, installation path, type, and version. fill in the details like:   
+```
+Name: as per your choice 
+
+Path: leave as recommended 
+
+Type: Linux 
+
+Version: other (64-bit)
+```
+   
+Step 4: Select the RAM you want to provide to the virtual machine. Recommended (512Mb).   
+![image.png](files\image_7.png)    
+   
+Step 5: Now choose the option to use an existing virtual hard disk file.   
+![image.png](files\image_t.png)
+Now locate the file that we have extracted.   
+![image.png](files\image_3.png)    
+
+Step 6: Now save the file and you will see that the instance is created with the name you have given.   
+![image.png](files\image_a.png)    
+   
+We are good to go with the machine just press the start button from the top and wait for it to start
+and load the instance.   
+   
+Step 7. once the instance is loaded you will be asked to provide a login name and password.    
+![image.png](files\image_c.png)    
+By default the credentials are :   
+```
+Default login: msfadmin 
+
+Default password: msfadmin
+```
+   
+once you log in with credentials you will be directed to the machine and we are done with the
+installation process.   
+![image.png](files\image_i.png)    
+   
+## Demo of penetration testing with Metasploitable 2   
+   
+Step 1: open your both machines Metasploitable 2 and kali Linux side by side.   
+- First, we need to run both instances at the same time side by side so that we will be able to see the changes clearly. launch Vbox and start both Linux and Metasploitable 2 side by side.   
+![image.png](files\image_p.png)    
+   
+   
+Step 2: let’s check the IP addresses of both machines to get an overview of the target machine. now let’s open the terminal and check for the IP address of Metasploitable 2 on which we are going to perform the attack. use the following command:   
+```
+ifconfig
+```
+from the above image, we can see that we have an IP address i.e. 192.168.10.5 of the target machine.   
+   
+Step 3: Now we will be performing a network scan with the help of the Nmap tool to see what services
+are running on target and which are way into the target. now the first step is to look for loops and vulnerabilities so that we can exploit the machine, to do so we will use Nmap scan on a Linux terminal. use command:   
+```
+nmap -sV -O 192.168.10.5
+```
+![image.png](files\image_x.png)    
+In the above command -sV is used for getting the versions of services running on the target machine
+and -O is used to detect the operating system on the target machine.    
+Now we can see that we have so many exploitations ways and vulnerabilities to perform, we will be
+using the vsftpd\_234\_backdoor exploit, for exploitation and gaining access to the machine.   
+   
+Step 4: Now that we have all the info related to the exploit that we need to use i.e. vsftpd\_backdoor so now we can use Metasploit to exploit the machine and get access to the command shell. which will eventually give us access to the target machine. start the Metasploit Framework by the command mentioned below:   
+```
+msfconsole
+```
+   
+So now we are going to choose vsftpd\_backdoor exploit and then set RHOST (target IP)   
+   
+Step 5: Now all we need to do is deploy the exploit into the target machine with the help of msfconsole,
+to do so we need to follow some basic steps that are:   
+- first, let's select the exploit that we are going to use in this case it is vsftpd\_backdoor, so we will use
+the following command :   
+
+```
+use exploit/unix/ftp/vsftpd_234_backdoor
+```
+
+- after selecting the above exploit let’s set up the target to which we are deploying the exploit.   
+
+```
+show options
+```
+    ![image.png](files\image_w.png)    
+    now we can see that we have the option to set RHOST which is the receiver host. so we will set it to
+the IP address of the target machine.   
+
+```
+set RHOST 192.168.10.5
+```
+   
+   
+Step 6: The final step is to run the exploit, by command exploit.    
+```
+exploit
+```
+   
+after setting RHOST just enter the exploit command and you will see the command shell of the target machine is obtained.   
+![image.png](files\image_1b.png)    
+now we have successfully penetrated the target by obtaining a shell, you can try commands and verify
+in both machines at the same time.   
+   
+Step 7: Verify by using some command shell commands like print the working directory or ls items in a folder.   
+```
+pwd, ls -l, ls -a etc
+```
+we can see that both sides of the files are the same and we have root access to the machine.   
+So we have successfully reviewed how Metasploitable is useful for practicing penetration testing skills.   
+   
