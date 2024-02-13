@@ -1,0 +1,81 @@
+---
+id: Data_Structures_with_Python_Experiment_08_B
+title: Implement Bracket matching using stack.
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-08/b
+description: The checkBalance function uses a stack-based approach to check if an expression containing parentheses, curly braces, and square brackets is balanced, returning True if it is and False otherwise.
+---
+
+# Implement Bracket matching using stack.
+
+## Description
+
+The checkBalance function uses a stack-based approach to check if an expression containing parentheses, curly braces, and square brackets is balanced, returning True if it is and False otherwise.
+
+## Code
+
+```python title="program8b.py"
+def checkBalance(expr):
+    stack = []
+    for char in expr:
+        if char in ["(", "{", "["]:
+            stack.append(char)
+        else:
+            if not stack:
+                return False
+            currChar = stack.pop()
+            if currChar == "(":
+                if char != ")":
+                    return False
+            if currChar == "{":
+                if char != "}":
+                    return False
+            if currChar == "[":
+                if char != "]":
+                    return False
+    if stack:
+        return False
+    return True
+
+expr = "{{[()]}}"
+if checkBalance(expr):
+    print("The given string is balanced")
+else:
+    print("The given string is not balanced")
+```
+
+## Explanation of above code
+
+### checkBalance Function
+- The checkBalance function checks if a given expression expr containing parentheses, curly braces, and square brackets is balanced. It uses a stack to keep track of opening symbols and ensures that the closing symbols match the corresponding opening symbols.
+#### Stack Initialization
+- The stack is initialized as an empty list.
+#### Iterating Over Characters
+- The function iterates over each character char in the expr string.
+#### Opening Symbols
+- If the character char is an opening symbol (i.e., `(`, `{`, or `[`), it is pushed onto the stack using the append method.
+#### Closing Symbols
+- If the character char is a closing symbol, the function performs the following checks:
+- If the stack is empty (i.e., there are no corresponding opening symbols for the current closing symbol), it means the expression is unbalanced. In this case, the function returns False.
+- If the stack is not empty, it pops the top character currChar from the stack using the pop method.
+- It then checks if currChar matches the expected closing symbol for the current character char.
+- If they don't match, it means the expression is unbalanced, and the function returns False.
+#### Final Check
+- After iterating through all the characters in the expression, the function performs a final check:
+- If there are remaining opening symbols in the stack (i.e., the stack is not empty), it means the expression is unbalanced. In this case, the function returns False.
+- If the stack is empty, it means all opening and closing symbols are properly balanced, and the function returns True.
+### Main Code
+- In the main code, a string expr is defined, representing the expression to be checked for balanced parentheses, curly braces, and square brackets.
+- The checkBalance function is called with expr as an argument.
+- If the function returns True, it means the expression is balanced, and the message "The given string is balanced" is printed.
+- If the function returns False, it means the expression is unbalanced, and the message "The given string is not balanced" is printed.
+- This code allows you to check whether a given expression containing parentheses, curly braces, and square brackets is balanced or not using a stack-based approach. It ensures that opening and closing symbols are properly matched in the expression.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/aKTGpBeOeZg" title="Parenthesis Checker | Valid Parentheses Leetcode | Balanced Parentheses Hackerrank | DSAOne #43" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [GFG](https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression//)
+- [coding ninjas](https://www.codingninjas.com/blog/2021/09/09/understanding-balanced-parentheses/)

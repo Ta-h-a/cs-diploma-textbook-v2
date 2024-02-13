@@ -1,0 +1,70 @@
+---
+id: Data_Structures_with_Python_Experiment_04_C
+title: Implement Fibonacci sequence with dynamic programming.
+sidebar_label: C
+slug: /fourth-semester/dsa-with-python/expt-04/c
+description: The code calculates the Fibonacci sequence up to a given number `n` and returns the sequence as a list. It uses a `for` loop to generate the Fibonacci numbers and appends them to a list. The function is then called with different values of `n` to print the corresponding Fibonacci sequences.
+---
+
+# Implement Fibonacci sequence with dynamic programming.
+
+## Description
+
+The code calculates the Fibonacci sequence up to a given number `n` and returns the sequence as a list. It uses a `for` loop to generate the Fibonacci numbers and appends them to a list. The function is then called with different values of `n` to print the corresponding Fibonacci sequences.
+
+## Code
+
+```python title="program4c.py"
+def fib(n):
+    a = [0, 1]
+    for i in range(2, n+1):
+        a.append(a[i-1] + a[i-2])
+    return a
+
+print(fib(2))
+print(fib(3))
+print(fib(5))
+print(fib(6))s
+print(fib(7))
+print(fib(8))
+```
+
+## Explanation of above code
+### Function Definition:
+- The code defines a function called fib that calculates the Fibonacci sequence up to the given input n.
+- The function takes a single parameter n, which represents the number of Fibonacci sequence elements to generate.
+- The function will return a list containing the Fibonacci sequence up to the nth element.
+- Fibonacci Sequence Initialization:
+- Inside the function, a list named a is initialized with the first two elements of the Fibonacci sequence: [0, 1].
+- a[0] represents the 0th Fibonacci number (0) and a[1] represents the 1st Fibonacci number (1).
+- Fibonacci Sequence Calculation:
+- A for loop is used to calculate the remaining Fibonacci numbers up to the nth element.
+- The loop starts from 2 and goes up to n+1 (inclusive).
+- In each iteration, the next Fibonacci number is calculated by summing the previous two numbers in the sequence (a[i-1] and a[i-2]).
+- The newly calculated Fibonacci number is then appended to the a list using the append method.
+- Return the Fibonacci Sequence:
+- Once the loop completes, the function returns the a list, which contains the Fibonacci sequence up to the nth element.
+### Testing the Function:
+- The print statements at the end of the code call the fib function with different values of n to test its functionality.
+- The function is called with n equal to 2, 3, 5, 6, 7, and 8.
+- The returned Fibonacci sequences are printed, and the output will be:
+```text title="Output"
+[0, 1, 1]
+[0, 1, 1, 2]
+[0, 1, 1, 2, 3, 5]
+[0, 1, 1, 2, 3, 5, 8]
+[0, 1, 1, 2, 3, 5, 8, 13]
+[0, 1, 1, 2, 3, 5, 8, 13, 21]
+```
+- In summary, the code defines a function fib that generates the Fibonacci sequence up to a given number n.
+- The Fibonacci sequence is calculated using a for loop and stored in a list, which is then returned by the function.
+- The code demonstrates the functionality of the fib function by printing Fibonacci sequences for different values of n.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/7Sv4NmvdHcw" title="#38 Python Tutorial for Beginners | Fibonacci Sequence" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [byjus](https://byjus.com/maths/fibonacci-sequence/)
+- [Elearning Industry](https://elearningindustry.com/fibonacci-sequence-what-is-and-how-applies-agile-development)

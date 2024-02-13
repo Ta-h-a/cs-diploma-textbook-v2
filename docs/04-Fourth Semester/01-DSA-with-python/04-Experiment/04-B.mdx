@@ -1,0 +1,221 @@
+---
+id: Data_Structures_with_Python_Experiment_04_B
+title: Implement Merge and quick sorting algorithms compute space and time complexities
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-04/b
+description: Quick Sort - Efficient divide-and-conquer algorithm with O(n log n) average and worst-case time complexity for sorting large datasets. Merge Sort - Effective divide-and-conquer algorithm with O(n log n) average and worst-case time complexity for sorting large datasets by recursively dividing, sorting, and merging sub-lists.
+
+---
+
+# Implement Merge and quick sorting algorithms compute space and time complexities
+
+## Description
+
+Quick Sort: Efficient divide-and-conquer algorithm with O(n log n) average and worst-case time complexity for sorting large datasets. Merge Sort: Effective divide-and-conquer algorithm with O(n log n) average and worst-case time complexity for sorting large datasets by recursively dividing, sorting, and merging sub-lists.
+
+## Merge Sort
+
+### Code
+
+```python title="program4b-merge-sort.py"
+def mergeSort(arr): 
+    if len(arr) > 1:
+        a = len(arr) //2
+        l = arr[:a]
+        r = arr[a:]
+        # sort the two halves
+        mergeSort(l)
+        mergeSort(r)
+        i = j = k = 0
+        while i < len(l) and j < len(r):
+            if l[i] < r[j]:
+                arr[k] = l[i] 
+                i += 1
+            else:
+                arr[k] = r[j]
+                j += 1
+            k += 1
+        while i < len(l):
+            arr[k] = l[i]
+            i += 1
+            k += 1
+        while j < len(r):
+            arr[k] = r[j]
+            j += 1
+            k += 1
+
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+elements = np.array([i*1000 for i in range(1, 5)])
+plt.xlabel('List Length')
+plt.ylabel('Time Complexity')
+
+times = list()
+start_all = time.time()
+for i in range(1, 5):
+    start = time.time()
+    a = np.random.randint(1000, size=i*1000)
+    mergeSort(a)
+    end = time.time()
+    times.append(end - start)
+    print("Merge Sort Sorted", i*1000, "Elements in", end - start, "s")
+end_all = time.time()
+print("Merge Sort Sorted Elements in", end_all - start_all, "s")
+plt.plot(elements, times, label="Merge Sort")
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/A0ahBuh.png"} style={{borderRadius: '10px'}} />
+
+</details>
+
+### Explanation of above code
+
+#### Introduction
+- The Merge Sort algorithm is a divide-and-conquer algorithm that recursively divides the input list into smaller sublists until each sublist contains only one element.
+- It then merges these sublists in a sorted manner until a single sorted list is obtained.
+#### Code Explanation
+- Divide:
+- The input list is divided into two halves, approximately of equal size.
+- Conquer:
+- Recursively sort the two halves by applying the Merge Sort algorithm.
+- Merge:
+- Merge the two sorted halves into a single sorted list by comparing and merging the elements.
+- Code Implementation
+- The code starts by defining the mergeSort function, which performs the Merge Sort algorithm on an input array.
+- It recursively divides the array into smaller subarrays and then merges them to obtain the final sorted array.
+- The code also includes a section for the full code implementation, which measures the time complexity of the Merge Sort algorithm for sorting different-sized lists of elements.
+- Initialization:
+- The code initializes an empty list (times) to store the execution times for different list lengths.
+- It also creates a range of list lengths (elements) for which the time complexity will be measured.
+- Loop:
+- The code loops over each list length in the elements range.
+- Sorting and Timing:
+- For each list length, the code generates a random list of integers using NumPy's random.randint() function.
+- It then applies the mergeSort function to sort the list and measures the execution time using the time.time() function.
+- The execution time is appended to the times list.
+- Printing and Plotting:
+- After sorting each list length, the code prints the number of elements and the corresponding execution time.
+- Finally, it plots the list lengths (elements) on the x-axis and the execution times (times) on the y-axis using Matplotlib, with the label "Merge Sort" for the legend.
+#### Conclusion
+- The given code demonstrates the implementation of the Merge Sort algorithm and measures its time complexity for sorting different-sized lists of elements.
+- The execution times are recorded and plotted, allowing for an analysis of the algorithm's performance as the list length increases.
+- Merge Sort has an average and worst-case time complexity of O(n log n), making it an efficient sorting algorithm for large datasets.
+
+### Learn more
+
+<iframe width="579" height="289" src="https://www.youtube.com/embed/4VqmGXwpLqc" title="Merge sort in 3 minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
+## Quick Sort
+
+### Code
+
+```python title="program4b-quick-sort.py"
+
+def partition(tempList, low, high):
+    i = low - 1
+    pivot = tempList[high]
+    for j in range(low, high):
+        if tempList[j] < pivot:
+            i+=1
+            tempList[i],tempList[j] = tempList[j],tempList[i]
+    tempList[i+1],tempList[high] = tempList[high],tempList[i+1]
+    return(i+1)
+
+def quickSort(tempList, low, high):
+    if low < high:
+        pi = partition(tempList, low, high)
+        quickSort(tempList, low, pi -1)
+        quickSort(tempList,pi+1, high)
+
+# --------------------------------------------------
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+elements = np.array([i*1000 for i in range(1, 10)])
+plt.xlabel('List Length')
+plt.ylabel('Time Complexity')
+
+times = list()
+start_all = time.time()
+for i in range(1, 10):
+    start = time.time()
+    a = np.random.randint(1000, size=i*1000)
+    quickSort(a,0,len(a)-1)
+    end = time.time()
+    times.append(end - start)
+    print("Quick Sort Sorted", i*1000, "Elements in", end - start, "s")
+end_all = time.time()
+print("Quick Sort Sorted Elements in", end_all - start_all, "s")
+plt.plot(elements, times, label="Quick Sort")
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/WjFzKdd.png"} style={{borderRadius: '10px'}} />
+
+</details>
+
+### Explanation of above code
+
+#### Introduction
+- The Quick Sort algorithm is a divide-and-conquer algorithm that works by selecting a pivot element and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot.
+- The sub-arrays are then recursively sorted.
+#### Code Explanation
+- Choose a pivot:
+- Select an element from the array as the pivot element.
+- Partition:
+- Rearrange the array in such a way that all elements smaller than the pivot are placed before it, and all elements greater than the pivot are placed after it.
+- The pivot element will be in its final sorted position.
+- Recursively sort sub-arrays:
+- Apply the Quick Sort algorithm recursively to the sub-array on the left of the pivot and the sub-array on the right of the pivot.
+#### Code Implementation
+- The code starts by defining two functions: partition and quickSort.
+- The partition function performs the partitioning process.
+- It selects the last element as the pivot and rearranges the elements accordingly.
+- It returns the index of the pivot element.
+- The quickSort function serves as the main function for implementing the Quick Sort algorithm.
+- It recursively applies the quickSort function to the sub-arrays on the left and right of the pivot.
+- After defining the functions, the code includes a section for the full code implementation.
+- Initialization:
+- The code initializes an empty list (times) to store the execution times for different list lengths.
+- It also creates a range of list lengths (elements) for which the time complexity will be measured.
+- Loop:
+- The code loops over each list length in the elements range.
+- Sorting and Timing:
+- For each list length, the code generates a random list of integers and applies the quickSort function to sort the list.
+- It measures the execution time and appends it to the times list.
+- Printing and Plotting:
+- After sorting each list length, the code prints the number of elements and the corresponding execution time.
+- Finally, it plots the list lengths on the x-axis and the execution times on the y-axis, with the label "Quick Sort" for the legend.
+#### Conclusion
+- The given code demonstrates the implementation of the Quick Sort algorithm and measures its time complexity for sorting different-sized lists of elements.
+- The execution times are recorded and plotted, allowing for an analysis of the algorithm's performance as the list length increases.
+- Quick Sort has an average time complexity of O(n log n) and a worst-case time complexity of O(n^2), but it is generally considered efficient and widely used for sorting large datasets.
+
+### Learn more
+
+<iframe width="579" height="289" src="https://www.youtube.com/embed/QN9hnmAgmOc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [javatpoint](https://www.javatpoint.com/quick-sort)
+- [GFG](https://www.geeksforgeeks.org/quick-sort/)
+- [programiz](https://www.programiz.com/dsa/merge-sort)
+- [GFG](https://www.geeksforgeeks.org/quick-sort/)

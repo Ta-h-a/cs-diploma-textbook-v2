@@ -1,0 +1,105 @@
+---
+id: Data_Structures_with_Python_Experiment_05_A
+title: Implement Singly linked list (Traversing the Nodes, searching for a Node, Prepending Nodes, Removing Nodes)
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-05/a
+description: The provided code implements a linked list data structure in Python with functions for printing, searching, prepending, and removing nodes. It demonstrates basic operations on a linked list such as traversal, modification, and manipulation of nodes.
+---
+
+# Implement Singly linked list (Traversing the Nodes, searching for a Node, Prepending Nodes, Removing Nodes)
+
+## Description
+
+The provided code implements a linked list data structure in Python with functions for printing, searching, prepending, and removing nodes. It demonstrates basic operations on a linked list such as traversal, modification, and manipulation of nodes.
+
+## Code
+
+```python title="program5a.py"
+# Node class
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def printLL(head):
+    curr = head
+    while curr:
+        print(curr.data, end=" -> ")
+        curr = curr.next
+    print("None")
+
+def searching(head, data):
+    curr = head
+    while curr:
+        if curr.data == data:
+            return True
+        curr = curr.next
+    return False
+
+def input(data):
+    head = None
+    tail = None
+    for item in data:
+        newNode = Node(item)
+        if not head:
+            head = newNode
+            tail = newNode
+        else:
+            tail.next = newNode
+            tail = newNode
+    return head
+
+def removeNode(head, data):
+    if head and head.data == data:
+        return head.next
+    curr = head
+    while curr and curr.next:
+        if curr.next.data == data:
+            curr.next = curr.next.next
+            break
+        curr = curr.next
+    return head
+
+myList = input([42, 32, 22, 2, 12])
+printLL(myList)
+print("Search for 93:", searching(myList, 93))
+print("Searching for 12:", searching(myList, 12))
+print("Removing 12 from the list")
+myList = removeNode(myList, 12)
+printLL(myList)
+```
+
+## Explanation of above code
+
+### Node Class
+- The Node class represents a single node in the linked list. Each node contains a data attribute to store the value and a next attribute to point to the next node in the list.
+#### printLL Function
+- The printLL function takes the head of a linked list as input and prints the elements of the linked list in order. It traverses the linked list starting from the head and prints each node's data followed by an arrow (->). Finally, it prints "None" to indicate the end of the list.
+#### searching Function
+- The searching function takes the head of a linked list and a data value as input. It searches for the given data in the linked list and returns True if the data is found and False otherwise. It uses a while loop to iterate through the linked list, comparing the data of each node with the target value.
+#### input Function
+- The input function takes a list as input and constructs a linked list from the elements of the list. It creates a new node for each element and connects the nodes together to form a linked list. It returns the head of the linked list.
+#### prependingNode Function
+- The prependingNode function takes the head of a linked list and a data value as input. It creates a new node with the given data and inserts it at the beginning of the linked list. If the linked list is empty (head is None), it simply returns the new node as the new head. Otherwise, it sets the next attribute of the new node to the current head and returns the new node as the new head.
+#### remove Function
+- The remove function takes the head of a linked list and a data value as input. It searches for the node with the given data in the linked list and removes that node from the list. It uses two pointers, curr and prev, to traverse the list. When the node with the target data is found, the prev.next pointer is modified to skip the current node, effectively removing it from the list.
+### Usage Example
+- The code demonstrates the usage of the implemented functions:
+- It creates a linked list with the elements [1, 2, 3, 4, 5, 6, 7, 8] using the input function and assigns the head to the head variable.
+- It prints the initial linked list using the printLL function.
+- It searches for the value 10 in the linked list using the searching function (although it does not capture or use the result).
+- It prepends the value 5 to the linked list using the prependingNode function and updates the head variable.
+- It prints the modified linked list after prepending the node.
+- It removes the node with the value 4 from the linked list using the remove function.
+- It prints the final linked list after removing the node.
+- The purpose of this code is to demonstrate the basic operations on a linked list such as printing, searching, inserting at the beginning, and removing nodes.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/R9PTBwOzceo" title="Introduction to Linked List" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [javapoint](https://www.javatpoint.com/ds-linked-list)
+- [GFG](https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/)

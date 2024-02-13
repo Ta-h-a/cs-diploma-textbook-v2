@@ -1,0 +1,101 @@
+---
+id: Data_Structures_with_Python_Experiment_04_A
+title: Implement Binary Search using recursion Compute space and time complexities.
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-04/a
+description: The given code implements the binary search algorithm. It defines a binarySearch function that takes an array, target element, start index (si), and end index (ei) as parameters. The function recursively performs binary search on the array to find the target element. It compares the target element with the middle element of the current range and narrows down the search range accordingly until the target element is found or the search range is empty.
+---
+
+# Implement Binary Search using recursion Compute space and time complexities.
+
+## Description
+
+The given code implements the binary search algorithm. It defines a binarySearch function that takes an array, target element, start index (si), and end index (ei) as parameters. The function recursively performs binary search on the array to find the target element. It compares the target element with the middle element of the current range and narrows down the search range accordingly until the target element is found or the search range is empty.
+
+## Code
+
+```python title="program4a.py"
+def binarySearch(array, target, si, ei):
+    if si > ei:
+        return -1
+    middle_element = (si + ei) // 2
+    if array[middle_element] == target:
+        return middle_element
+    elif target < array[middle_element]:
+        return binarySearch(array, target, si, middle_element - 1)
+    else:
+        return binarySearch(array, target, middle_element + 1, ei)
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+elements = np.array([i * 1000 for i in range(1, 40)])
+plt.xlabel('List length')
+plt.ylabel('Time Complexity')
+times = list()
+
+for i in range(1, 40):
+    start = time.time()
+    a = np.random.randint(1000, size=i * 1000)
+    binarySearch(a, 1, 0, len(a) - 1)
+    end = time.time()
+    times.append(end - start)
+    print("Time Taken to Binary Search in ", i * 1000, "Elements is", end - start, "s")
+end_all = time.time()
+x
+plt.plot(elements, times, label="Binary Sort")
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/XbH1FrW.png"} style={{borderRadius: '10px'}} />
+
+</details>
+
+## Explanation of above code
+
+- Binary search is an efficient algorithm for finding an element in a sorted array.
+- It follows a divide-and-conquer approach, repeatedly dividing the search space in half until the target element is found or the search space is empty.
+- This code implements the binary search algorithm and analyzes its time complexity.
+
+### Main Code
+- The binarySearch function is defined to perform the binary search.
+- It takes an array, target element, start index (si), and end index (ei) as parameters.
+- Binary Search Algorithm
+- Check if the start index si is greater than the end index ei. If true, return -1 indicating that the target element was not found.
+- Calculate the middle element index as the average of si and ei, using integer division to obtain the floor value.
+- Compare the target element with the middle element of the current range:
+- If they are equal, return the middle element index indicating a successful match.
+- If the target element is less than the middle element, recursively call binarySearch with the same array, target, si, and middle_element - 1 as the new end index. This narrows down the search range to the lower half of the array.
+- If the target element is greater than the middle element, recursively call binarySearch with the same array, target, middle_element + 1 as the new start index, and ei as the end index. This narrows down the search range to the upper half of the array.
+- Time Complexity Analysis
+- The code measures the time taken by the binary search algorithm for arrays of increasing lengths.
+- It uses the numpy.random.randint function to generate random arrays with sizes ranging from 1,000 to 39,000 elements.
+- For each array size:
+    - Start the timer (start = time.time()).
+    - Generate a random array of the specified size using numpy.random.randint.
+    - Perform binary search on the array to find the target element 1, using binarySearch.
+    - Stop the timer (end = time.time()).
+    - Calculate the elapsed time by subtracting start from end and append it to the times list.
+    - Print the time taken for the current array size.
+- Repeat the above steps for all array sizes.
+- Plot a graph using matplotlib.pyplot to visualize the relationship between the array size and the corresponding time taken.
+- Conclusion
+- The code demonstrates the implementation and time complexity analysis of the binary search algorithm.
+- The time complexity of binary search is logarithmic, i.e., O(log n), where n is the size of the array.
+- This means that the time taken by the algorithm increases slowly as the array size grows.
+- The plotted graph helps visualize the logarithmic time complexity as the array size increases.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/V_T5NuccwRA" title="7.2 What is Binary Search | Binary Search Algorithm with example | Data Structures Tutorials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Binary search](https://chortle.ccsu.edu/java5/Notes/chap53B/ch53B_18.html)
+- [programiz](https://www.programiz.com/dsa/binary-search)

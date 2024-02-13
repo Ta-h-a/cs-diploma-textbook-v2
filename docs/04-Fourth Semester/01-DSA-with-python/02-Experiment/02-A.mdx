@@ -1,0 +1,77 @@
+---
+id: Data_Structures_with_Python_Experiment_02_A
+title: Implement an ADT and Compute space and time complexities.
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-02/a
+description: checkPair and countFreq. The checkPair function checks an array for a pair of elements that add up to a given target sum. If a valid pair is found, it is displayed as output. The countFreq function counts the frequency of each element in an array and prints the element along with its count.
+---
+
+# Implement an ADT and Compute space and time complexities.
+
+## Description
+
+checkPair and countFreq. The checkPair function checks an array for a pair of elements that add up to a given target sum. If a valid pair is found, it is displayed as output. The countFreq function counts the frequency of each element in an array and prints the element along with its count.
+
+## Code
+
+```python title="program2a.py"
+# Check Pair
+
+def checkPair(A, size, x):
+    for i in range(0, size-1):
+        for j in range(i+1, size):
+            if (A[i] + A[j] == x):
+                print(f"Pair with given sum ({x}) is", {A[i]}, {A[j]})
+                return 1
+    return 0
+
+array = [0, -1, 2, -3, 1, 55]
+x = 2
+if (checkPair(array, len(array), x)):
+    print("Valid pair exists for the value:", x)
+else:
+    print("Valid pair does not exist for the value:", x)
+
+# Count Frequency
+
+def countFreq(arr, n):
+    visited = [False for i in range(n)]
+    for i in range(n):
+        if visited[i] == True:
+            continue
+        count = 1
+        for j in range(i+1, n):
+            if arr[i] == arr[j]:
+                visited[j] = True
+                count += 1
+        print(arr[i], count)
+
+arr = [50, 50, 3, 60, 7, 8, 50, 45, 55, 45, 100, 100, 100, 100000]
+n = len(arr)
+countFreq(arr, n)
+```
+
+## Explanation of above code
+
+- The checkPair function takes three parameters: A (the array), size (the size of the array), and x (the target sum).It uses a nested loop structure to iterate through all possible pairs of elements in the array.
+- Outer loop: The outer loop, controlled by the variable i, iterates from the first element to the second-to-last element of the array.
+- Inner loop: The inner loop, controlled by the variable j, iterates from the next element after i to the last element of the array.
+- For each pair of elements, the code checks if their sum is equal to the target sum (x). If a pair with the given sum is found, it is displayed as output, indicating that a valid pair exists.
+- The function then returns 1 to indicate the presence of a valid pair. If no pair is found, it returns 0.
+- The countFreq function takes two parameters: arr (the array) and n (the length of the array).It initializes a boolean array called visited with False values for each element in the array.
+- The function iterates through the array using a loop controlled by the variable i.
+- For each element in the array, it checks if it has been visited previously. If so, it continues to the next element.
+- If the element has not been visited, it initializes a counter variable count to 1 and enters a nested loop controlled by the variable j.
+- In the nested loop, it compares the element at index i with the remaining elements in the array (starting from i+1). If a match is found, it increments the counter count and marks the corresponding element as visited by setting the value in the visited array to True.
+- Finally, it prints the element and its corresponding frequency (count) as output. The main code defines an array array and a target sum x. The checkPair function is called with the array, the length of the array (len(array)), and the target sum as arguments.
+- If the function returns 1 (indicating a valid pair exists), it prints a message confirming the presence of a valid pair for the given target sum. Otherwise, it prints a message indicating that no valid pair exists. Similarly, an array arr is defined, and the countFreq function is called with the array and the length of the array as arguments. The function counts the frequency of each element in the array and prints the element along with its count.
+- Overall, this code provides detailed functionality to check for a pair with a given sum in an array and count the frequencies of elements in an array.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/yzNOhldYSBI" title="Python :Find Pair with Given Sum" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [codezup](https://codezup.com/program-to-find-pair-with-the-given-sum-in-an-array/)
+- [Tutorials Point](https://www.tutorialspoint.com/count-frequencies-of-all-elements-in-array-in-python)

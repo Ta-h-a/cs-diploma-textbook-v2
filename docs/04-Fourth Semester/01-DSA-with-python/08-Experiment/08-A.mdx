@@ -1,0 +1,93 @@
+---
+id: Data_Structures_with_Python_Experiment_08_A
+title: Implement Stack Data Structure
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-08/a
+description: The given code implements a Stack data structure using a list. It provides methods to check if the stack is empty, add items to the stack, remove items from the stack, and display the contents of the stack. The code allows users to interactively perform stack operations such as adding students, displaying the stack, removing students, and exiting the program.
+---
+
+# Implement Stack Data Structure
+
+## Description
+
+The given code implements a Stack data structure using a list. It provides methods to check if the stack is empty, add items to the stack, remove items from the stack, and display the contents of the stack. The code allows users to interactively perform stack operations such as adding students, displaying the stack, removing students, and exiting the program.
+
+## Code
+
+```python title="program8a.py"
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def pop(self):
+        if self.is_empty():
+            print("Stack is empty: Underflow")
+        else:
+            return self.stack.pop()
+
+    def display(self):
+        if self.is_empty():
+            print("Stack is empty")
+        else:
+            print("<-top")
+            for item in reversed(self.stack):
+                print(item)
+
+stack = Stack()
+while True:
+    print("Stack operation 1. Add Student 2. Display Stack 3. Remove Student 4. Exit")
+    choice = int(input("Enter your choice (1-4): "))
+    if choice == 1:
+        roll_no = int(input("Enter roll number to be inserted: "))
+        student_name = input("Enter student name to be inserted: ")
+        stack.push((roll_no, student_name))
+    elif choice == 2:
+        stack.display()
+    elif choice == 3:
+        removed_item = stack.pop()
+        if removed_item is not None:
+            print("Deleted student is:", removed_item)
+    elif choice == 4:
+        break
+    else:
+        print("Invalid Choice")
+```
+
+## Explanation of above code
+
+### Stack Class
+- The Stack class represents a stack data structure. It has one attribute: stack, which is a list that serves as the underlying data structure for the stack.
+#### is_empty Method
+- The is_empty method checks if the stack is empty. It returns True if the length of the stack is 0, indicating that the stack is empty. Otherwise, it returns False.
+#### push Method
+- The push method adds an item to the stack. It takes an item as an argument and appends it to the end of the stack list using the append method.
+#### pop Method
+- The pop method removes and returns the top item from the stack. If the stack is empty (checked using is_empty), it prints a message indicating that the stack is empty and there is an underflow. Otherwise, it uses the pop method on the stack list to remove and return the last item.
+#### display Method
+- The display method displays the contents of the stack. If the stack is empty (checked using is_empty), it prints a message indicating that the stack is empty. Otherwise, it iterates over the stack list in reverse order using the reversed function and prints each item on a new line.
+### Main Code
+- In the main code, an instance of the Stack class is created, named stack.
+- The code enters an infinite loop to repeatedly perform stack operations until the user chooses to exit.
+- Inside the loop, a menu is displayed to the user, asking for their choice.
+- If the user chooses:
+    1. They are prompted to enter a roll number and student name, which are then pushed onto the stack as a tuple (roll_no, student_name).
+    2. The display method is called to print the contents of the stack.
+    3. The pop method is called to remove the top item from the stack, and the removed item (if any) is printed.
+    4. The loop is broken, and the program exits.
+- Any other choice: An "Invalid Choice" message is printed.
+- This code allows the user to add students (roll number and name) to the stack, display the stack contents, remove students from the stack, and exit the program. The stack operations are implemented using the methods defined in the Stack class.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/I37kGX-nZEI" title="Introduction to Stacks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [GFG](https://www.geeksforgeeks.org/stack-data-structure/)
+- [javatpoint](https://www.javatpoint.com/data-structure-stack)

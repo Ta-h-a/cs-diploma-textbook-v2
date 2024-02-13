@@ -1,0 +1,100 @@
+---
+id: Data_Structures_with_Python_Experiment_11_A
+title: Implement Binary search tree and its operations using list
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-11/a
+description: The code illustrates the operations of insertion, deletion, and inorder traversal on a Binary Search Tree (BST) implemented using the Node class. The BST maintains the property that the left child of a node has a smaller value, and the right child has a larger value.
+---
+
+# Implement Binary search tree and its operations using list
+
+## Description
+
+The code illustrates the operations of insertion, deletion, and inorder traversal on a Binary Search Tree (BST) implemented using the Node class. The BST maintains the property that the left child of a node has a smaller value, and the right child has a larger value.
+
+## Code
+
+```python title="program11a.py"
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+            
+    def inorder(root):
+        if root:
+            inorder(root.left)
+            print(str(root.data) + "->", end='')
+            inorder(root.right)
+    
+    def insert(node, data):
+        if node is None:
+            return Node(data)
+        if data < node.data:
+            node.left = insert(node.left, data)
+        else:
+            node.right = insert(node.right, data)
+        return node
+    
+    def delete_node(root, key):
+        if root is None:
+            return root
+    
+        if key < root.data:
+            root.left = delete_node(root.left, key)
+        elif key > root.data:
+            root.right = delete_node(root.right, key)
+        else:
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+            temp = minValueNode(root.right)
+            root.data = temp.data
+            root.right = delete_node(root.right, temp.data)
+    
+        return root
+
+root = None
+data = [8, 3, 9, 18, 5, 13, 6]
+root = insert(root, data[0])
+[root := insert(root, num) for num in data[1:]]
+
+print("Inorder traversal: ", end='')
+inorder(root)
+
+print("After delete: ")
+root = delete_node(root, 13)
+print("Inorder traversal: ", end='')
+inorder(root)
+```
+
+## Explanation of above code
+
+- The given code demonstrates various operations on a Binary Search Tree (BST) implemented using the Node class. BST is a binary tree where the left child of a node has a smaller value, and the right child has a larger value. The code showcases the insertion of nodes into the BST, deletion of a node, and the inorder traversal of the tree.
+### Code Explanation
+#### Node Class
+- The code begins with the definition of the Node class, which represents a node in the BST. Each node contains data, a left child reference, and a right child reference.
+##### Inorder Traversal
+- The inorder function performs an inorder traversal of the BST and prints the node values in ascending order. It takes a node as a parameter and recursively traverses the left subtree, visits the current node, and then recursively traverses the right subtree.
+##### Insertion Operation
+- The insert function inserts a new node into the BST. It takes a node and data as parameters. If the given node is None, indicating an empty subtree, a new node with the given data is created and returned. If the data is less than the node's data, the function is called recursively on the left child to insert the data. Otherwise, the function is called recursively on the right child. The updated node reference is returned.
+##### Deletion Operation
+- The delete_node function deletes a node with a given key from the BST. It takes the root node and the key to be deleted as parameters. If the root is None, indicating an empty tree, the function returns None. If the key is less than the root's data, the function is called recursively on the left subtree. If the key is greater than the root's data, the function is called recursively on the right subtree. If the key matches the root's data, the following steps are performed:
+    - If the root has no left child, the right child replaces the root.
+    - If the root has no right child, the left child replaces the root.
+    - If the root has both left and right children, the minimum value node from the right subtree (smallest value greater than the root) replaces the root. The minimum value node is found by traversing the leftmost node in the right subtree. Its data is copied to the root, and then the delete operation is performed on the right subtree to remove the duplicate node.
+##### BST Creation and Operations
+- The code creates an empty root node and a list of data values to be inserted into the BST. Using a list comprehension, each data value is inserted into the BST by calling the insert function. The inorder traversal of the tree is printed before and after deleting a specific node (13 in this case) using the inorder function and the delete_node function.
+### Conclusion
+- The given code demonstrates the operations performed on a Binary Search Tree (BST) using the Node class. It showcases the insertion of nodes, deletion of a node, and the inorder traversal of the tree.
+
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/cySVml6e_Fc" title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/what-is-binary-search-tree/)
+- [baeldung](https://www.baeldung.com/cs/binary-search-trees)

@@ -1,0 +1,52 @@
+---
+id: Data_Structures_with_Python_Experiment_10_B
+title: Implement Priority Queue
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-10/b
+description: The code utilizes the PriorityQueue class from the queue module to implement a priority queue. Elements are added to the queue based on their priority and retrieved in the order of their priority.
+---
+
+# Implement Priority Queue
+
+## Description
+
+The code utilizes the PriorityQueue class from the queue module to implement a priority queue. Elements are added to the queue based on their priority and retrieved in the order of their priority.
+
+
+## Code
+
+```python title="expt10b.py"
+import queue
+q = queue.PriorityQueue()
+q.put(10)
+q.put(60)
+q.put(20)
+q.put(110)
+q.put(40)
+print(q.get())
+print(q.get())
+print(q.get())
+print(q.get())
+print(q.get())
+```
+
+## Explanation of above code
+
+- The given code demonstrates the use of the PriorityQueue class from the queue module in Python. A priority queue is a data structure where each element has a priority associated with it. Elements are retrieved in the order of their priority, with the highest priority element being dequeued first.
+
+### Code Explanation
+
+- The code begins by importing the queue module, which provides the PriorityQueue class for implementing a priority queue.
+- A priority queue object q is created using the PriorityQueue() constructor.
+- Elements are added to the priority queue using the put() method, which inserts elements based on their priority.
+- The elements are retrieved from the priority queue using the get() method, which dequeues elements in the order of their priority. The retrieved elements are printed using the print() function.
+- This code demonstrates the usage of the PriorityQueue class to implement a priority queue and retrieve elements based on their priority.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/m9SVfOYTaBQ" title="Priority Queue Explained in Hindi l Data Structure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/priority-queue-set-1-introduction/)
+- [oracle](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html)

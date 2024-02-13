@@ -1,0 +1,105 @@
+---
+id: Data_Structures_with_Python_Experiment_07_A
+title: Implement DLL
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-07/a
+description: The provided code implements a doubly linked list data structure in Python with various operations such as pushing elements to the front, appending elements at the end, and inserting elements after a given node. It also includes a method to print the elements of the linked list in both forward and reverse directions. The code demonstrates the usage of the doubly linked list by creating an instance of the class, performing several operations on it, and then printing the resulting linked list.
+---
+
+# Implement DLL
+
+## Description
+
+The provided code implements a doubly linked list data structure in Python with various operations such as pushing elements to the front, appending elements at the end, and inserting elements after a given node. It also includes a method to print the elements of the linked list in both forward and reverse directions. The code demonstrates the usage of the doubly linked list by creating an instance of the class, performing several operations on it, and then printing the resulting linked list.
+
+## Code
+
+```python title="program7a.py"
+# Node class
+
+class Node:
+    def __init__(self,data=None):
+        self.data = data
+        self.next = None
+        self.prev = None
+        
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def push(self,data):
+        newNode = Node(data)
+        newNode.next = self.head
+        if self.head is not None:
+            self.head.prev = newNode
+        self.head = newNode
+        
+    def insertAfter(self,prevNode,data):
+        if prevNode is None:
+            print("The given previous node can't be NULL")
+            return
+        newNode = Node(data)
+        newNode.next = prevNode.next
+        prevNode.next = newNode
+        newNode.prev = prevNode
+        if newNode.next:
+            newNode.next.prev = newNode
+            
+    def append(self,data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = newNode
+            return
+        lastNode = self.head
+        while lastNode.next:
+            lastNode = lastNode.next
+        lastNode.next = newNode
+        newNode.prev = lastNode
+        
+    def print_list(self,node):
+        print("Traversal in forward direction")
+        while node:
+            print("{}".format(node.data))
+            last = node
+            node = node.next
+        print("Traversal in reverse direction")
+        while last:
+            print("{}".format(last.data))
+            last = last.prev
+            
+dll = DoublyLinkedList()
+dll.push(1)
+dll.append(2)
+dll.append(3)
+dll.append(4)
+dll.append(5)
+dll.insertAfter(dll.head.next,76)
+print("Created DLL is: ")
+dll.print_list(dll.head)
+```
+
+## Explanation of above code
+
+### Node Class
+- The Node class represents a node in a doubly linked list. It has three attributes: data to store the value of the node, next to store a reference to the next node, and prev to store a reference to the previous node. The __init__ method initializes the node with the given data and sets next and prev to None by default.
+### DoublyLinkedList Class
+- The DoublyLinkedList class represents the doubly linked list and provides various methods to manipulate the list.
+- The __init__ method initializes the doubly linked list with an empty head (initially set to None).
+- The push method inserts a new node at the beginning of the doubly linked list.
+- The insertAfter method inserts a new node after a specific node in the doubly linked list.
+- The append method inserts a new node at the end of the doubly linked list.
+- The print_list method traverses and prints the elements of the doubly linked list.
+### Main Code
+- In the main code, an instance of the DoublyLinkedList class is created, named dll.
+- Several nodes are added to the list using the push and append methods.
+- The insertAfter method is used to insert a new node with data 76 after the second node.
+- Finally, the print_list method is called to print the elements of the doubly linked list.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/H8-IuKKiQeo" title="2.10 Implementation of Doubly Linked List - Data Structures" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [programiz](https://www.programiz.com/dsa/doubly-linked-list)
+- [GFG](https://www.geeksforgeeks.org/introduction-to-doubly-linked-lists-in-java/)

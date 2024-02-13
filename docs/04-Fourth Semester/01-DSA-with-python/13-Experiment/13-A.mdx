@@ -1,0 +1,53 @@
+---
+id: Data_Structures_with_Python_Experiment_13_A
+title: Implement Hash functions
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-13/a
+description: The code demonstrates the usage of the hash() function on an instance of the Student class to generate a unique hash value, which can be used for indexing, uniqueness checks, and data integrity validation.
+---
+
+# Implement Hash functions
+
+## Description
+
+The code demonstrates the usage of the hash() function on an instance of the Student class to generate a unique hash value, which can be used for indexing, uniqueness checks, and data integrity validation.
+
+## Code
+
+```python title="program13a.py"
+class Student:
+    def __init__(self,name,email):
+        self.name = name
+        self.email = email
+
+student = Student("Arun","arun@abcom")
+# Calling function
+result = hash(student)
+# Displaying result
+print("Hash Value is",result)
+```
+
+## Explanation of above code
+
+### Introduction
+- The provided code demonstrates the usage of the hash() function on an instance of the Student class. The hash() function is used to generate a hash value for an object, which can be useful for various purposes such as indexing, uniqueness checks, and data integrity validation.
+### Code Explanation
+#### Student Class
+- The Student class represents a student and has two attributes: name and email. The class is defined with an __init__ method, which is the constructor that initializes the name and email attributes with the values passed as arguments.
+#### Creating an Instance
+- An instance of the Student class is created with the name "Arun" and email "arun@abcom" using the statement student = Student("Arun", "arun@abcom"). This instance represents a student with the specified name and email.
+#### Hashing the Object
+- The hash() function is called on the student object using the statement result = hash(student). This function calculates and returns a hash value for the object. The hash value is an integer that is generated based on the object's contents and is unique for each distinct object (in most cases).
+#### Displaying the Result
+- The generated hash value is stored in the result variable. The statement print("Hash Value is", result) is used to display the hash value on the console.
+### Conclusion
+- The given code creates an instance of the Student class, calculates the hash value for that object using the hash() function, and displays the resulting hash value. Hashing objects can be useful for various purposes, such as indexing objects in data structures, ensuring object uniqueness, and verifying the integrity of data.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/54Qh85vySEg" title="Python hash() Function -- A Simple Guide with Example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [topper](https://www.toppr.com/guides/python-guide/references/methods-and-functions/methods/built-in/hash/python-hash/)
+- [GFG](https://www.geeksforgeeks.org/python-hash-method/)

@@ -1,0 +1,52 @@
+---
+id: Data_Structures_with_Python_Experiment_09_A
+title: Program to demonstrate recursive operations
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-09/a
+description: The code implements a recursive function to calculate the factorial of a number using the concept of repeated multiplication. It takes user input, performs the factorial calculation, and displays the result.
+---
+
+# Program to demonstrate recursive operations
+
+## Description
+
+The code implements a recursive function to calculate the factorial of a number using the concept of repeated multiplication. It takes user input, performs the factorial calculation, and displays the result.
+
+## Code
+
+```python title="program9a.py"
+def fact(n):
+    if (n==0 or n==1):
+        return 1
+    return n * fact(n-1)
+
+n = int(input("Enter the value: "))
+res = fact(n)
+print("Factorial of",n,"is",res)
+```
+
+## Explanation of above code
+
+### fact Function
+- The fact function calculates the factorial of a given number n recursively. It uses the concept of a recursive function where the factorial of n is defined as the product of n and the factorial of n-1.
+#### Base Case
+- The base case of the recursive function is defined when n is 0 or 1. In this case, the function returns 1 since the factorial of 0 and 1 is 1.
+#### Recursive Step
+- For n greater than 1, the function recursively calls itself with the argument n-1 and multiplies it by n. This recursive step continues until the base case is reached.
+- Returning the Result
+- The result of the factorial calculation is returned as the output of the function.
+### Main Code
+- In the main code, an integer n is taken as input from the user, representing the value for which the factorial will be calculated.
+- The fact function is called with n as an argument, and the result is assigned to the variable res.
+- Finally, the calculated factorial value is displayed using the print function.
+- This code allows you to calculate the factorial of a given number using a recursive approach. It breaks down the factorial calculation into simpler subproblems until it reaches the base case.
+
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/gfhtaP5Wq7M" title="#39 Python Tutorial for Beginners | Factorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Programiz](https://www.programiz.com/python-programming/examples/factorial-recursion)
+- [geeksforgeeks](https://www.geeksforgeeks.org/java-program-to-find-factorial-of-a-number-recursively)

@@ -1,0 +1,75 @@
+---
+id: Data_Structures_with_Python_Experiment_10_A
+title: Implement Queue
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-10/a
+description: The code implements queue operations using a list in Python, allowing users to add elements, remove elements, and display the current contents of the queue interactively.
+---
+
+# Implement Queue
+
+## Description
+
+The code implements queue operations using a list in Python, allowing users to add elements, remove elements, and display the current contents of the queue interactively.
+
+## Code
+
+```python title="expt10a.py"
+# Queue
+queue = []
+
+def enqueue():
+    element = input("Enter the element: ")
+    queue.append(element)
+    print("Element is added to queue")
+    print(queue)
+
+def dequeue():
+    if not queue:
+        print("Queue is empty")
+    else:
+        e = queue.pop(0)
+        print("Element removed ", e)
+        print(queue)
+
+def display():
+    print(queue)
+
+while True:
+    print("Select the operation: 1. Add  2. Remove  3. Show  4. Quit")
+    choice = int(input())
+    if choice == 1:
+        enqueue()
+    elif choice == 2:
+        dequeue()
+    elif choice == 3:
+        display()
+    elif choice == 4:
+        print("Quit")
+        break
+    else:
+        print("Enter the correct operation")
+```
+
+## Explanation of above code
+
+- The provided code implements a queue data structure using a list in Python. It offers the following operations:
+- **enqueue():** This operation adds an element to the end of the queue. It prompts the user to enter an element, appends it to the queue list, and displays a message along with the updated queue.
+- **dequeue():** This operation removes an element from the front of the queue. If the queue is empty, it displays a message. Otherwise, it removes the element at index 0 from the queue list using pop(0), displays the removed element, and shows the updated queue.
+- **display():** This operation displays the current contents of the queue by printing the queue list.
+#### Code Explanation
+- The code initializes an empty list called queue to store the elements.
+- The enqueue() function prompts the user to enter an element, appends it to the queue list, and displays a message along with the updated queue.
+- The dequeue() function checks if the queue list is empty. If it is, it prints a message indicating that the queue is empty. Otherwise, it removes the element at index 0 using pop(0), stores it in the variable e, prints the removed element, and shows the updated queue.
+- The display() function simply prints the queue list to display the current contents.
+- The program enters an infinite loop using while True. It displays a menu to the user with the available operations: Add, Remove, Show, and Quit. It prompts the user to enter a choice (1-4). Based on the user's choice, it calls the corresponding operation function (enqueue(), dequeue(), display()), or exits the loop if the choice is 4 (Quit). If the choice is not valid, it displays a message indicating that the user should enter the correct operation.
+- This code allows users to interactively perform queue operations and see the resulting changes in the queue.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/zp6pBNbUB2U" title="4.1 Queue in Data Structure | Introduction to Queue | Data Structures Tutorials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [Programiz](https://www.programiz.com/dsa/queue/)
+- [simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/queue-in-data-structure)

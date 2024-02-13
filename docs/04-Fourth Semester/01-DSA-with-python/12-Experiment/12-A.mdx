@@ -1,0 +1,66 @@
+---
+id: Data_Structures_with_Python_Experiment_12_A
+title: Implementations of BFS
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-12/a
+description: The code showcases the Breadth-First Search (BFS) algorithm for traversing a graph in breadth-first order, starting from a given root vertex. It uses a queue to keep track of the vertices to visit next and maintains a visited set to track the visited vertices during the traversal.
+---
+
+# Implementations of BFS
+
+## Description
+
+The code showcases the Breadth-First Search (BFS) algorithm for traversing a graph in breadth-first order, starting from a given root vertex. It uses a queue to keep track of the vertices to visit next and maintains a visited set to track the visited vertices during the traversal.
+
+## Code
+
+```python title="program12a.py"
+import collections
+def bfs(graph,root):
+    visited,queue = set(),collections.deque([root])
+    visited.add(root)
+    while queue:
+        vertex = queue.popleft()
+        print(str(vertex)+" ",end="")
+        for neighbour in graph[vertex]:
+            if neighbour not in visited:
+                visited.add(neighbour)
+                queue.append(neighbour)
+
+if __name__ == '__main__':
+    graph = {0:[1,2],1:[2],2:[3],3:[1,2]}
+    print("Following is Breadth First Traversal")
+    bfs(graph,0)
+```
+
+## Explanation of above code
+
+### Introduction
+- The provided code demonstrates the Breadth-First Search (BFS) algorithm for traversing a graph. BFS explores all the vertices of a graph in breadth-first order, starting from a given root vertex. It uses a queue to keep track of the vertices to visit next.
+### Code Explanation
+#### BFS Function
+- The bfs function takes two parameters: graph (the graph represented as an adjacency list) and root (the starting vertex for the BFS traversal).
+##### Initialization
+- Inside the bfs function, a set called visited is created to keep track of the visited vertices. A deque called queue is initialized with the root vertex. The root vertex is added to both the visited set and the queue.
+##### BFS Traversal
+- The main BFS traversal begins with a while loop that continues until the queue is empty. Inside the loop, the popleft method is used to retrieve and remove the vertex at the front of the queue.
+##### Visiting a Vertex
+- The visited vertex is printed using print(str(vertex)+" ", end=""). This displays the vertex value followed by a space, allowing the traversal order to be shown on a single line.
+##### Exploring Neighbors
+- The for loop iterates over each neighbor of the current vertex, accessed through the graph[vertex] adjacency list. If a neighbor has not been visited, it is added to the visited set and also added to the queue. This ensures that unvisited neighbors will be visited in subsequent iterations.
+##### Graph Representation
+- After the bfs function definition, a graph is defined as a dictionary. Each key represents a vertex, and the corresponding value is a list of neighbors for that vertex.
+### Main Function
+- Finally, the main section of the code checks if the module is being run directly (if __name__ == '__main__':). Inside this block, the graph is defined, and the bfs function is called with the graph and the starting vertex 0. The BFS traversal is then printed as "Following is Breadth First Traversal".
+- Conclusion
+- The given code demonstrates the Breadth-First Search (BFS) algorithm using a graph represented as an adjacency list. It performs a BFS traversal starting from a given root vertex, visiting all vertices in breadth-first order. The code initializes a visited set and a queue, explores neighbors of vertices, and prints the traversal order.
+
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/pcKY4hjDrxk" title="5.1 Graph Traversals - BFS &amp; DFS -Breadth First Search and Depth First Search" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+- [khanacademy](https://www.khanacademy.org/computing/computer-science/algorithms/breadth-first-search/a/breadth-first-search-and-its-uses)

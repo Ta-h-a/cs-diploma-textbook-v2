@@ -1,0 +1,131 @@
+---
+id: Data_Structures_with_Python_Experiment_07_B
+title: Implement CDLL
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-7/b
+description: This code implements a Circular Doubly Linked List data structure in Python, allowing for the creation, insertion, deletion, searching, and display of nodes.
+---
+
+# Implement CDLL
+
+## Description
+
+This code implements a Circular Doubly Linked List data structure in Python, allowing for the creation, insertion, deletion, searching, and display of nodes.
+
+## Code
+
+```python title="program7b.py"
+# Node class
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class CDoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def createCDLL(self, data):
+        newNode = Node(data)
+        self.head = newNode
+        self.tail = newNode
+        print("The circular doubly linked list has been created")
+
+    def insertAtBeg(self, data):
+        newNode = Node(data)
+        if not self.head:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head.prev = newNode
+            self.head = newNode
+        self.tail.next = self.head
+        self.head.prev = self.tail
+
+    def delBeg(self):
+        if not self.head:
+            return
+        if self.head.next == self.tail.next:
+            self.head = self.tail = None
+        else:
+            self.head = self.head.next
+            self.tail.next = self.head
+            self.head.prev = self.tail
+
+    def searchList(self, data):
+        pos = 0
+        tempNode = self.head
+        while True:
+            pos += 1
+            if tempNode.data == data:
+                print("The required data was found at position:", pos)
+                break
+            if tempNode == self.tail:
+                print("The required data does not exist in the list")
+                break
+            tempNode = tempNode.next
+
+    def display(self):
+        if not self.head:
+            print("The linked list does not exist")
+            return
+        tempNode = self.head
+        while True:
+            print(tempNode.data)
+            if tempNode == self.tail:
+                break
+            tempNode = tempNode.next
+
+
+cdll = CDoublyLinkedList()
+cdll.createCDLL(4)
+cdll.insertAtBeg(3)
+cdll.insertAtBeg(2)
+cdll.insertAtBeg(1)
+print("List contents are:")
+cdll.display()
+cdll.delBeg()
+cdll.delBeg()
+print("List contents after deleting:")
+cdll.display()
+cdll.searchList(70)
+cdll.searchList(7)
+```
+
+## Explanation of above code
+
+### Node Class
+- The Node class represents a node in a doubly linked list. It has three attributes: data to store the value of the node, next to point to the next node in the list, and prev to point to the previous node in the list. The __init__ method initializes the node with the given data and sets next and prev to None by default.
+### CDoublyLinkedList Class
+- The CDoublyLinkedList class represents a circular doubly linked list. It has two attributes: head to point to the head node of the list and tail to point to the tail node of the list.
+#### createCDLL Method
+- The createCDLL method is used to create a circular doubly linked list. It takes the initial data for the list as an argument. It creates a new node with the given data and assigns it to both head and tail. This establishes a circular link by making the next and prev references of the node point to itself. Finally, it prints a message to indicate that the circular doubly linked list has been created.
+#### insertAtBeg Method
+- The insertAtBeg method inserts a new node at the beginning of the circular doubly linked list. It takes the data for the new node as an argument. It creates a new node with the given data. If the list is empty (head is None), it assigns the new node to both head and tail. If the list is not empty, it adjusts the next and prev references of the new node and the existing head node to insert the new node at the beginning. Finally, it updates the next reference of the tail node to the head node and the prev reference of the head node to the tail node, thereby maintaining the circular link.
+#### delBeg Method
+- The delBeg method deletes the node at the beginning of the circular doubly linked list. If the list is empty (head is None), it returns without performing any deletion. If there is only one node in the list (head and tail point to the same node), it sets both head and tail to None. If there are multiple nodes in the list, it adjusts the next and prev references of the head node and the tail node to remove the first node. Finally, it updates the next reference of the tail node to the new head node and the prev reference of the new head node to the tail node.
+#### searchList Method
+- The searchList method searches for a specific data value in the circular doubly linked list. It takes the data value to search as an argument. It initializes a position counter and a temporary node variable with the head node. It traverses the list in a loop, comparing the data of each node with the target value. If a match is found, it prints the position of the node and breaks out of the loop. If the loop reaches the tail node without finding a match, it prints a message indicating that the required data does not exist in the list.
+#### display Method
+- The display method prints the contents of the circular doubly linked list. If the list is empty (head is None), it prints a message indicating that the linked list does not exist and returns. It initializes a temporary node variable with the head node. It traverses the list in a loop, printing the data of each node. If the loop reaches the tail node, it breaks out of the loop.
+### Main Code
+- In the main code, an instance of the CDoublyLinkedList class is created, named cdll.
+- The createCDLL method is called to create the circular doubly linked list with an initial node containing the data 4.
+- The insertAtBeg method is called three times to insert nodes with data values 3, 2, and 1 at the beginning of the list.
+- The display method is called to print the contents of the circular doubly linked list.
+- The delBeg method is called twice to delete nodes from the beginning of the list.
+- The display method is called again to print the contents of the modified list.
+- The searchList method is called twice to search for the data values 70 and 7 in the list.
+- This code demonstrates the operations of creating a circular doubly linked list, inserting nodes at the beginning, deleting nodes from the beginning, searching for data values, and displaying the contents of the list.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/3ZrkixbHCTI" title="Circular Doubly Linked List (Insertion at the Beginning)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [alphacodingskills](https://www.alphacodingskills.com/ds/circular-doubly-linked-list.php)
+- [pythonwife](https://pythonwife.com/circular-doubly-linked-list-in-python/)

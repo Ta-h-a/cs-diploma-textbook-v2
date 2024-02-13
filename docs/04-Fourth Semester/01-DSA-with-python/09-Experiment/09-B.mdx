@@ -1,0 +1,59 @@
+---
+id: Data_Structures_with_Python_Experiment_09_B
+title: Implement solution for Tower of Hanoi
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-09/b
+description: The code implements the Tower of Hanoi puzzle solution using a recursive algorithm. It takes the number of disks as input, recursively solves the subproblems to move the disks, and prints the sequence of moves required to solve the puzzle.
+---
+
+# Implement solution for Tower of Hanoi
+
+## Description
+
+The code implements the Tower of Hanoi puzzle solution using a recursive algorithm. It takes the number of disks as input, recursively solves the subproblems to move the disks, and prints the sequence of moves required to solve the puzzle.
+
+## Code
+
+```python title="program9b.py"
+def towerOfHanoi(n, source, auxiliary, destination):
+    if n == 1:
+        print(f"Move disk 1 from source {source} to destination {destination}")
+        return
+    towerOfHanoi(n - 1, source, destination, auxiliary)
+    print(f"Move disk {n} from source {source} to destination {destination}")
+    towerOfHanoi(n - 1, auxiliary, source, destination)
+
+n = int(input("Enter the disk number: "))
+towerOfHanoi(n, 'A', 'B', 'C')
+```
+
+## Images
+
+<img src={"https://techvidvan.com/tutorials/wp-content/uploads/sites/2/2021/07/TV-Tower-of-Hanoi-normal-image01.jpg"} style={{borderRadius: '10px'}} />
+
+## Explanation of above code
+
+- The Tower of Hanoi problem can be solved using a recursive approach.
+- The algorithm can be summarized as follows:
+- **Define the function towerOfHanoi(n, source, auxiliary, destination):** This function takes four parameters - n (number of disks), source (the rod where the disks are initially placed), auxiliary (the spare rod), and destination (the rod where the disks need to be moved). The purpose of this function is to print the sequence of moves required to solve the Tower of Hanoi problem.
+- **Check the base case:** If there is only one disk (n == 1), move it directly from the source rod to the destination rod and print the move. Return from the function.
+- **Recursively solve the subproblems:** If there are more than one disk (n > 1), recursively solve the subproblem of moving n-1 disks from the source rod to the auxiliary rod, using the destination rod as the spare rod. Print the move. Recursively solve the remaining subproblem of moving n-1 disks from the auxiliary rod to the destination rod, using the source rod as the spare rod.
+
+### Code Explanation
+
+- The provided code implements the Tower of Hanoi algorithm:
+    - def towerOfHanoi(n, source, auxiliary, destination): If n == 1: print(f"Move disk 1 from source `{source}` to destination `{destination}`") return towerOfHanoi(n - 1, source, destination, auxiliary) print(f"Move disk `{n}` from source `{source}` to destination `{destination}`") towerOfHanoi(n - 1, auxiliary, source, destination) n = int(input("Enter the disk number: ")) towerOfHanoi(n, 'A', 'B', 'C')
+    - The code defines the function towerOfHanoi that takes the parameters n, source, auxiliary, and destination. It follows the recursive approach to solve the Tower of Hanoi problem.
+    - The base case is checked using n == 1. If true, it means there is only one disk remaining, so it is moved directly from the source rod to the destination rod. The move is printed.
+    - If n is greater than 1, the function makes recursive calls to solve the subproblems. It first moves n-1 disks from the source rod to the auxiliary rod using the destination rod as the spare rod. The move is printed. Then it recursively moves the remaining n-1 disks from the auxiliary rod to the destination rod using the source rod as the spare rod.
+    - The user is prompted to enter the number of disks n and the towerOfHanoi function is called with the provided arguments to solve the Tower of Hanoi problem.
+
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/YstLjLCGmgg" title="Tower of Hanoi | Recursion Problem | GeeksforGeeks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [semanticscholar](https://www.semanticscholar.org/paper/The-Tower-of-Hanoi-Myths-and-Maths-Hinz-Klav%C5%BEar/98b4202d35d1f42564b9f2220ffe614d832b0168)
+- [GeeksforGeeks](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/)

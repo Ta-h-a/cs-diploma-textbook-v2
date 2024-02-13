@@ -1,0 +1,101 @@
+---
+id: Data_Structures_with_Python_Experiment_03_A
+title: Implement Linear Search compute space and time complexities.
+sidebar_label: A
+slug: /fourth-semester/dsa-with-python/expt-03/a
+description: The provided code performs a linear search on arrays of increasing lengths and measures the time it takes to complete the search. It then plots the time complexity results, showing how the search time increases linearly with the size of the input array.
+---
+
+# Implement Linear Search compute space and time complexities.
+
+## Description
+
+The provided code performs a linear search on arrays of increasing lengths and measures the time it takes to complete the search. It then plots the time complexity results, showing how the search time increases linearly with the size of the input array.
+
+## Code
+
+```python title="program3a.py"
+# Main Code
+def linearSearch(array, x):
+    for i in range(len(array)):
+        if array[i] == x:
+            print("Search is successful at position", i)
+            return
+    print("Search is not successful")
+
+# --------------------------------------------------
+# Full Code Implementation
+# --------------------------------------------------
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+def linear_Search(A, x):
+    for i in range(0, len(A)):
+        if A[i] == x:
+            print("Search is success at position", i)
+            return
+    print("Search is not successful")
+
+element = np.array([i*1000 for i in range(1, 40)])
+plt.xlabel('List length')
+plt.ylabel('Time complexity')
+times = list()
+for i in range(1, 40):
+    start = time.time()
+    a = np.random.randint(1000, size=i*1000)
+    linear_Search(a, 1)
+    end = time.time()
+    times.append(end-start)
+    print("Time taken for linear search in", i*1000, "Elements is", end-start, "s")
+plt.plot(element, times, label="Linear Search")
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/IQr52W7.png"} style={{borderRadius: '10px'}} />
+
+</details>
+
+## Explanation of above code
+
+- The code begins by importing the necessary libraries: time, numpy, and matplotlib.pyplot.
+- This function implements a linear search algorithm.
+- The function takes two parameters: A, which represents the array to search within, and x, which represents the element to search for.
+- The function uses a for loop to iterate through each element in the array.
+- Inside the loop, it checks if the current element (A[i]) matches the target element (x).
+- If a match is found, it prints a message indicating the successful search at the position i and returns.
+- If the loop completes without finding a match, it prints a message indicating that the search was unsuccessful.
+- An array named element is created using NumPy.
+- The array is initialized with values from 1000 to 39000, incrementing by 1000.
+- This array represents the lengths of the arrays that will be generated for the search.
+- The code sets up the plot using plt.xlabel() and plt.ylabel() functions to label the x-axis and y-axis, respectively.
+- The x-axis is labeled as "List length", and the y-axis is labeled as "Time complexity".
+- The code initializes an empty list named times to store the execution times for the linear search.
+- A loop is executed from 1 to 39 (excluding 40), which represents the index range of the element array.
+- Inside the loop, the following steps are performed:
+    * The start time is recorded using time.time() to measure the initial time.
+    * An array named a is generated using np.random.randint() with a size that increases by 1000 at each iteration.
+    * The linear_Search function is called, passing the generated array a and the target element 1 as parameters.
+    * The end time is recorded using time.time() to measure the final time.
+- The execution time (end - start) is appended to the times list.
+- The execution time for the current iteration is printed. After the loop completes, the code plots the results using plt.plot(). The element array is used as the x-axis values, representing the list lengths. The times list is used as the y-axis values, representing the corresponding search times.
+- The plot is labeled as "Linear Search" using the label parameter.
+- Gridlines are added to the plot using plt.grid(). The legend is displayed using plt.legend(). Finally, the plot is shown using plt.show().
+- In summary, the code measures the time complexity of a linear search algorithm by performing searches on arrays of increasing lengths.
+- It provides insights into how the search time increases linearly with the size of the input array.
+- The results are visualized through a plot, which helps in understanding the relationship between the list length and the time taken for the linear search.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/C46QfTjVCNU" title="7.1 Linear Search Algorithm | Linear Search in C | Data Structures Tutorials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [javatpoint](https://www.javatpoint.com/linear-search)
+- [tutorialspoint](https://www.tutorialspoint.com/count-frequencies-of-all-elements-in-array-in-python)

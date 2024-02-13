@@ -1,0 +1,69 @@
+---
+id: Data_Structures_with_Python_Experiment_12_B
+title: Implementation of DFS
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-12/b
+description: The code showcases the Depth-First Search (DFS) algorithm for traversing a graph in depth-first order, starting from a given starting vertex. It uses recursion to visit the neighbors of each vertex and maintains a visited set to track the visited vertices during the traversal.
+---
+
+# Implementation of DFS
+
+## Description
+
+The code showcases the Depth-First Search (DFS) algorithm for traversing a graph in depth-first order, starting from a given starting vertex. It uses recursion to visit the neighbors of each vertex and maintains a visited set to track the visited vertices during the traversal.
+
+## Code
+
+```python title="program12b.py"
+def dfs(graph,start,visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(start)
+    for next in graph[start]-visited:
+        dfs(graph,next,visited)
+    return visited
+
+graph = {'0':set(['1','2']),
+        '1':set(['2']),
+        '2':set(['3']),
+        '3':set(['1','2'])}
+
+print("Following is Depth First Traversal: ")
+print(dfs(graph,'0'))
+```
+
+## Explanation of above code
+
+### Introduction
+
+- The provided code demonstrates the Depth-First Search (DFS) algorithm for traversing a graph. DFS explores all the vertices of a graph in depth-first order, starting from a given starting vertex. It uses recursion to visit the neighbors of each vertex.
+
+### Code Explanation
+
+#### DFS Function
+- The dfs function takes three parameters: graph (the graph represented as an adjacency list), start (the starting vertex for the DFS traversal), and visited (a set to keep track of the visited vertices).
+##### Visited Set Initialization
+- Inside the dfs function, an if statement checks if the visited set is None. If it is None, a new set is created and assigned to visited. This ensures that the visited set is initialized properly.
+##### Visiting a Vertex
+- The start vertex is added to the visited set using visited.add(start). This marks the current vertex as visited. Then, the value of the current vertex is printed using print(start).
+##### Exploring Neighbors
+- The for loop iterates over each neighbor of the current vertex. It accesses the neighbors through the graph[start] adjacency list. To find the unvisited neighbors, the set difference operation (-) is used between the neighbor set and the visited set (graph[start] - visited). This ensures that only unvisited neighbors are visited.
+##### Recursive Call
+- For each unvisited neighbor, the dfs function is recursively called with the neighbor as the new start vertex and the visited set. This allows the algorithm to explore the neighbors in depth-first order.
+##### Graph Representation
+- After the dfs function definition, a graph is defined as a dictionary. Each key represents a vertex, and the corresponding value is a set of neighbors for that vertex.
+### Main Function
+- Finally, the main section of the code defines the graph and calls the dfs function with the graph and the starting vertex '0'. The DFS traversal is then printed as "Following is Depth First Traversal".
+### Conclusion
+- The given code demonstrates the Depth-First Search (DFS) algorithm using a graph represented as an adjacency list. It performs a DFS traversal starting from a given starting vertex, visiting all vertices in depth-first order. The code initializes a visited set, visits each vertex, recursively explores the neighbors, and prints the traversal order.
+
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/Y40bRyPQQr0" title="Depth First Traversal for a Graph | GeeksforGeeks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [geeksforgeeks](https://brilliant.org/wiki/depth-first-search-dfs/)
+- [baeldung](https://www.simplilearn.com/tutorials/data-structure-tutorial/dfs-algorithm)

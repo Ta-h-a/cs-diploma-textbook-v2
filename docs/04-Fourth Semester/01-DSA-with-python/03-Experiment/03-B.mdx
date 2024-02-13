@@ -1,0 +1,186 @@
+---
+id: Data_Structures_with_Python_Experiment_03_B
+title: Implement Bubble, Selection, insertion sorting algorithms compute space and time complexities, plot graph using asymptomatic notations.
+sidebar_label: B
+slug: /fourth-semester/dsa-with-python/expt-03/b
+description: This code implements three sorting algorithms- selection sort, bubble sort, and insertion sort. It measures the time taken by each algorithm to sort arrays of different lengths and plots the time complexity graph. The code provides a visual comparison of the sorting algorithms based on their performance.
+
+---
+
+# Implement Bubble, Selection, insertion sorting algorithms compute space and time complexities, plot graph using asymptomatic notations.
+
+## Description
+
+This code implements three sorting algorithms: selection sort, bubble sort, and insertion sort. It measures the time taken by each algorithm to sort arrays of different lengths and plots the time complexity graph. The code provides a visual comparison of the sorting algorithms based on their performance.
+
+## Code
+
+```python title="program3b.py"
+# --------------------------------------------------
+def selectionSort(array):
+    n = len(array)
+    for i in range(n):
+        min_index = i
+        for j in range(i+1, n):
+            if array[j] < array[min_index]:
+                min_index = j
+        array[i], array[min_index] = array[min_index], array[i]
+
+
+def bubbleSort(array):
+    n = len(array)
+    for i in range(n-1):
+        swapped = False
+        for j in range(n-i-1):
+            if array[j] > array[j+1]:
+                array[j], array[j+1] = array[j+1], array[j]
+                swapped = True
+        if not swapped:
+            return
+
+
+def insertionSort(array):
+    n = len(array)
+    for i in range(1, n):
+        x = array[i]
+        j = i - 1
+        while j >= 0 and x < array[j]:
+            array[j + 1] = array[j]
+            j -= 1
+        array[j + 1] = x
+
+
+sorts = [
+    {"name": "Selection Sort", "sort": lambda arr: selectionSort(arr)},
+    {"name": "Bubble Sort", "sort": lambda arr: bubbleSort(arr)},
+    {"name": "Insertion Sort", "sort": lambda arr: insertionSort(arr)}
+]
+
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+
+elements = np.array([i * 1000 for i in range(1, 5)])
+plt.xlabel('List length')
+plt.ylabel('Time Complexity')
+elements = np.array([i * 1000 for i in range(1, 5)])
+plt.xlabel('List Length')
+plt.ylabel('Time Complexity')
+
+for sort in sorts:
+    times = list()
+    start_all = time.time()
+    for i in range(1, 5):
+        start = time.time()
+        a = np.random.randint(1000, size=i * 1000)
+        sort["sort"](a)
+        end = time.time()
+        times.append(end - start)
+        print(sort["name"], "Sorted", i * 1000, "Elements in", end - start, "s")
+    end_all = time.time()
+    print(sort["name"], "Sorted Element in", end_all - start_all, "s")
+    plt.plot(elements, times, label=sort["name"])
+plt.grid()
+plt.legend()
+plt.show()
+```
+
+<details>
+  <summary>Output</summary>
+
+<img src={"https://i.imgur.com/joPYJuy.png"} style={{borderRadius: '10px'}} />
+
+</details>
+
+## Explanation of above code
+
+- The selection sort algorithm works by repeatedly finding the minimum element in the unsorted portion of the array and swapping it with the first unsorted element. This process continues until the entire array is sorted.
+- The bubble sort algorithm works by repeatedly comparing adjacent elements in the array and swapping them if they are in the wrong order. This process continues until no more swaps are needed, which means the array is sorted.
+- The insertion sort algorithm works by repeatedly inserting each element of the array into its correct position in the sorted portion of the array. This process continues until the entire array is sorted.
+- The time complexity of all three sorting algorithms is O(n^2), which means that the execution time increases quadratically with the size of the input array. However, the insertion sort algorithm is generally faster than the selection sort and bubble sort algorithms.
+- The code defines a list called `sorts` to store the sorting algorithms. Each algorithm is represented as a dictionary with two keys: `"name"` and `"sort"`.
+- The `"name"` key stores the name of the sorting algorithm (e.g., "Selection Sort").
+- The `"sort"` key stores a lambda function that invokes the corresponding sorting function.
+
+### Selection Sort 💀
+
+#### Function Definition:
+- The code starts with the definition of the `selectionSort` function, which takes an array as input and performs in-place sorting using the selection sort algorithm.
+- The selection sort algorithm works by repeatedly finding the minimum element from the unsorted part of the array and placing it at the beginning.
+#### Selection Sort Implementation:
+- The outer loop iterates over each element of the array, from the first to the last element. It is responsible for selecting the minimum element for each iteration.
+- Within the outer loop, a variable `min_index` is initialized with the current index `i`.
+- The inner loop starts from `i+1` and iterates through the remaining elements of the array.
+- In each iteration of the inner loop, it compares the element at index `j` with the current minimum element at index `min_index`. If a smaller element is found, the `min_index` is updated to point to the new minimum element.
+- After the inner loop finishes, the minimum element of the unsorted part of the array is found, and it is swapped with the element at index `i`, placing it in the correct sorted position.
+- This process continues until the entire array is sorted.
+- Array Initialization and Sorting:
+- The code initializes an array `arr` with some random unsorted values `[9, 6, 3, 5, 8, 7, 4, 2, 1]`.
+- The `selectionSort` function is then called with the `arr` array, which performs the selection sort algorithm on the array in-place, sorting it in ascending order.
+#### Printing the Sorted Array:
+- After sorting the array, the code prints the sorted array using `print(arr)`.
+- Performance Analysis:
+- The code also includes a performance analysis section that measures the execution time of the selection sort algorithm for different lengths of arrays.
+- It uses the `time` module to calculate the execution time.
+- The `numpy` library is used to create an array `elements` representing the different lengths of arrays to be sorted.
+- The execution time for sorting each array length is measured using a loop, where a random array is generated using `numpy.random.randint` and then sorted using `selectionSort`.
+- The execution time for each length is appended to the `times` list.
+- Finally, the execution time for sorting different lengths of arrays is printed, along with a plot that visualizes the time complexity.
+- In summary, the code demonstrates the selection sort algorithm by sorting an array and provides a performance analysis by measuring the execution time for different lengths of arrays. The selection sort algorithm repeatedly finds the minimum element and places it at the correct position, resulting in a sorted array.
+- The code starts with the definition of the `bubbleSort` function, which takes an array as input and performs in-place sorting using the bubble sort algorithm.
+- The bubble sort algorithm works by repeatedly swapping adjacent elements if they are in the wrong order, until the entire array is sorted.
+### Bubble Sort Implementation:
+- The outer loop iterates `n-1` times, where `n` is the length of the array. This loop controls the number of passes needed to sort the array.
+- Within the outer loop, a variable `swapped` is initialized as `False` to keep track of whether any swapping occurs in a pass. This helps optimize the algorithm by stopping early if the array is already sorted.
+- The inner loop starts from the first element and iterates through the remaining unsorted elements.
+- In each iteration of the inner loop, it compares adjacent elements and swaps them if they are in the wrong order (smaller element comes after a larger element).
+- If any swapping occurs in a pass, the `swapped` variable is set to `True`.
+- After each pass, the largest element is guaranteed to be at the end of the array, so in the next pass, the inner loop iterates up to `n-i-1`, reducing the number of comparisons in each pass.
+- If no swapping occurs in a pass (i.e., `swapped` remains `False`), it means the array is already sorted, and the function returns early.
+#### Array Initialization and Sorting:
+- The code initializes an array `a` with some random unsorted values using `numpy.random.randint`.
+- The `bubbleSort` function is then called with the `a` array, which performs the bubble sort algorithm on the array in-place, sorting it in ascending order.
+#### Printing the Sorted Array:
+- After sorting the array, the code prints the time taken to sort different lengths of arrays.
+#### Performance Analysis:
+- The code also includes a performance analysis section that measures the execution time of the bubble sort algorithm for different lengths of arrays.
+- It uses the `time` module to calculate the execution time.
+- The `numpy` library is used to create an array `elements` representing the different lengths of arrays to be sorted.
+- The execution time for sorting each array length is measured using a loop, where a random array is generated using `numpy.random.randint` and then sorted using `bubbleSort`.
+- The execution time for each length is appended to the `times` list.
+- Finally, the execution time for sorting different lengths of arrays is printed, along with a plot that visualizes the time complexity.
+- In summary, the code demonstrates the bubble sort algorithm by sorting an array and provides a performance analysis by measuring the execution time for different lengths of arrays. Bubble sort repeatedly compares adjacent elements and swaps them if necessary, gradually moving the larger elements towards the end of the array.
+### Insertion Sort Implementation
+- The code implements the insertion sort algorithm through the `insertionSort` function, which takes an array as input and sorts the elements in ascending order.
+For a better explaination, i prefer reading this [article](https://developer.nvidia.com/blog/insertion-sort-explained-a-data-scientists-algorithm-guide/)
+### Main Section:
+- An array `arr` is initialized with some random values.
+- The `insertionSort` function is called with `arr` as the argument to sort the array in-place.
+- The sorted array is then printed.
+### Measuring Time Complexity:
+- The code continues with a full implementation for measuring the time complexity of the insertion sort algorithm for different input sizes.
+- The necessary libraries (time, numpy, and matplotlib) are imported.
+- An array `elements` is created using numpy to store the different input sizes.
+- The plot labels for the x-axis and y-axis are set.
+- A list `times` is initialized to store the execution times for each input size.
+- A loop is used to iterate over the different input sizes, ranging from 1,000 to 4,000 in steps of 1,000.
+### Inside the loop:
+- The current input size is used to generate a random array `a` using the `numpy.random.randint()` function.
+- The `insertionSort` function is called with `a` as the argument to sort the array in-place.
+- The start and end times are recorded using `time.time()` to measure the execution time.
+- The difference between the end and start times is appended to the `times` list.
+- The execution time for the current input size is printed.
+- After the loop, the total execution time for all input sizes is calculated and printed.
+- Finally, a plot is generated using `matplotlib.pyplot` to visualize the time complexity. The input sizes (elements) are plotted on the x-axis, and the corresponding execution times (times) are plotted on the y-axis. The plot is displayed using `plt.show()`.
+- The purpose of this code is to demonstrate the time complexity of the insertion sort algorithm by measuring its execution time for different input sizes and visualizing the results using a plot.
+
+## Learn more
+
+<iframe width="711" height="355" src="https://www.youtube.com/embed/9oWd4VJOwr0" title="7.5 Selection Sort in Data Structure | Selection Sort Algorithm with C Program" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Reference
+
+- [GFG](https://www.geeksforgeeks.org/python-program-for-selection-sort/)
+- [tutorialspoint](
+    https://www.tutorialspoint.com/count-frequencies-of-all-elements-in-array-in-python)
