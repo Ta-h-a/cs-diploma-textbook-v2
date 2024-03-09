@@ -4,19 +4,21 @@
  * work well for content-centric websites.
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-*{
-    font-family: 'Poppins', sans-serif;
+* {
+  font-family: "Poppins", sans-serif;
 }
 
-p{
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+p {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-  
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #0D7377;
+  --ifm-color-primary: #0d7377;
   --ifm-color-primary-dark: #2a7d8a;
   --ifm-color-primary-darker: #297c89;
   --ifm-color-primary-darkest: #1e5e68;
@@ -28,46 +30,46 @@ p{
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #d5e00b;
-  --ifm-color-primary-dark: #dbe617;
-  --ifm-color-primary-darker: #dce715;
-  --ifm-color-primary-darkest: #c2cb12;
-  --ifm-color-primary-light: #eaf526;
-  --ifm-color-primary-lighter: #e9f148;
-  --ifm-color-primary-lightest: #e6ec63;
+[data-theme="dark"] {
+  --ifm-color-primary: #ffd23f;
+  --ifm-color-primary-dark: #ddac0b;
+  --ifm-color-primary-darker: #cd9f09;
+  --ifm-color-primary-darkest: #a27e08;
+  --ifm-color-primary-light: #fbd65e;
+  --ifm-color-primary-lighter: #f8da7b;
+  --ifm-color-primary-lightest: #f8e29c;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 /* Styling one class specially in dark mode */
-[data-theme='dark'] .home {
+[data-theme="dark"] .home {
   background-color: #1b1b1d;
 }
 
-[data-theme="dark"] .hero-text-secondary{
-  color: #f0fb0d;
+[data-theme="dark"] .hero-text-secondary {
+  color: #ffd23f;
 }
 
-[data-theme="dark"] .hero-button-primary{
-  background-color: #c2cb12;
+[data-theme="dark"] .hero-button-primary {
+  background-color: #fde767;
   color: black;
 }
 
-[data-theme="light"] .hero-button-primary{
-  background-color: #0D7377;
+[data-theme="light"] .hero-button-primary {
+  background-color: #0d7377;
   color: white;
 }
 
-[data-theme="light"] :hover.hero-button-primary{
+[data-theme="light"] :hover.hero-button-primary {
   background-color: #1e5e68;
 }
 
-[data-theme="dark"] :hover.hero-button-primary{
-  background-color: #f0fb0d;
+[data-theme="dark"] :hover.hero-button-primary {
+  background-color: #efd53e;
 }
 
-[data-theme="light"] .hero-text-secondary{
-  color: #0D7377;
+[data-theme="light"] .hero-text-secondary {
+  color: #0d7377;
 }
 
 article.margin-bottom--xl {
@@ -82,6 +84,6 @@ article.margin-bottom--xl {
   border: 1px solid rgba(255, 255, 255, 0.418);
 }
 
-iframe{
+iframe {
   border-radius: 10px;
 }

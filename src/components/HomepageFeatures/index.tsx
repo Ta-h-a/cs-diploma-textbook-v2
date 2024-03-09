@@ -17,7 +17,8 @@ export default function Hero() {
           as={Box}
           textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}
+          pt={{ base: 20, md: 20 }}
+          pb={{ base: "100%", md: "30%" }}
         >
           <Heading
             fontWeight={600}
@@ -32,7 +33,9 @@ export default function Hero() {
           <Text color={"gray.500"}>
             Ace your practical exams with our comprehensive and
             easy-to-understand documentation on practical subjects. Learn the
-            concepts, not just the words, and set yourself up for success. We are currently working on personalized notes in the form of blogs for students to understand the concepts more easily.
+            concepts, not just the words, and set yourself up for success. We
+            are currently working on personalized notes in the form of blogs for
+            students to understand the concepts more easily.
           </Text>
           <Stack
             direction={"column"}

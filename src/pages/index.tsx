@@ -9,11 +9,11 @@ import theme from "../components";
 export default function Home(): JSX.Element {
   return (
     <Layout noFooter={true} title="Home">
-        <ChakraProvider theme={theme}>
+      <ChakraProvider theme={theme}>
         <main>
           <Hero />
         </main>
-    </ChakraProvider>
-      </Layout>
+      </ChakraProvider>
+    </Layout>
   );
 }
