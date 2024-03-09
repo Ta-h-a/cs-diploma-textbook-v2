@@ -51,7 +51,7 @@ p {
 }
 
 [data-theme="dark"] .hero-button-primary {
-  background-color: #fde767;
+  background-color: #ffd23f;
   color: black;
 }
 
@@ -65,7 +65,7 @@ p {
 }
 
 [data-theme="dark"] :hover.hero-button-primary {
-  background-color: #efd53e;
+  background-color: rgb(239, 211, 50);
 }
 
 [data-theme="light"] .hero-text-secondary {
